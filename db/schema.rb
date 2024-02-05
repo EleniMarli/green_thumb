@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_05_144026) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_05_161735) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "plants", force: :cascade do |t|
+    t.string "scientific_name"
+    t.string "nickname"
+    t.integer "suggested_watering_frequency_in_days"
+    t.integer "suggested_sunlight"
+    t.text "description"
+    t.string "care_level"
+    t.integer "suggested_fertilizing_frequency_in_days", default: 42
+    t.integer "actual_sun_exposure"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "last_date_watered"
+    t.date "last_date_fertilized"
+    t.index ["user_id"], name: "index_plants_on_user_id"
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "alarm_time", default: "11:00:00"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reminders_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "frequency_in_days"
+    t.date "next_date"
+    t.string "type"
+    t.boolean "done"
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_tasks_on_plant_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +58,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_05_144026) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "plants", "users"
+  add_foreign_key "reminders", "users"
+  add_foreign_key "tasks", "plants"
 end
