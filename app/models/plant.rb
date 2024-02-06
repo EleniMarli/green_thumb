@@ -11,6 +11,6 @@ class Plant < ApplicationRecord
   validates :actual_sun_exposure, presence: true
   # enum actual_sun_exposure: { ..... : 0, ....... : 1, ........ : 2 }
   validates :image_url, presence: true
-  validates :room, presence: true
   validates :happiness, presence: true
+  # enum happiness: { 'sad' : 0, 'medium' : 1, 'happy' : 2 }
 end

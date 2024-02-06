@@ -1,0 +1,8 @@
+<h1>Here are the plants I found for '<%=@user_input%>':</h1>
+
+<div class="radio-buttons-search">
+  <%= simple_form_for @plant do |f| %>
+    <%= f.collection_radio_buttons :id, @response_plants, :first, :second %>
+    <%= f.submit '✔️' %>
+  <% end %>
+</div>
