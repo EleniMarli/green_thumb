@@ -1,13 +1,21 @@
-<h1>Green Thumb</h1>
+<div class="background-landingpage">
 
-<p>Care for your plants effortlessly</p>
+<h1 class="center">Green Thumb</h1>
+<p class="center">Care for your plants effortlessly! <i class="fa-solid fa-leaf"></i> </p>
 
-<% @plants.each do |plant| %>
-  <div class="sideway-plant-card">
-    <%= image_tag plant.image_url, alt: plant.nickname, style: 'max-width: 100px; max-height: 100px;' %>
-    <div class="plant-info">
-      <h2><%= plant.nickname %></h2>
-      <p><%= "(#{plant.scientific_name})" %></p>
+<% if user_signed_in? %>
+  <% @plants.each do |plant| %>
+    <div class="sideway-plant-card">
+      <%= image_tag plant.image_url, alt: plant.nickname, style: 'max-width: 100px; max-height: 100px;' %>
+      <div class="plant-info">
+        <h2><%= plant.nickname %></h2>
+        <p><%= "(#{plant.scientific_name})" %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
+
+<% else %>
+  <h2 class="center">Welcome!</h2>
+  <p>For plant enthusiasts navigating busy lives, Green Thumb is the ultimate organizer for your leafy companions. Elevate your plant care routines effortlessly, ensuring your green friends thrive. With easy access to plant information and personalized care reminders, Green Thumb transforms plant care from a task to a joy. Simplify, beautify, and embrace a home filled with vibrant, healthy plants - because everyone deserves a green haven, even without a green thumb!</p>
 <% end %>
+</div>
