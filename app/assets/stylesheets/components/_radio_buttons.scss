@@ -14,7 +14,7 @@
     height: 120px;
     background: #50623A;
     box-shadow: 0 0 7px rgba(0,0,0,0.2);
-    border-radius: 5px;
+    border-radius: 25px;
     display: flex;
     align-items: center;
     margin-left: 24%;
@@ -23,7 +23,7 @@
 
       &:hover {
         font-weight: bold;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
       }
 
     label {
