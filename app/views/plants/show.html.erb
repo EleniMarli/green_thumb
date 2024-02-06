@@ -1,0 +1,21 @@
+<div class="background-FFFF4">
+ <div class="details-card">
+  <%= image_tag @plant.image_url %>
+   <div class="details-infos container">
+    <h1><%= @plant.nickname %></h1>
+     <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+      <h3><b>Suggested:</b></h3>
+     <p class="text_gray"><i class="fa-regular fa-sun"></i> Bright, indirect light</p>
+    <p class="text_gray"><i class="fa-solid fa-droplet"></i> Water 1 time per week</p>
+   <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> Fertilixe 1 time every 4 weeks</p>
+  <h4><b>Currently: </b><i class="fa-regular fa-sun"></i> <i class="fa-solid fa-cloud-sun"></i> <i class="fa-solid fa-cloud"></i></h4>
+  <p class="text_black">  last watered</p>
+  <p class="text_black"> last fertilized</p>
+  <p class="text_black"> room</p>
+   <%=link_to 'Update', edit_plant_path(@plant)%> <i class="fa-solid fa-square-pen"></i>
+    <%=link_to 'Delete', plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} %>  <i class="fa-solid fa-trash-can"></i>
+
+</div>
+   </div>
+
+</div>
