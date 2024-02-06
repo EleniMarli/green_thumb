@@ -61,3 +61,16 @@
     }
   }
 }
+
+.search-submit-btn {
+  text-align: center;
+
+  input {
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    background: #FBFADA;
+    border: 0;
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  }
+}
