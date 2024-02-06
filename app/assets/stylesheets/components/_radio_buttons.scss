@@ -3,12 +3,14 @@
   justify-content: center;
   display: block;
 
+
   input[type="radio"] {
     visibility: hidden;
     height: 100%;
   }
 
   .span-class {
+    color: white;
     display: block;
     //overflow: hidden;
     height: 120px;
