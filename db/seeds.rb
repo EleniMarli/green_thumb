@@ -10,7 +10,7 @@
 
 user = User.create!(
   name: "Rosy",
-  email: "rosy@email.com",
+  email: "rosy@rosy.com",
   password: "123456"
 )
 
@@ -26,7 +26,7 @@ Plant.create!(
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Living room',
-  hapiness: 2
+  happiness: 2
 )
 
 Plant.create!(
@@ -41,7 +41,7 @@ Plant.create!(
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Bedroom',
-  hapiness: 1
+  happiness: 1
 )
 
 Plant.create!(
@@ -56,7 +56,7 @@ Plant.create!(
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Sunroom',
-  hapiness: 0
+  happiness: 0
 )
 
 Plant.create!(
@@ -71,7 +71,7 @@ Plant.create!(
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Office',
-  hapiness: 2
+  happiness: 2
 )
 
 Plant.create!(
@@ -86,5 +86,5 @@ Plant.create!(
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Kitchen',
-  hapiness: 1
+  happiness: 1
 )

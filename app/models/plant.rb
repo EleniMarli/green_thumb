@@ -10,6 +10,7 @@ class Plant < ApplicationRecord
   validates :care_level, presence: true
   validates :actual_sun_exposure, presence: true
   # enum actual_sun_exposure: { ..... : 0, ....... : 1, ........ : 2 }
-  validates :last_date_watered, presence: true
-  validates :last_date_fertilized, presence: true
+  validates :image_url, presence: true
+  validates :room, presence: true
+  validates :happiness, presence: true
 end
