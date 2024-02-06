@@ -3,7 +3,6 @@ require "uri"
 require 'json'
 
 class PlantsController < ApplicationController
-
   def search
     parsed = {
       "data": [
@@ -54,18 +53,31 @@ class PlantsController < ApplicationController
       "total": 2
     }
 
-    # WORKS
+    # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     # @user_input = 'monstera'
-    # url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{user_input}"
+    # url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{user_input}"       https://perenual.com/api/species-list?key=sk-a2mI65c22ac7a792a3777&q=monstera
     # uri = URI(url)
     # res = Net::HTTP.get_response(uri)
     # parsed = JSON.parse(res.body)
     # @response_plants = parsed['data'][0..5]'
 
-    # FAKE RESPONSE
+    # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = 'monstera'
-    @response_plants = parsed[:data][0..5]
+    @response_plants = parsed[:data][0..5].map do |plant|
+      [plant[:id], plant[:scientific_name].first]
+    end
+    @plant = Plant.new
+  end
 
+  def create
+    plant_params
+    raise
 
+  end
+
+  private
+
+  def plant_params
+    params.require(:plant).permit(:id)
   end
 end

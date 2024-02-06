@@ -1,7 +1,7 @@
 <h1>Here are the plants I found for '<%=@user_input%>':</h1>
 
-<ul>
-<%@response_plants.each do |response_plant|%>
-  <li><%=response_plant[:scientific_name][0]%></li>
-<%end%>
-</ul>
+<%= simple_form_for @plant do |f| %>
+
+  <%= f.collection_radio_buttons :id, @response_plants, :first, :second, class: '' %>
+  <%= f.submit '✔️' %>
+<% end %>

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get 'plants/search', to: 'plants#search'
+  resources :plants, only: [:create]
 end
