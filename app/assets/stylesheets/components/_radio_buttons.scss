@@ -1,9 +1,14 @@
 .radio-buttons-search {
+  display: flex;
+  justify-content: center;
+  display: block;
+
   input[type="radio"] {
     visibility: hidden;
+    height: 100%;
   }
 
-  span {
+  .span-class {
     display: block;
     //overflow: hidden;
     height: 120px;
@@ -16,12 +21,19 @@
     margin-right: 24%;
     margin-bottom:22px;
 
+      &:hover {
+        font-weight: bold;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
     label {
-      margin-left: 4%;
+      width: 100%;
+      height: 100%;
+      display: flex; /* Use flexbox */
+      align-items: center;
 
       &:hover {
         cursor: pointer;
-        font-weight: bold;
       }
     }
 
@@ -33,10 +45,6 @@
   h3 {
     text-align: center;
   }
-
-  display: flex;
-  justify-content: center;
-  display: block;
 
   .search-submit-btn {
     text-align: center;

@@ -1,7 +1,10 @@
 <div class="radio-buttons-search">
   <h3>Here are the plants I found for '<%=@user_input%>':</h3>
   <%= simple_form_for @plant do |f| %>
-    <%= f.collection_radio_buttons :id, @response_plants, :first, :second %>
+    <%= f.collection_radio_buttons :id, @response_plants, :first, :second, item_wrapper_class: 'span-class' do |b| %>
+      <%= b.radio_button%>
+      <%= b.label %>
+    <% end %>
     <div class = "search-submit-btn">
       <%= f.submit '✔️', class:'check-on-search' %>
     </div>

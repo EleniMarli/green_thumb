@@ -11,18 +11,22 @@
   position: relative;
   margin-bottom:22px;
 
+
   .plant-info {
     flex-grow: 1;
     padding: 16px;
     width: 60%;
     text-align: left;
   }
+
+
 }
 
 .sideway-plant-card img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+
+  border-radius: 5px;
 }
 
 .sideway-plant-card h2 {
@@ -30,6 +34,7 @@
   font-weight: bold;
   margin: 0;
   color: white;
+  text-decoration: none;
 }
 
 .sideway-plant-card p {
@@ -39,11 +44,11 @@
   margin-bottom: 0;
   margin-top: 8px;
   color: white;
+  text-decoration: none;
 
   .opacity {
     opacity: .4;
   }
-
 }
 
 .sideway-plant-card .card-booking-infos {
