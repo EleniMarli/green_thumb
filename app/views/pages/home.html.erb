@@ -22,10 +22,12 @@
       <% end %>
     </div>
 
-    <%= form_tag(plants_search_path, method: :get) do %>
-      <%= text_field_tag(:query, params[:query], placeholder: "Look for a new plant") %>
-      <%= submit_tag("🔍", class:"search-submit-btn") %>
-    <% end %>
+    <div class="search-for-new-plant">
+      <%= form_tag(plants_search_path, method: :get) do %>
+        <%= text_field_tag(:query, params[:query], placeholder: "Look for a new plant", class:"search-field") %>
+        <%= submit_tag("🔍", class:"search-submit-btn") %>
+      <% end %>
+    </div>
 
   <% else %>
     <h2 class="center">Welcome!</h2>

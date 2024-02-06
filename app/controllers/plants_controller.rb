@@ -54,7 +54,7 @@ class PlantsController < ApplicationController
     }
 
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
-    # @user_input = 'monstera'
+    # @user_input = params[:query]
     # url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{user_input}"
     # uri = URI(url)
     # res = Net::HTTP.get_response(uri)
@@ -189,35 +189,37 @@ class PlantsController < ApplicationController
       }
     }
     api_id = plant_params['id']
+    if api_id != ""
+      # FOR API
+      # url = "https://perenual.com/api/species/details/#{api_id}?key=#{ENV['PERENUAL_KEY']}"
+      # res = Net::HTTP.get_response(uri)
+      # parsed = JSON.parse(res.body)
 
-    # FOR API
-    # url = "https://perenual.com/api/species/details/#{api_id}?key=#{ENV['PERENUAL_KEY']}"
-    # res = Net::HTTP.get_response(uri)
-    # parsed = JSON.parse(res.body)
+      sunlight =  case parsed[:sunlight].last.downcase
+                  when 'shade'
+                    0
+                  when 'part shade'
+                    1
+                  when 'full sun'
+                    2
+                  end
 
-    sunlight =  case parsed[:sunlight].last.downcase
-                when 'shade'
-                  0
-                when 'part shade'
-                  1
-                when 'full sun'
-                  2
-                end
+      @plant = Plant.new(
+        scientific_name: parsed[:scientific_name].first,
+        suggested_watering_frequency_in_days: parsed[:watering_general_benchmark][:value][-2..-1].gsub!("-", "").to_i, # I ASSUMED 5-7 IS A STRING AND TOOK THE LAST TWO DIGITS HOPING FOR THE BEST
+        suggested_sunlight: sunlight, # sunlight appears as key twice, i believe the second gets chosen, I chose last from its array for no particular reason
+        description: parsed[:description],
+        care_level: parsed[:care_level].downcase,
+        suggested_fertilizing_frequency_in_days: 42,
+        actual_sun_exposure: sunlight, # HERE I ASSUME IT MATCHES THE SUGGESTED ####
+        image_url: parsed[:default_image][:original_url],
+        happiness: 1,
+        user: current_user
+      )
 
-    @plant = Plant.new(
-      scientific_name: parsed[:scientific_name].first,
-      suggested_watering_frequency_in_days: parsed[:watering_general_benchmark][:value][-2..-1].gsub!("-", "").to_i, # I ASSUMED 5-7 IS A STRING AND TOOK THE LAST TWO DIGITS HOPING FOR THE BEST
-      suggested_sunlight: sunlight, # sunlight appears as key twice, i believe the second gets chosen, I chose last from its array for no particular reason
-      description: parsed[:description],
-      care_level: parsed[:care_level].downcase,
-      suggested_fertilizing_frequency_in_days: 42,
-      actual_sun_exposure: sunlight, # HERE I ASSUME IT MATCHES THE SUGGESTED ####
-      image_url: parsed[:default_image][:original_url],
-      happiness: 1,
-      user: current_user
-    )
+      redirect_to root_path if @plant.save!
+    end
 
-    redirect_to plant_path(@path) if @plant.save!
   end
 
   private

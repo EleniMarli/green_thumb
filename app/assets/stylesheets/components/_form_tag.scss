@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+
+.search-for-new-plant {
+  margin-top: 25px;
+  input.search-field {
+    width: 40%;
+    margin-bottom:22px;
+    border-radius: 25px;
+    color: rgb(127, 127, 127);
+  }
+
+  .search-submit-btn {
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    background: #FBFADA;
+    border: 0;
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  }
+}
