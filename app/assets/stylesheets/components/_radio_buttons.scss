@@ -1,0 +1,10 @@
+.radio-buttons-search {
+  input[type="radio"] {
+    visibility: hidden;
+  }
+
+  span {
+    display: block; /* or inline-block */
+    width: 100%;
+  }
+}
