@@ -1,2 +1,11 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<h1>Your Plants</h1>
+<% @plants.each do |plant| %>
+  <div>
+    <%= image_tag plant.photo.url, alt: plant.name, class: 'plant-photo' %>
+    <h2><%= plant.name %></h2>
+    <p><%= plant.description %></p>
+    <!-- Display other plant details as needed -->
+  </div>
+<% end %>
