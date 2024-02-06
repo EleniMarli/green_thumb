@@ -4,7 +4,50 @@
   }
 
   span {
-    display: block; /* or inline-block */
-    width: 100%;
+    display: block;
+    //overflow: hidden;
+    height: 120px;
+    background: #50623A;
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom:22px;
+
+    label {
+      margin-left: 4%;
+
+      &:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+
+    input[type="radio"]:checked + label {
+      font-weight: bold;
+    }
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  display: flex;
+  justify-content: center;
+  display: block;
+
+  .search-submit-btn {
+    text-align: center;
+
+    input {
+      border-radius: 50%;
+      height: 65px;
+      width: 65px;
+      background: #FBFADA;
+      border: 0;
+      box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    }
   }
 }

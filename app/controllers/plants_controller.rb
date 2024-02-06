@@ -66,7 +66,7 @@ class PlantsController < ApplicationController
     # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = 'monstera'
     @response_plants = parsed[:data][0..5].map do |plant|
-      [plant[:id], plant[:scientific_name].first]
+      [plant[:id], "#{plant[:scientific_name].first} (#{plant[:common_name]})"]
     end
     @plant = Plant.new
   end
