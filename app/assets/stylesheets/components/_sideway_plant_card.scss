@@ -1,0 +1,51 @@
+.sideway-plant-card {
+  overflow: hidden;
+  height: 120px;
+  background: #50623A;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-left: 24%;
+  margin-right: 24%;
+  position: relative;
+  margin-bottom:22px;
+
+  .plant-info {
+    flex-grow: 1;
+    padding: 16px;
+    width: 60%;
+  }
+}
+
+.sideway-plant-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.sideway-plant-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.sideway-plant-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: white;
+
+  .opacity {
+    opacity: .4;
+  }
+
+}
+
+.sideway-plant-card .card-booking-infos {
+  padding: 16px;
+  width: 37%;
+}

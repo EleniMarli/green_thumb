@@ -1,11 +1,13 @@
-<h1>Pages#home</h1>
+<h1>Green Thumb</h1>
 
-<h1>Your Plants</h1>
+<p>Care for your plants effortlessly</p>
+
 <% @plants.each do |plant| %>
-  <div>
-    <%= image_tag plant.photo.url, alt: plant.name, class: 'plant-photo' %>
-    <h2><%= plant.name %></h2>
-    <p><%= plant.description %></p>
-    <!-- Display other plant details as needed -->
+  <div class="sideway-plant-card">
+    <%= image_tag plant.image_url, alt: plant.nickname, style: 'max-width: 100px; max-height: 100px;' %>
+    <div class="plant-info">
+      <h2><%= plant.nickname %></h2>
+      <p><%= "(#{plant.scientific_name})" %></p>
+    </div>
   </div>
 <% end %>
