@@ -3,6 +3,16 @@ require "uri"
 require 'json'
 
 class PlantsController < ApplicationController
+  def show
+    @plant = Plant.find(params[:id])
+  end
+
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    redirect_to user_path(current_user)
+  end
+
   def search
     parsed = {
       "data": [
@@ -219,7 +229,6 @@ class PlantsController < ApplicationController
 
       redirect_to root_path if @plant.save!
     end
-
   end
 
   private
@@ -227,5 +236,4 @@ class PlantsController < ApplicationController
   def plant_params
     params.require(:plant).permit(:id)
   end
-
 end
