@@ -14,7 +14,7 @@ class PlantsController < ApplicationController
                   'full sun'
                 end
 
-    @hapiness = case @plant.happiness
+    @happiness = case @plant.happiness
                 when 0
                   '☹️'
                 when 1

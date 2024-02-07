@@ -7,8 +7,9 @@
     <div class='text'>
       <% if @plant.nickname!=nil %>
         <div class='name'>
-          <h1><b><%= @plant.nickname %></b></h1>
+          <h1><b><%= @plant.nickname %></b> <%= @happiness %> </h1>
           <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+
         </div>
       <% else %>
         <div class='name'>
