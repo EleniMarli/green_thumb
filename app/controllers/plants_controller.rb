@@ -78,7 +78,7 @@ class PlantsController < ApplicationController
     @response_plants = parsed['data'][0..5].map do |plant|
       image = ""
       if plant['default_image'] == nil
-        image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'   #### MAYBE REPLACE ??
+        image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
       else
         image = plant['default_image']['original_url']
       end
@@ -223,7 +223,7 @@ class PlantsController < ApplicationController
 
       image = ""
       if parsed['default_image'] == nil
-        image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
+        image = 'https://perenual.com/storage/image/missing_image.jpg'
       else
         image = parsed['default_image']['original_url']
       end
