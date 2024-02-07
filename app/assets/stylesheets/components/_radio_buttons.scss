@@ -1,7 +1,8 @@
 .radio-buttons-search {
   display: flex;
-  justify-content: center;
+  //justify-content: center;
   display: block;
+  margin-top: 40px;
 
 
   input[type="radio"] {
@@ -22,6 +23,7 @@
     margin-left: 24%;
     margin-right: 24%;
     margin-bottom:22px;
+    width: 40%;
 
       &:hover {
         font-weight: bold;
@@ -58,6 +60,7 @@
       background: #FBFADA;
       border: 0;
       box-shadow: 0 0 7px rgba(0,0,0,0.2);
+      margin-top: 40px;
     }
   }
 }
