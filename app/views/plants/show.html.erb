@@ -26,13 +26,14 @@
         <div class='sun'>
           <h3>Currently:</h3>
           <span>
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 2 }}], method: :patch do %>
+
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 2 }}], method: :patch, data: { turbo: true } do %>
               <i class="fa-regular fa-sun"></i>
             <% end %>
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 1 }}], method: :patch do %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 1 }}], method: :patch, data: { turbo: true } do %>
               <i class="fa-solid fa-cloud-sun"></i>
             <% end %>
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 0 } }], method: :patch do %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 0 } }], method: :patch, data: { turbo: true } do %>
               <i class="fa-solid fa-cloud"></i>
             <% end %>
           </span>

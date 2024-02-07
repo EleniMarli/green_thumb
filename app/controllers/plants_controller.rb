@@ -33,6 +33,7 @@ class PlantsController < ApplicationController
   end
 
   def update
+
     @plant = Plant.find(params[:id])
     if @plant.update(plant_params)
       redirect_to plant_path(@plant), notice: 'Plant was successfully updated.'
