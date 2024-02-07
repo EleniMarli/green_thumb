@@ -2,18 +2,18 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
-
 
 .search-for-new-plant {
   margin-top: 25px;
   input.search-field {
-    width: 40%;
+    width: 35%;
     margin-bottom:22px;
     border-radius: 25px;
     color: rgb(127, 127, 127);
+    border: 0;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    padding: 5px;
   }
 
   .search-submit-btn {
