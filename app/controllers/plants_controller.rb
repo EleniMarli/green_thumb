@@ -18,7 +18,7 @@ class PlantsController < ApplicationController
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
             "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3",
             "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
             "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
             "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
@@ -37,7 +37,7 @@ class PlantsController < ApplicationController
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
             "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3",
             "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
             "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
             "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
@@ -66,7 +66,7 @@ class PlantsController < ApplicationController
     # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
     @response_plants = parsed[:data][0..5].map do |plant|
-      [plant[:id], "#{plant[:scientific_name].first} (#{plant[:common_name]})"]
+      [plant[:id], plant[:scientific_name].first, plant[:default_image][:original_url]]
     end
     @plant = Plant.new
   end
