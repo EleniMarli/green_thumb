@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get 'plants/search', to: 'plants#search'
-  resources :plants, only: %i[create index show edit update]
+  resources :plants, only: %i[create index show edit destroy]
 end
