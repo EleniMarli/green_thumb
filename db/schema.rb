@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_111258) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_111845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,8 +43,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_111258) do
   create_table "tasks", force: :cascade do |t|
     t.integer "frequency_in_days"
     t.date "next_date"
-    t.string "type"
-    t.boolean "done"
+    t.string "task_type"
+    t.boolean "done", default: false
     t.bigint "plant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
