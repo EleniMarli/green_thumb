@@ -5,8 +5,12 @@
   <div class="details-infos">
 
     <div class='text'>
-      <h1><%= @plant.nickname %></h1>
-      <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+      <% if @plant.nickname!=nil %>
+        <h1><%= @plant.nickname %></h1>
+        <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+      <% else %>
+        <h1><%= @plant.scientific_name %></h1>
+      <% end %>
       <h3><b>Suggested:</b></h3>
       <p class="text_gray"><i class="fa-regular fa-sun"></i> Bright, indirect light</p>
       <p class="text_gray"><i class="fa-solid fa-droplet"></i> Water 1 time per week</p>
