@@ -1,0 +1,14 @@
+<h2>Care tasks for today:</h2>
+
+<% @tasks_today.each do |task| %>
+<%= task.task_type.capitalize %>
+<%= task.plant.nickname%>
+<% end %>
+
+<h2>Upcoming care tasks:</h2>
+
+<% @tasks_upcoming.each do |task| %>
+<%= task.next_date %>
+<%= task.task_type.capitalize %>
+<%= task.plant.nickname%>
+<% end %>
