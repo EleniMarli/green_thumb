@@ -8,6 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Plant.destroy_all
+User.destroy_all
+Task.destroy_all
+
 user = User.create!(
   name: "Rosy",
   email: "rosy@rosy.com",
@@ -87,4 +91,22 @@ Plant.create!(
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'Kitchen',
   happiness: 1
+)
+
+Task.create!(
+  frequency_in_days: 7,
+  next_date: Date.today,
+  task_type: 'watering',
+  done: false,
+  plant_id: Plant.first.id,
+  last_date: Date.yesterday
+)
+
+Task.create!(
+  frequency_in_days: 3,
+  next_date: Date.tomorrow,
+  task_type: 'fertilizing',
+  done: false,
+  plant_id: Plant.second.id,
+  last_date: Date.yesterday
 )

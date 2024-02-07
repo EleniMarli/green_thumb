@@ -91,7 +91,7 @@ class PlantsController < ApplicationController
     @response_plants = parsed['data'][0..5].map do |plant|
       image = ""
       if plant['default_image'] == nil
-        image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'   #### MAYBE REPLACE ??
+        image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
       else
         image = plant['default_image']['original_url']
       end
@@ -224,7 +224,7 @@ class PlantsController < ApplicationController
       uri = URI(url)
       res = Net::HTTP.get_response(uri)
       parsed = JSON.parse(res.body)
-      raise
+
       sunlight =  case parsed['sunlight'].last.downcase
                   when 'shade'
                     0
@@ -236,7 +236,7 @@ class PlantsController < ApplicationController
 
       image = ""
       if parsed['default_image'] == nil
-        image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'
+        image = 'https://perenual.com/storage/image/missing_image.jpg'
       else
         image = parsed['default_image']['original_url']
       end
@@ -254,7 +254,24 @@ class PlantsController < ApplicationController
         user: current_user
       )
 
-      redirect_to root_path if @plant.save!
+      if @plant.save!
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          next_date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          last_date: Date.today,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'fertilizing',
+          frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
+          next_date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          last_date: Date.today,
+          plant: @plant
+        )
+        redirect_to root_path
+      end
     end
   end
 
