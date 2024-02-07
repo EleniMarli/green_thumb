@@ -211,7 +211,7 @@ class PlantsController < ApplicationController
       uri = URI(url)
       res = Net::HTTP.get_response(uri)
       parsed = JSON.parse(res.body)
-      raise
+
       sunlight =  case parsed['sunlight'].last.downcase
                   when 'shade'
                     0
@@ -241,7 +241,24 @@ class PlantsController < ApplicationController
         user: current_user
       )
 
-      redirect_to root_path if @plant.save!
+      if @plant.save!
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          next_date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          last_date: Date.today,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'fertilizing',
+          frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
+          next_date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          last_date: Date.today,
+          plant: @plant
+        )
+        redirect_to root_path
+      end
     end
   end
 
