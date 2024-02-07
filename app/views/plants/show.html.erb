@@ -17,10 +17,11 @@
         </div>
       <% end %>
       <div class="suggested">
-        <h3>Suggested:</h3>
+        <h3>About:</h3>
+        <p class="text_gray">+ care level: <%= @plant.care_level %></p>
         <p class="text_gray"><i class="fa-regular fa-sun"></i> <%= @suggested_sunlight %> </p>
-        <p class="text_gray"><i class="fa-solid fa-droplet"></i> every <%=@plant.suggested_watering_frequency_in_days%> days </p>
-        <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> every <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every <%=@plant.suggested_watering_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> fertilize every <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
       </div>
       <div class="currently">
         <div class='sun'>
