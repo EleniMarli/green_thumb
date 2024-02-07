@@ -1,0 +1,24 @@
+<div class="background-search-page">
+  <h3>Here are the plants I found for '<%=@user_input%>':</h3>
+  <div class="radio-buttons-search">
+
+    <%= simple_form_for @plant do |f| %>
+
+      <%= f.collection_radio_buttons :id, @response_plants, :first, :second, item_wrapper_class: 'span-class' do |b| %>
+
+        <%= b.radio_button%>
+        <%= b.label do %>
+
+
+          <%= image_tag(b.object.last, class: 'plant-image') %>
+          <div class="text">
+            <%= b.object.second %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class = "search-submit-btn">
+        <%= f.submit '✔️', class:'check-on-search' %>
+      </div>
+    <% end %>
+  </div>
+</div>

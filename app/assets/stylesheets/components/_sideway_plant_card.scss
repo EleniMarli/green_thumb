@@ -1,35 +1,59 @@
+.home-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sideway-plant-card {
   overflow: hidden;
   height: 120px;
-  background: #50623A;
-  box-shadow: 0 0 7px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
   display: flex;
   align-items: center;
-  margin-left: 24%;
-  margin-right: 24%;
-  position: relative;
-  margin-bottom:22px;
+  margin-bottom: 22px;
+  width: 40%;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    .plant-info h2, p {
+      font-weight: bolder;
+    }
+  }
 
   .plant-info {
-    flex-grow: 1;
+    background: #50623A;
+    border-radius: 25px;
     padding: 16px;
-    width: 60%;
+    width: 84%;
     text-align: left;
+    position: absolute;
+    top: 0%;
+    left: 21%;
+    z-index: 1;
+    height: 100%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-}
 
-.sideway-plant-card img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+  img {
+    display: block;
+    height: 100%;
+    width: 25%;
+    object-fit: cover;
+  }
 }
 
 .sideway-plant-card h2 {
   font-size: 16px;
-  font-weight: bold;
+  //font-weight: bold;
   margin: 0;
   color: white;
+  text-decoration: none;
 }
 
 .sideway-plant-card p {
@@ -39,14 +63,9 @@
   margin-bottom: 0;
   margin-top: 8px;
   color: white;
+  text-decoration: none;
 
   .opacity {
     opacity: .4;
   }
-
-}
-
-.sideway-plant-card .card-booking-infos {
-  padding: 16px;
-  width: 37%;
 }

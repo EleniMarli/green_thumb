@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :plants, only: %i[show edit update] do
-    resources :plants, only: [:index]
-  end
+
+  get 'plants/search', to: 'plants#search'
+  resources :plants, only: %i[create index show edit update]
 end
