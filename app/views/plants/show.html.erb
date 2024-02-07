@@ -25,7 +25,17 @@
       <div class="currently">
         <div class='sun'>
           <h3>Currently:</h3>
-          <span><i class="fa-regular fa-sun"></i> <i class="fa-solid fa-cloud-sun"></i> <i class="fa-solid fa-cloud"></i></span>
+          <span>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 2 }}], method: :patch do %>
+              <i class="fa-regular fa-sun"></i>
+            <% end %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 1 }}], method: :patch do %>
+              <i class="fa-solid fa-cloud-sun"></i>
+            <% end %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 0 } }], method: :patch do %>
+              <i class="fa-solid fa-cloud"></i>
+            <% end %>
+          </span>
         </div>
         <p class="text_gray"> last watered: <%= @last_watered %> </p>
         <p class="text_gray"> last fertilized: <%= @last_fertilized %></p>

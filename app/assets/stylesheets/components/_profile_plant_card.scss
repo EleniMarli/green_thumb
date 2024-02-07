@@ -47,14 +47,15 @@
           align-items: center;
 
           span {
+
+            a {
+              text-decoration: none;
+            }
+
             i {
               margin-left: 4px;
               margin-right: 4px;
               color: #888888;
-
-              &:hover {
-                color: black;
-              }
             }
 
           }
