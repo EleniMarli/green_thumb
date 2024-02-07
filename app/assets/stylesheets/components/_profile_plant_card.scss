@@ -2,6 +2,10 @@
   position: relative;
   height: 100%;
 
+  p {
+    margin-bottom: 8px;
+  }
+
   img {
     height: 39vh;
     width: 100%;
@@ -14,10 +18,47 @@
   .details-infos{
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 10%;
-    padding-bottom: 23%;
+    padding-top: 7%;
+    padding-bottom: 15%;
     position: absolute;
     width: 100%;
+
+    .name {
+      margin-bottom: 35px;
+    }
+
+    .suggested {
+      margin-bottom: 30px;
+
+      .icon-text {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .currently {
+      margin-bottom: 5px;
+
+        .sun {
+          font-size: 21px;
+          display: flex;
+          justify-content: space-between;
+          width: 65%;
+          align-items: center;
+
+
+
+          span {
+
+            i {
+              margin-left: 4px;
+              margin-right: 4px;
+            }
+
+          }
+        }
+
+    }
 
     top: 93%;
     //z-index: 1;
@@ -25,12 +66,11 @@
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 
-    .text {
-
+    h3 {
+      font-size: 21px;
     }
 
     .edit-btn {
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -41,12 +81,9 @@
       background: #FBFADA;
       border: 0;
       box-shadow: 0 0 7px rgba(0,0,0,0.2);
-      top: 6%;
-      left: 76%;
+      top: -51%;
+      left: 79%;
       text-decoration: none;
-
-
-
     }
 
     .buttons-bottom {

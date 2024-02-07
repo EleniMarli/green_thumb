@@ -5,6 +5,27 @@ require 'json'
 class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
+    @suggested_sunlight = case @plant.suggested_sunlight
+                when 0
+                  'shade'
+                when 1
+                  'part shade'
+                when 2
+                  'full sun'
+                end
+
+    @hapiness = case @plant.happiness
+                when 0
+                  '☹️'
+                when 1
+                  '😐'
+                when 2
+                  '😀'
+                end
+
+    @last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
+    @last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
+
   end
 
   def edit

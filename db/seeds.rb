@@ -18,7 +18,7 @@ user = User.create!(
   password: "123456"
 )
 
-Plant.create!(
+plant1 = Plant.create!(
   scientific_name: 'Ficus elastica',
   nickname: 'Rubby',
   suggested_watering_frequency_in_days: 7,
@@ -33,7 +33,25 @@ Plant.create!(
   happiness: 2
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant1
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant1
+)
+
+plant2 = Plant.create!(
   scientific_name: 'Sansevieria trifasciata',
   nickname: 'Snaky',
   suggested_watering_frequency_in_days: 14,
@@ -48,7 +66,25 @@ Plant.create!(
   happiness: 1
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant2
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant2
+)
+
+plant3 = Plant.create!(
   scientific_name: 'Monstera deliciosa',
   nickname: 'Swissy',
   suggested_watering_frequency_in_days: 10,
@@ -63,7 +99,25 @@ Plant.create!(
   happiness: 0
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant3
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant3
+)
+
+plant4 = Plant.create!(
   scientific_name: 'Zamioculcas zamiifolia',
   nickname: 'ZZ',
   suggested_watering_frequency_in_days: 21,
@@ -78,7 +132,25 @@ Plant.create!(
   happiness: 2
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant4
+)
+
+plant5 = Plant.create!(
   scientific_name: 'Epipremnum aureum',
   nickname: 'Golden',
   suggested_watering_frequency_in_days: 7,
@@ -94,19 +166,19 @@ Plant.create!(
 )
 
 Task.create!(
-  frequency_in_days: 7,
-  next_date: Date.today,
   task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
   done: false,
-  plant_id: Plant.first.id,
-  last_date: Date.yesterday
+  plant: plant5
 )
 
 Task.create!(
-  frequency_in_days: 3,
-  next_date: Date.tomorrow,
   task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
   done: false,
-  plant_id: Plant.second.id,
-  last_date: Date.yesterday
+  plant: plant5
 )
