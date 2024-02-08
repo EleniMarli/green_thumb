@@ -33,21 +33,57 @@ plant1 = Plant.create!(
   happiness: 2
 )
 
+ # WATERING
+
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 7,
-  next_date: (Date.today + 20),
-  last_date: Date.yesterday,
+  date: Date.today,
   done: false,
+  shown: false,
+  delayed: false,
+  plant: plant1
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  date: (Date.today + 7),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant1
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  date: (Date.today + (2 * 7)),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant1
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
   plant: plant1
 )
 
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  next_date: (Date.today + 13),
-  last_date: Date.yesterday,
+  date: (Date.today + 42),
   done: false,
+  shown: false,
+  delayed: false,
   plant: plant1
 )
 
@@ -66,21 +102,57 @@ plant2 = Plant.create!(
   happiness: 1
 )
 
+ # WATERING
+
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 14,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant2
+)
+
 Task.create!(
   task_type: 'watering',
-  frequency_in_days: 7,
-  next_date: (Date.today + 20),
-  last_date: Date.yesterday,
+  frequency_in_days: 14,
+  date: (Date.today + 14),
   done: false,
+  shown: false,
+  delayed: false,
+  plant: plant2
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 14,
+  date: (Date.today + (2 * 14)),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant2
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
   plant: plant2
 )
 
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  next_date: (Date.today + 13),
-  last_date: Date.yesterday,
+  date: (Date.today + 42),
   done: false,
+  shown: false,
+  delayed: false,
   plant: plant2
 )
 
@@ -99,21 +171,57 @@ plant3 = Plant.create!(
   happiness: 0
 )
 
+ # WATERING
+
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant3
+)
+
 Task.create!(
   task_type: 'watering',
-  frequency_in_days: 7,
-  next_date: (Date.today + 20),
-  last_date: Date.yesterday,
+  frequency_in_days: 10,
+  date: (Date.today + 10),
   done: false,
+  shown: false,
+  delayed: false,
+  plant: plant3
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  date: (Date.today + (2 * 10)),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant3
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
   plant: plant3
 )
 
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  next_date: (Date.today + 13),
-  last_date: Date.yesterday,
+  date: (Date.today + 42),
   done: false,
+  shown: false,
+  delayed: false,
   plant: plant3
 )
 
@@ -132,53 +240,56 @@ plant4 = Plant.create!(
   happiness: 2
 )
 
+ # WATERING
+
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 21,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
 Task.create!(
   task_type: 'watering',
-  frequency_in_days: 7,
-  next_date: (Date.today + 20),
-  last_date: Date.yesterday,
+  frequency_in_days: 21,
+  date: (Date.today + 21),
   done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 21,
+  date: (Date.today + (2 * 21)),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  date: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
   plant: plant4
 )
 
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  next_date: (Date.today + 13),
-  last_date: Date.yesterday,
+  date: (Date.today + 42),
   done: false,
+  shown: false,
+  delayed: false,
   plant: plant4
-)
-
-plant5 = Plant.create!(
-  scientific_name: 'Epipremnum aureum',
-  nickname: 'Golden',
-  suggested_watering_frequency_in_days: 7,
-  suggested_sunlight: 0,
-  description: 'The golden pothos is a popular trailing houseplant known for its heart-shaped leaves and air-purifying properties.',
-  care_level: 'hard',
-  suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 0,
-  user: user,
-  image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Kitchen',
-  happiness: 1
-)
-
-Task.create!(
-  task_type: 'watering',
-  frequency_in_days: 7,
-  next_date: (Date.today + 20),
-  last_date: Date.yesterday,
-  done: false,
-  plant: plant5
-)
-
-Task.create!(
-  task_type: 'fertilizing',
-  frequency_in_days: 42,
-  next_date: (Date.today + 13),
-  last_date: Date.yesterday,
-  done: false,
-  plant: plant5
 )

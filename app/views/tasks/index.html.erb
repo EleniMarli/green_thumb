@@ -6,40 +6,48 @@
 
 <div class="center-container">
   <h3>Tasks for today:</h3>
-  <% if @tasks_today.present? %>
-    <div class="task-card" style="margin-bottom: 40px;">
-      <% @tasks_today.each do |task| %>
-        <% if task.task_type == 'watering' %>
-          <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
-        <% elsif task.task_type == 'fertilizing' %>
-          <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
-        <% else %>
-          <%= task.task_type.capitalize %>
-        <% end %>
-        <%= task.plant.nickname %>
+  <% if @incomplete_tasks_today.present? %>
+
+
+      <% @incomplete_tasks_today.each do |task| %>
+
+      <% if task.done == false %>
+        <div class="task-card" style="margin-bottom: 20px;">
+          <% if task.task_type == 'watering' %>
+            <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
+          <% elsif task.task_type == 'fertilizing' %>
+            <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+          <% end %>
+          <%= task.plant.nickname %>
+          <% if task.delayed %>
+            <p>DELAYED!</p>
+          <%end%>
+          <%= link_to 'Mark as done', mark_done_task_path(task), class: "btn-small my-1", data: {turbo_method: :patch} %>
+        </div>
+       <%end%>
       <% end %>
-    </div>
+
   <% else %>
     <p>No tasks for today.</p>
   <% end %>
 
-  <h3>Upcoming tasks (next 7 days):</h3>
+ <%# <h3>Upcoming tasks (next 7 days):</h3>
   <% if @tasks_upcoming.present? %>
-    <div class="task-card">
-      <% @tasks_upcoming.each do |task| %>
-        <% if task.task_type == 'watering' %>
-          <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
-        <% elsif task.task_type == 'fertilizing' %>
-          <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
-        <% else %>
-          <%= task.task_type.capitalize %>
-        <% end %>
-        <%= task.plant.nickname %> <span style="margin-right: 15px;"></span>
-        <%= task.next_date.strftime('%a, %b %e') %>
-      <% end %>
-    </div>
+   <%# <div class="task-card">
+   <%#   <% @tasks_upcoming.each do |task| %>
+    <%#    <% if task.task_type == 'watering' %>
+    <%#      <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
+    <%#    <% elsif task.task_type == 'fertilizing' %>
+      <%#    <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+     <%#   <% else %>
+      <%#    <%= task.task_type.capitalize %>
+    <%#    <% end %>
+   <%#     <%= task.plant.nickname %><%# <span style="margin-right: 15px;"></span>
+     <%#   <%= task.date.strftime('%a, %b %e') %>
+   <%#   <% end %>
+ <%#   </div>
   <% else %>
-    <p>No upcoming tasks in the next 7 days.</p>
+<%#    <p>No upcoming tasks in the next 7 days.</p>
   <% end %>
-</div>
-</div>
+ </div>
+ </div>
