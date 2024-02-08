@@ -100,24 +100,26 @@ class PlantsController < ApplicationController
 
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
-    url = "https://perenual.com/api/species-list?key=sk-a2mI65c22ac7a792a3777&q=#{@user_input}"
-    uri = URI(url)
-    res = Net::HTTP.get_response(uri)
-    parsed = JSON.parse(res.body)
-    # @response_plants = parsed['data'][0..5].map do |plant|
-    #  [plant[:id], plant[:scientific_name].first]
-    # end
+    if @user_input
+      url = "https://perenual.com/api/species-list?key=sk-a2mI65c22ac7a792a3777&q=#{@user_input}"
+      uri = URI(url)
+      res = Net::HTTP.get_response(uri)
+      parsed = JSON.parse(res.body)
+      # @response_plants = parsed['data'][0..5].map do |plant|
+      #  [plant[:id], plant[:scientific_name].first]
+      # end
 
-    # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
-    # @user_input = params[:query]
-    @response_plants = parsed['data'][0..5].map do |plant|
-      image = ""
-      if plant['default_image'] == nil
-        image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
-      else
-        image = plant['default_image']['original_url']
+      # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
+      # @user_input = params[:query]
+      @response_plants = parsed['data'][0..5].map do |plant|
+        image = ""
+        if plant['default_image'] == nil
+          image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
+        else
+          image = plant['default_image']['original_url']
+        end
+        [plant['id'], plant['scientific_name'].first, image]
       end
-      [plant['id'], plant['scientific_name'].first, image]
     end
     @plant = Plant.new
   end
