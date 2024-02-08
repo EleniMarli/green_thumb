@@ -9,13 +9,16 @@
     <div class="search-for-new-plant">
       <%= form_tag(plants_search_path, method: :get) do %>
         <div class="search-row">
-          <%= text_field_tag(:query, params[:query], placeholder: "Type to find your new plant", class:"search-field") %>
-          <%= submit_tag("🔍", class:"search-submit-btn") %>
+          <%= text_field_tag(:query, params[:query], placeholder: "Search for a plant to add...", class:"search-field") %>
+          <button type="submit" class="search-submit-btn">
+            <%= image_tag("search.svg", alt: "Search") %>
+          </button>
         </div>
       <% end %>
     </div>
   <% if @response_plants %>
     <div class="radio-buttons-search">
+      <h3>Here is what I found:</h3>
 
       <%= simple_form_for @plant do |f| %>
 
@@ -31,7 +34,9 @@
           <% end %>
         <% end %>
         <div class = "search-submit-btn">
-          <%= f.submit '✔️', class:'check-on-search' %>
+
+          <%= f.submit '✔', class:'check-on-search' %>
+
         </div>
       <% end %>
     </div>
