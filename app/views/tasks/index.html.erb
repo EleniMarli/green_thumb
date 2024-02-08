@@ -50,4 +50,16 @@
 <%#    <p>No upcoming tasks in the next 7 days.</p>
   <% end %>
  </div>
- </div>
+</div>
+
+
+<div class="navbar navbar-light">
+  <div class="container-navbar">
+    <%=link_to root_path do%>
+      <%=image_tag 'home.svg', class:"icon-navbar"%>
+    <%end%>
+    <%=link_to helper_path do%>
+      <%=image_tag 'helper.svg', class:"icon-navbar"%>
+    <%end%>
+  </div>
+</div>
