@@ -15,7 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def create_reminder
-    raise
     Reminder.create!(
       user: current_user
     )
