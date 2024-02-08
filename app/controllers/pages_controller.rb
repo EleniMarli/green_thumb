@@ -1,10 +1,13 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :notify_user, only: [:home]
+  before_action :notify_user, only: [:dashboard]
 
   def home
+    redirect_to :dashboard unless current_user.nil?
+  end
+
+  def dashboard
     @plants = Plant.where(user: current_user)
-    @user = current_user
   end
 
   private
