@@ -1,15 +1,15 @@
 class RemindersController < ApplicationController
-  def new
-    @reminder = Reminder.new
+  def edit
+    @reminder = Reminder.find(params[:id])
   end
 
-  def create
-    @reminder = Reminder.new(reminder_params)
-    @reminder.user = current_user
+  def update
+    @reminder = Reminder.find(params[:id])
+    @reminder.update(reminder_params)
     if @reminder.save
       redirect_to root_path
     else
-      render :new
+      render :edit
     end
   end
 
