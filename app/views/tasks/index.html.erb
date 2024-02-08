@@ -5,7 +5,7 @@
 </div>
 
 <div class="tasks-background">
-  <h3>Tasks for the day:</h3>
+  <h3>Tasks for today:</h3>
   <% if @incomplete_tasks_today.present? %>
 
 
@@ -24,7 +24,11 @@
                 <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
               <% end %>
 
-              <h5><%= task.plant.nickname %></h5>
+              <%if task.plant.nickname != nil %>
+                <h5><%= task.plant.nickname %></h5>
+              <%else%>
+                <h5><%= task.plant.scientific_name[0..16] %>...</h5>
+              <%end%>
 
               <% if task.delayed %>
                 <%=image_tag 'attention.svg' %>
@@ -45,7 +49,7 @@
       <% end %>
 
   <% else %>
-    <p>No tasks for today.</p>
+    <p class='text-secondary'>No tasks for today...</p>
   <% end %>
 
  <%# <h3>Upcoming tasks (next 7 days):</h3>

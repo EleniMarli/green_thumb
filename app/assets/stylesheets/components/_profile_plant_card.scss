@@ -1,6 +1,7 @@
 .details-card{
   position: relative;
-  height: 100%;
+  height: 100vh;
+  background-color: white;
 
   p {
     margin-bottom: 8px;
@@ -14,7 +15,7 @@
   }
 
   .text_gray{
-    color: #888888;
+    color: #ababab;
   }
 
   .details-infos{
@@ -24,25 +25,36 @@
     padding-bottom: 15%;
     position: absolute;
     width: 100%;
-    top: 93%;
+    top: 33%;
     //z-index: 1;
     background-color: white;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 
+    .push {
+      margin-bottom: 15px;
+    }
+
     h1 {
       font-size: 34px;
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-left: 14px;
+      }
     }
 
     .name {
-      margin-bottom: 17px;
+      margin-bottom: 0px;
+      display: flex;
     }
 
     .suggested {
       margin-bottom: 14px;
 
       i {
-        width: 20px;
+        width: 30px;
       }
 
       .icon-text {
@@ -54,31 +66,21 @@
     .currently {
       margin-bottom: 5px;
 
+      i {
+        width: 30px;
+      }
+
         .sun {
-          font-size: 21px;
-          display: flex;
-          justify-content: space-between;
-          width: 65%;
-          align-items: center;
-
-          span {
-
-            a {
-              text-decoration: none;
-            }
-
-            i {
-              margin-left: 4px;
-              margin-right: 4px;
-              color: #888888;
-            }
+          h3 {
+            font-size: 21px;
           }
+
         }
 
     }
 
     h3 {
-      font-size: 21px;
+      font-size: 19px;
     }
 
     .edit-btn {
@@ -92,7 +94,7 @@
       background: #ffffff;
       border: 0;
       box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
-      top: -51%;
+      top: -47%;
       left: 79%;
       text-decoration: none;
 
@@ -104,6 +106,7 @@
     .buttons-bottom {
       display: flex;
       justify-content: center;
+      margin-top: 20px;
 
       .delete-btn {
         border-radius: 50%;

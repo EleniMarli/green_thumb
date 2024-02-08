@@ -7,42 +7,67 @@
     <div class='text'>
       <% if @plant.nickname!=nil %>
         <div class='name'>
-          <h1><b><%= @plant.nickname %></b> <%= @happiness %> </h1>
-          <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+          <h1>
+            <b><%= @plant.nickname %></b>
+            <% if @plant.happiness == 0 %>
+              <%=image_tag 'sad.svg', class:"icon-happiness"%>
+            <% elsif @plant.happiness == 1 %>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness"%>
+            <% elsif @plant.happiness == 2 %>
+              <%=image_tag 'happy.svg', class:"icon-happiness"%>
+            <% end %>
+          </h1>
 
         </div>
+        <p class="text_gray push">(<%= @plant.scientific_name %>)</p>
       <% else %>
         <div class='name'>
-          <h1><%= @plant.scientific_name %></h1>
+          <h1>
+          <%= @plant.scientific_name %>
+            <% if @plant.happiness == 0 %>
+              <%=image_tag 'sad.svg', class:"icon-happiness"%>
+            <% elsif @plant.happiness == 1 %>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness"%>
+            <% elsif @plant.happiness == 2 %>
+              <%=image_tag 'happy.svg', class:"icon-happiness"%>
+            <% end %>
+          </h1>
         </div>
       <% end %>
       <div class="suggested">
         <h3>About:</h3>
-        <p class="text_gray">+ care level: <%= @plant.care_level %></p>
-        <p class="text_gray"><i class="fa-regular fa-sun"></i> <%= @suggested_sunlight %> </p>
-        <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every <%=@plant.suggested_watering_frequency_in_days%> days </p>
-        <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> fertilize every <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-notes-medical"></i> care level: <%= @plant.care_level %></p>
+        <% if @suggested_sunlight == 0 %>
+          <p class="text_gray"><i class="fa-solid fa-cloud"></i> prefers: shade </p>
+        <% elsif @suggested_sunlight == 1 %>
+          <p class="text_gray"><i class="fa-solid fa-cloud-sun"></i> prefers: part shade </p>
+        <% elsif @suggested_sunlight == 2 %>
+          <p class="text_gray"><i class="fa-solid fa-sun"></i> prefers: full sun </p>
+        <%end%>
+        <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every: <%=@plant.suggested_watering_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-seedling"></i> fertilize every: <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
       </div>
       <div class="currently">
         <div class='sun'>
           <h3>Currently:</h3>
-          <span>
 
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 2 }}], method: :patch, data: { turbo: true } do %>
-              <i class="fa-regular fa-sun"></i>
-            <% end %>
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 1 }}], method: :patch, data: { turbo: true } do %>
-              <i class="fa-solid fa-cloud-sun"></i>
-            <% end %>
-            <%= link_to [@plant, { plant: { actual_sun_exposure: 0 } }], method: :patch, data: { turbo: true } do %>
-              <i class="fa-solid fa-cloud"></i>
-            <% end %>
-          </span>
         </div>
-        <p class="text_gray"> last watered: <%= @last_watered %> </p>
-        <p class="text_gray"> last fertilized: <%= @last_fertilized %></p>
+
+        <% if @plant.actual_sun_exposure == 0 %>
+          <p class="text_gray"><i class="fa-solid fa-cloud"></i> in: shade </p>
+        <% elsif @plant.actual_sun_exposure == 1 %>
+          <p class="text_gray"><i class="fa-solid fa-cloud-sun"></i> in: part shade </p>
+        <% elsif @plant.actual_sun_exposure == 2 %>
+          <p class="text_gray"><i class="fa-solid fa-sun"></i> in: full sun </p>
+        <%end%>
+        <%if @last_watered%>
+          <p class="text_gray"><i class="fa-solid fa-droplet"></i> last watered: <%= @last_watered %> </p>
+        <%end%>
+        <%if @last_fertilized%>
+          <p class="text_gray"><i class="fa-solid fa-seedling"></i> last fertilized: <%= @last_fertilized %></p>
+        <%end%>
         <% if @plant.room!=nil %>
-          <p class="text_gray"> in: <%= @plant.room %> </p>
+          <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
         <% end %>
 
       </div>
