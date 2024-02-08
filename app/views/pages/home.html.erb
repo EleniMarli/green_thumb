@@ -3,35 +3,7 @@
   <h1 class="center">Green Thumb 🍃</h1>
   <p class="center">Care for your plants effortlessly! <i class="fa-solid fa-leaf"></i> </p>
 
-  <% if user_signed_in? %>
-    <div class="home-cards">
-      <% @plants.each do |plant| %>
-        <%= link_to plant_path(plant), class:"card-link-home" do %>
-          <div class="sideway-plant-card">
-            <%= image_tag plant.image_url, alt: plant.nickname %>
-            <div class="plant-info">
-              <% if plant.nickname.nil? %>
-                <h2><%= plant.scientific_name %></h2>
-              <% else %>
-                <h2><%= plant.nickname %></h2>
-                <p>(<%= plant.scientific_name %>)</p>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="search-for-new-plant">
-      <%= form_tag(plants_search_path, method: :get) do %>
-        <%= text_field_tag(:query, params[:query], placeholder: "Look for a new plant", class:"search-field") %>
-        <%= submit_tag("🔍", class:"search-submit-btn") %>
-      <% end %>
-    </div>
-
-  <% else %>
     <h2 class="center">Welcome!</h2>
     <p>For plant enthusiasts navigating busy lives, Green Thumb is the ultimate organizer for your leafy companions. Elevate your plant care routines effortlessly, ensuring your green friends thrive. With easy access to plant information and personalized care reminders, Green Thumb transforms plant care from a task to a joy. Simplify, beautify, and embrace a home filled with vibrant, healthy plants - because everyone deserves a green haven, even without a green thumb!</p>
-  <% end %>
 
 </div>
