@@ -23,8 +23,8 @@ class PlantsController < ApplicationController
                   '😀'
                 end
 
-    @last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
-    @last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
+    #@last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
+    #@last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
 
   end
 
@@ -45,7 +45,7 @@ class PlantsController < ApplicationController
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy
-    redirect_to user_path(current_user)
+    redirect_to dashboard_path(current_user)
   end
 
   def search
@@ -100,7 +100,7 @@ class PlantsController < ApplicationController
 
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
-    url = "https://perenual.com/api/species-list?key=sk-a2mI65c22ac7a792a3777&q=#{@user_input}"
+    url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
     parsed = JSON.parse(res.body)
@@ -277,21 +277,60 @@ class PlantsController < ApplicationController
       )
 
       if @plant.save!
+        # WATERING
+
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          next_date: (Date.today + @plant.suggested_watering_frequency_in_days),
-          last_date: Date.today,
+          date: Date.today,
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          date: (Date.today + (2 * @plant.suggested_watering_frequency_in_days)),
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        # FERTILIZING
+
+        Task.create!(
+          task_type: 'fertilizing',
+          frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
+          date: Date.today,
+          done: false,
+          shown: false,
+          delayed: false,
           plant: @plant
         )
 
         Task.create!(
           task_type: 'fertilizing',
           frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
-          next_date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
-          last_date: Date.today,
+          date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
           plant: @plant
         )
+
         redirect_to root_path
       end
     end

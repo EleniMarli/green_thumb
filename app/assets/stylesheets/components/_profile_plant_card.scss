@@ -24,6 +24,11 @@
     padding-bottom: 15%;
     position: absolute;
     width: 100%;
+    top: 93%;
+    //z-index: 1;
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 
     h1 {
       font-size: 34px;
@@ -35,6 +40,10 @@
 
     .suggested {
       margin-bottom: 30px;
+
+      i {
+        width: 20px;
+      }
 
       .icon-text {
         display: flex;
@@ -67,12 +76,6 @@
         }
 
     }
-
-    top: 93%;
-    //z-index: 1;
-    background-color: white;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
 
     h3 {
       font-size: 21px;
