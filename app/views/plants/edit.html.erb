@@ -9,17 +9,12 @@
 <div class="edit_form">
 
 <%= simple_form_for @plant do |f| %>
-  <%= f.input :scientific_name%>
   <%= f.input :nickname%>
-  <%= f.input :suggested_watering_frequency_in_days%>
-  <%= f.input :suggested_sunlight%>
   <%= f.input :description%>
-  <%= f.input :care_level%>
-  <%= f.input :suggested_fertilizing_frequency_in_days%>
   <%= f.input :actual_sun_exposure%>
   <%= f.button :button, class: "btn-test", value: "" do %>
     Confirm <i class="fa-solid fa-check"></i>
-    <% end %>
+  <% end %>
 <% end %>
 </div>
 </div>
