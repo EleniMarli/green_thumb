@@ -1,28 +1,35 @@
 .search-for-new-plant {
-  margin-top: 25px;
 
   input.search-field {
-    width: 92%;
-    margin-bottom:22px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 15px;
     border-radius: 25px;
     color: rgb(127, 127, 127);
     border: 0;
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
-    padding: 5px;
+    padding: 10px;
+    width: 270px;
   }
 
   form {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .search-submit-btn {
     border-radius: 50%;
-    height: 65px;
-    width: 65px;
+    height: 55px;
+    width: 55px;
     background: #FBFADA;
     border: 0;
     box-shadow: 0 0 7px rgba(0,0,0,0.2);
   }
+}
+
+.search-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

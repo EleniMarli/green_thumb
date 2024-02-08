@@ -1,24 +1,39 @@
-<div class="background-search-page">
-  <h3>Here are the plants I found for '<%=@user_input%>':</h3>
-  <div class="radio-buttons-search">
-
-    <%= simple_form_for @plant do |f| %>
-
-      <%= f.collection_radio_buttons :id, @response_plants, :first, :second, item_wrapper_class: 'span-class' do |b| %>
-
-        <%= b.radio_button%>
-        <%= b.label do %>
-
-
-          <%= image_tag(b.object.last, class: 'plant-image') %>
-          <div class="text">
-            <%= b.object.second %>
-          </div>
-        <% end %>
-      <% end %>
-      <div class = "search-submit-btn">
-        <%= f.submit '✔️', class:'check-on-search' %>
-      </div>
-    <% end %>
+<div class="banner">
+  <div class="container">
+    <h1 class="center">Green Thumb 🍃</h1>
   </div>
+</div>
+
+<div class="background-search-page">
+
+    <div class="search-for-new-plant">
+      <%= form_tag(plants_search_path, method: :get) do %>
+        <div class="search-row">
+          <%= text_field_tag(:query, params[:query], placeholder: "Type to find your new plant", class:"search-field") %>
+          <%= submit_tag("🔍", class:"search-submit-btn") %>
+        </div>
+      <% end %>
+    </div>
+  <% if @response_plants %>
+    <div class="radio-buttons-search">
+
+      <%= simple_form_for @plant do |f| %>
+
+        <%= f.collection_radio_buttons :id, @response_plants, :first, :second, item_wrapper_class: 'span-class' do |b| %>
+
+          <%= b.radio_button%>
+          <%= b.label do %>
+
+            <%= image_tag(b.object.last, class: 'plant-image') %>
+            <div class="text">
+              <%= b.object.second %>
+            </div>
+          <% end %>
+        <% end %>
+        <div class = "search-submit-btn">
+          <%= f.submit '✔️', class:'check-on-search' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
