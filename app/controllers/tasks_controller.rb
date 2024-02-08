@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     @task = Task.find(current_task_id)
     @task.update(done: true)
     last_task = Task.where(task_type: @task.task_type, plant: @task.plant).order(date: :desc).first
-    Task.create!(
+    Task.create(
       task_type: last_task.task_type,
       date: last_task.date + last_task.frequency_in_days,
       frequency_in_days: last_task.frequency_in_days,
