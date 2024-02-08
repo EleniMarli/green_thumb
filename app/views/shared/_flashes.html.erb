@@ -5,9 +5,18 @@
     </button>
   </div>
 <% end %>
+
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= alert %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+<% end %>
+
+<% if notification %>
+  <div class="notification alert alert-warning alert-dismissible fade show m-1" role="alert">
+    <%= notification %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
     </button>
   </div>

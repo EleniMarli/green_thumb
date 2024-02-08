@@ -12,9 +12,11 @@
     object-fit: cover;
     display: block;
   }
+
   .text_gray{
     color: #888888;
   }
+
   .details-infos{
     padding-left: 10%;
     padding-right: 10%;
@@ -61,7 +63,6 @@
               margin-right: 4px;
               color: #888888;
             }
-
           }
         }
 
@@ -96,6 +97,7 @@
     .buttons-bottom {
       display: flex;
       justify-content: center;
+
       .delete-btn {
         border-radius: 50%;
         background: #FBFADA;
@@ -110,6 +112,7 @@
       }
     }
   }
+
   .text_black{
     color: black;
   }
