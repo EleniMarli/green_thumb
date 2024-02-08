@@ -6,19 +6,47 @@
 
     <div class='text'>
       <% if @plant.nickname!=nil %>
-        <h1><%= @plant.nickname %></h1>
-        <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+        <div class='name'>
+          <h1><b><%= @plant.nickname %></b> <%= @happiness %> </h1>
+          <p class="text_gray">(<%= @plant.scientific_name %>)</p>
+
+        </div>
       <% else %>
-        <h1><%= @plant.scientific_name %></h1>
+        <div class='name'>
+          <h1><%= @plant.scientific_name %></h1>
+        </div>
       <% end %>
-      <h3><b>Suggested:</b></h3>
-      <p class="text_gray"><i class="fa-regular fa-sun"></i> <%= @plant.suggested_sunlight %> </p>
-      <p class="text_gray"><i class="fa-solid fa-droplet"></i> Water 1 time per week</p>
-      <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> Fertilize 1 time every 4 weeks</p>
-      <h4><b>Currently: </b><i class="fa-regular fa-sun"></i> <i class="fa-solid fa-cloud-sun"></i> <i class="fa-solid fa-cloud"></i></h4>
-      <p class="text_black">  last watered</p>
-      <p class="text_black"> last fertilized</p>
-      <p class="text_black"> room</p>
+      <div class="suggested">
+        <h3>About:</h3>
+        <p class="text_gray">+ care level: <%= @plant.care_level %></p>
+        <p class="text_gray"><i class="fa-regular fa-sun"></i> <%= @suggested_sunlight %> </p>
+        <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every <%=@plant.suggested_watering_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-arrow-trend-up"></i> fertilize every <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
+      </div>
+      <div class="currently">
+        <div class='sun'>
+          <h3>Currently:</h3>
+          <span>
+
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 2 }}], method: :patch, data: { turbo: true } do %>
+              <i class="fa-regular fa-sun"></i>
+            <% end %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 1 }}], method: :patch, data: { turbo: true } do %>
+              <i class="fa-solid fa-cloud-sun"></i>
+            <% end %>
+            <%= link_to [@plant, { plant: { actual_sun_exposure: 0 } }], method: :patch, data: { turbo: true } do %>
+              <i class="fa-solid fa-cloud"></i>
+            <% end %>
+          </span>
+        </div>
+        <p class="text_gray"> last watered: <%= @last_watered %> </p>
+        <p class="text_gray"> last fertilized: <%= @last_fertilized %></p>
+        <% if @plant.room!=nil %>
+          <p class="text_gray"> in: <%= @plant.room %> </p>
+        <% end %>
+
+      </div>
+
       <%=link_to '✏️', edit_plant_path(@plant), class:"edit-btn"%>
       <div class="buttons-bottom">
 

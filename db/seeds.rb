@@ -18,13 +18,13 @@ user = User.create!(
   password: "123456"
 )
 
-Plant.create!(
+plant1 = Plant.create!(
   scientific_name: 'Ficus elastica',
   nickname: 'Rubby',
   suggested_watering_frequency_in_days: 7,
   suggested_sunlight: 2,
   description: 'The rubber plant is a popular houseplant known for its large, glossy leaves.',
-  care_level: 'Easy',
+  care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 0,
   user: user,
@@ -33,13 +33,31 @@ Plant.create!(
   happiness: 2
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant1
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant1
+)
+
+plant2 = Plant.create!(
   scientific_name: 'Sansevieria trifasciata',
   nickname: 'Snaky',
   suggested_watering_frequency_in_days: 14,
   suggested_sunlight: 2,
   description: 'The snake plant is a hardy indoor plant that can tolerate low light and infrequent watering.',
-  care_level: 'Easy',
+  care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 0,
   user: user,
@@ -48,13 +66,31 @@ Plant.create!(
   happiness: 1
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant2
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant2
+)
+
+plant3 = Plant.create!(
   scientific_name: 'Monstera deliciosa',
   nickname: 'Swissy',
   suggested_watering_frequency_in_days: 10,
   suggested_sunlight: 1,
   description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
-  care_level: 'Moderate',
+  care_level: 'moderate',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 0,
   user: user,
@@ -63,13 +99,31 @@ Plant.create!(
   happiness: 0
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant3
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant3
+)
+
+plant4 = Plant.create!(
   scientific_name: 'Zamioculcas zamiifolia',
   nickname: 'ZZ',
   suggested_watering_frequency_in_days: 21,
   suggested_sunlight: 1,
   description: 'The ZZ plant is a low-maintenance houseplant with glossy, dark green leaves.',
-  care_level: 'Easy',
+  care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 0,
   user: user,
@@ -78,13 +132,31 @@ Plant.create!(
   happiness: 2
 )
 
-Plant.create!(
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
+  done: false,
+  plant: plant4
+)
+
+plant5 = Plant.create!(
   scientific_name: 'Epipremnum aureum',
   nickname: 'Golden',
   suggested_watering_frequency_in_days: 7,
   suggested_sunlight: 0,
   description: 'The golden pothos is a popular trailing houseplant known for its heart-shaped leaves and air-purifying properties.',
-  care_level: 'Hard',
+  care_level: 'hard',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 0,
   user: user,
@@ -94,19 +166,19 @@ Plant.create!(
 )
 
 Task.create!(
-  frequency_in_days: 7,
-  next_date: Date.today,
   task_type: 'watering',
+  frequency_in_days: 7,
+  next_date: (Date.today + 20),
+  last_date: Date.yesterday,
   done: false,
-  plant_id: Plant.first.id,
-  last_date: Date.yesterday
+  plant: plant5
 )
 
 Task.create!(
-  frequency_in_days: 3,
-  next_date: Date.tomorrow,
   task_type: 'fertilizing',
+  frequency_in_days: 42,
+  next_date: (Date.today + 13),
+  last_date: Date.yesterday,
   done: false,
-  plant_id: Plant.second.id,
-  last_date: Date.yesterday
+  plant: plant5
 )
