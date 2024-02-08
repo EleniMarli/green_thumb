@@ -45,7 +45,7 @@ class PlantsController < ApplicationController
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy
-    redirect_to user_path(current_user)
+    redirect_to dashboard_path(current_user)
   end
 
   def search
