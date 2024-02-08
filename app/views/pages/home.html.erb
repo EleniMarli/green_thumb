@@ -1,5 +1,7 @@
 <div class="background-landingpage">
-
+  <%=link_to destroy_user_session_path, class:"log-out", data: {turbo_method: :delete} do%>
+    <%=image_tag 'log_out.svg', class:"icon-navbar"%>
+  <%end%>
   <h1 class="center">Green Thumb 🍃</h1>
   <p class="center">Care for your plants effortlessly! <i class="fa-solid fa-leaf"></i> </p>
 

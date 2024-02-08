@@ -14,9 +14,6 @@
       <%=link_to '#' do%>
         <%=image_tag 'helper.svg', class:"icon-navbar"%>
       <%end%>
-      <%=link_to destroy_user_session_path, data: {turbo_method: :delete} do%>
-        <%=image_tag 'log_out.svg', class:"icon-navbar"%>
-      <%end%>
 
     <% else %>
       <li class="nav-item">
