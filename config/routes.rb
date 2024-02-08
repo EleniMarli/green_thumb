@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
   root to: "pages#home"
+  get '/dashboard', to: 'pages#dashboard'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get 'plants/search', to: 'plants#search'
-  resources :plants, only: %i[create index show edit update]
+
+  resources :plants, only: %i[create index show edit update destroy]
   resources :tasks, only: %i[index]
+  resources :reminders, only: %i[new create]
 end

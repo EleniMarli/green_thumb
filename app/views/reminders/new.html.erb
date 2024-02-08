@@ -1,0 +1,8 @@
+<%= render "shared/banner" %>
+<div class="container">
+  <h1><b>Reminders</b></h1>
+  <%= simple_form_for @reminder do |f| %>
+    <%= f.input :alarm_time %>
+    <%= f.submit %>
+  <% end %>
+</div>
