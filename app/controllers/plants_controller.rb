@@ -277,21 +277,59 @@ class PlantsController < ApplicationController
       )
 
       if @plant.save!
+        # WATERING
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          next_date: (Date.today + @plant.suggested_watering_frequency_in_days),
-          last_date: Date.today,
+          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        Task.create!(
+          task_type: 'watering',
+          frequency_in_days: @plant.suggested_watering_frequency_in_days,
+          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
+          plant: @plant
+        )
+
+        # FERTILIZING
+
+        Task.create!(
+          task_type: 'fertilizing',
+          frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
+          date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
           plant: @plant
         )
 
         Task.create!(
           task_type: 'fertilizing',
           frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
-          next_date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
-          last_date: Date.today,
+          date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          done: false,
+          shown: false,
+          delayed: false,
           plant: @plant
         )
+
         redirect_to root_path
       end
     end
