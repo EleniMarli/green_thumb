@@ -278,10 +278,11 @@ class PlantsController < ApplicationController
 
       if @plant.save!
         # WATERING
+
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          date: Date.today,
           done: false,
           shown: false,
           delayed: false,
@@ -301,7 +302,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          date: (Date.today + (2 * @plant.suggested_watering_frequency_in_days)),
           done: false,
           shown: false,
           delayed: false,
@@ -313,7 +314,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'fertilizing',
           frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
-          date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          date: Date.today,
           done: false,
           shown: false,
           delayed: false,
