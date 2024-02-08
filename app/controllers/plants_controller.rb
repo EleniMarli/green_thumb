@@ -23,8 +23,8 @@ class PlantsController < ApplicationController
                   '😀'
                 end
 
-    @last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
-    @last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
+    #@last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
+    #@last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
 
   end
 
@@ -100,7 +100,7 @@ class PlantsController < ApplicationController
 
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
-    url = "https://perenual.com/api/species-list?key=sk-a2mI65c22ac7a792a3777&q=#{@user_input}"
+    url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
     parsed = JSON.parse(res.body)
