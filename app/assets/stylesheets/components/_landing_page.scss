@@ -1,0 +1,39 @@
+.landing-container {
+  padding: 10%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+    h1 {
+      color: #294B29;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    p {
+      color: #294B29;
+      font-size: 24px;
+    }
+  }
+
+.button-container {
+  padding-left: 10%;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.landing-button {
+  color: white;
+  padding: 8px 24px;
+  text-decoration: none;
+  border-radius: 15px;
+  background: #294B29;
+  transition: background 0.3s ease;
+}
+
+.landing-button:hover {
+  background: #12372A;
+  color: white;
+}

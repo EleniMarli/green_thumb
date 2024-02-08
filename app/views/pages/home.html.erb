@@ -1,17 +1,20 @@
-<div class="background-landingpage">
-
-  <h1 class="center">Green Thumb 🍃</h1>
-  <p class="center">Care for your plants effortlessly! <i class="fa-solid fa-leaf"></i> </p>
-
-  <h2 class="center">Welcome!</h2>
-  <p>For plant enthusiasts navigating busy lives, Green Thumb is the ultimate organizer for your leafy companions. Elevate your plant care routines effortlessly, ensuring your green friends thrive. With easy access to plant information and personalized care reminders, Green Thumb transforms plant care from a task to a joy. Simplify, beautify, and embrace a home filled with vibrant, healthy plants - because everyone deserves a green haven, even without a green thumb!</p>
-  <%= link_to "Login", new_user_session_path%>
+<div class = "landing-container">
+  <body style="background-image: url('https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBmbGFuemVufGVufDB8fDB8fHww'); background-size: cover; background-position: center; height: 100vh; margin: 0; padding: 0;">
+    <h1> Green Thumb </h1>
+    <p> Your digital assistant for happy plants. </p>
+    <p> Simplify. </p>
+    <p> Beautify. </p>
+    <p> Thrive. </p>
+  </body>
 </div>
 
-
-
+<div class = "button-container">
+  <%= link_to "Login", new_user_session_path, class: "landing-button" %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "landing-button" %>
+</div>
 
 <div class="navbar navbar-light">
   <div class="container-navbar">
   </div>
+</div>
 </div>
