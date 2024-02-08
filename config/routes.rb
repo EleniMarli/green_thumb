@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get 'plants/search', to: 'plants#search'
-  resources :plants, only: %i[create index show edit destroy]
+
+  resources :plants, only: %i[create index show edit update destroy]
+  resources :tasks, only: %i[index]
   resources :reminders, only: %i[new create]
 end
