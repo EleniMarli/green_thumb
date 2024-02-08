@@ -5,13 +5,11 @@
       <%=link_to root_path do%>
         <%=image_tag 'home.svg', class:"icon-navbar"%>
       <%end%>
-      <%=link_to '#' do%>
-        <%=image_tag 'calendar.svg', class:"icon-navbar"%>
-      <%end%>
-      <%=link_to edit_reminder_path(current_user.reminders.first) do%>
+
+      <%=link_to tasks_path do%>
         <%=image_tag 'bell.svg', class:"icon-navbar"%>
       <%end%>
-      <%=link_to '#' do%>
+      <%=link_to helper_path do%>
         <%=image_tag 'helper.svg', class:"icon-navbar"%>
       <%end%>
 

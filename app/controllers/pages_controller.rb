@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     @plants = Plant.where(user: current_user)
   end
 
+  def helper
+  end
+
   private
 
   def notify_user
