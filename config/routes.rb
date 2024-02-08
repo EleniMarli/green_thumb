@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :plants, only: %i[create index show edit update destroy]
   resources :tasks, only: %i[index]
-  resources :reminders, only: %i[new create]
+  resources :reminders, only: %i[new create edit update]
 
   resources :tasks do
     member do
