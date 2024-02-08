@@ -5,34 +5,41 @@
 </div>
 
 <div class="center-container">
-<h3>Tasks for today:</h3>
-
-<div class="task-card" style="margin-bottom: 40px;">
-<% @tasks_today.each do |task| %>
-  <% if task.task_type == 'watering' %>
-    <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
-  <% elsif task.task_type == 'fertilizing' %>
-    <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+  <h3>Tasks for today:</h3>
+  <% if @tasks_today.present? %>
+    <div class="task-card" style="margin-bottom: 40px;">
+      <% @tasks_today.each do |task| %>
+        <% if task.task_type == 'watering' %>
+          <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
+        <% elsif task.task_type == 'fertilizing' %>
+          <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+        <% else %>
+          <%= task.task_type.capitalize %>
+        <% end %>
+        <%= task.plant.nickname %>
+      <% end %>
+    </div>
   <% else %>
-    <%= task.task_type.capitalize %>
+    <p>No tasks for today.</p>
   <% end %>
-  <%= task.plant.nickname %>
-<% end %>
-</div>
 
-<h3>Upcoming tasks (next 7 days):</h3>
-
-<div class="task-card">
-<% @tasks_upcoming.each do |task| %>
-  <% if task.task_type == 'watering' %>
-    <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
-  <% elsif task.task_type == 'fertilizing' %>
-    <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+  <h3>Upcoming tasks (next 7 days):</h3>
+  <% if @tasks_upcoming.present? %>
+    <div class="task-card">
+      <% @tasks_upcoming.each do |task| %>
+        <% if task.task_type == 'watering' %>
+          <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
+        <% elsif task.task_type == 'fertilizing' %>
+          <i class="fa-solid fa-seedling" style="margin: 0 15px;"></i>
+        <% else %>
+          <%= task.task_type.capitalize %>
+        <% end %>
+        <%= task.plant.nickname %> <span style="margin-right: 15px;"></span>
+        <%= task.next_date.strftime('%a, %b %e') %>
+      <% end %>
+    </div>
   <% else %>
-    <%= task.task_type.capitalize %>
+    <p>No upcoming tasks in the next 7 days.</p>
   <% end %>
-  <%= task.plant.nickname %> <span style="margin-right: 15px;"></span>
-  <%= task.next_date.strftime('%a, %b %e') %>
-<% end %>
 </div>
 </div>
