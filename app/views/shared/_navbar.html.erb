@@ -8,10 +8,11 @@
       <%=link_to plants_search_path do%>
         <%=image_tag 'add.svg', class:"icon-navbar"%>
       <%end%>
-      <%=link_to edit_reminder_path(current_user.reminders.first) do%>
+
+      <%=link_to tasks_path do%>
         <%=image_tag 'bell.svg', class:"icon-navbar"%>
       <%end%>
-      <%=link_to '#' do%>
+      <%=link_to helper_path do%>
         <%=image_tag 'helper.svg', class:"icon-navbar"%>
       <%end%>
 
