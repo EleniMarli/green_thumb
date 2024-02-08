@@ -1,6 +1,6 @@
 <div class="details-card">
 
-  <%= image_tag @plant.image_url %>
+  <%= image_tag @plant.image_url, class:"plant-image"%>
 
   <div class="details-infos">
 
@@ -47,11 +47,20 @@
 
       </div>
 
-      <%=link_to '✏️', edit_plant_path(@plant), class:"edit-btn"%>
+      <%=link_to edit_plant_path(@plant) do%>
+        <div class="edit-btn">
+          <%=image_tag 'edit.svg'%>
+        </div>
+      <%end%>
+
       <div class="buttons-bottom">
 
-      <%=link_to '🗑️', plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"}, class:"delete-btn" %></i>
-      </div>
+        <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
+          <div class="delete-btn">
+            <%=image_tag 'delete.svg'%>
+          </div>
+        <%end%>
+
     </div>
   </div>
 

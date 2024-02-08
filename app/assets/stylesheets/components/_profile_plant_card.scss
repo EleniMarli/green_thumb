@@ -6,7 +6,7 @@
     margin-bottom: 8px;
   }
 
-  img {
+  .plant-image {
     height: 39vh;
     width: 100%;
     object-fit: cover;
@@ -35,11 +35,11 @@
     }
 
     .name {
-      margin-bottom: 24px;
+      margin-bottom: 17px;
     }
 
     .suggested {
-      margin-bottom: 30px;
+      margin-bottom: 14px;
 
       i {
         width: 20px;
@@ -89,12 +89,16 @@
       width: 65px;
       position: absolute;
       border-radius: 50%;
-      background: #FBFADA;
+      background: #ffffff;
       border: 0;
-      box-shadow: 0 0 7px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
       top: -51%;
       left: 79%;
       text-decoration: none;
+
+      img {
+        width: 36px;
+      }
     }
 
     .buttons-bottom {
@@ -103,7 +107,7 @@
 
       .delete-btn {
         border-radius: 50%;
-        background: #FBFADA;
+        background: #ffffff;
         border: 0;
         box-shadow: 0 0 7px rgba(0,0,0,0.2);
         display: flex;
@@ -112,6 +116,10 @@
         height: 65px;
         width: 65px;
         align-items: center;
+
+        img {
+          width: 36px;
+        }
       }
     }
   }

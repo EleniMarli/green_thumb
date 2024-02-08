@@ -1,12 +1,38 @@
 .task-card {
   display: flex;
-
   align-items: center;
   background: #50623A;
   color: white;
-  height: 50px;
+  height: 64px;
   width: 80%;
   border-radius: 25px;
   padding: 10px;
   margin: 10px;
+
+
+}
+
+.plant-task-name {
+  display: flex;
+  justify-content: center;
+
+  i {
+    line-height: 28px;
+  }
+
+  img {
+    width: 25px;
+  }
+
+  h5 {
+    margin: 0;
+    margin-right: 15px;
+    line-height: unset;
+  }
+}
+
+.wrapper-task {
+  display: flex;
+  justify-content: space-between;
+  width: 101%;
 }

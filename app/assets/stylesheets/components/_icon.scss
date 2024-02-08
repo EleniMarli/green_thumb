@@ -1,8 +1,6 @@
 .icon-navbar {
   width: 35px;
-
   color: black;
-
 
     &:hover {
       opacity: 100;
@@ -13,4 +11,25 @@
   position: absolute;
   top: 2%;
   left: 5%;
+}
+
+.edit-icon {
+  padding: 30px;
+  width: 35px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  top: -51%;
+  left: 79%;
+  text-decoration: none;
+
+  img {
+    width: 25px;
+  }
 }
