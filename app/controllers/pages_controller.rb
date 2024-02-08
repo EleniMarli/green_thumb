@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def notify_user
     tasks = Task.where('next_date >= ? AND done = ?', Date.today, false)
     unless tasks.empty?
-      flash[:notification] = "You have #{tasks.count} tasks"
+      flash.now[:notification] = "You have #{tasks.count} pending task(s)"
       tasks.update_all(done: true)
     end
   end
