@@ -5,24 +5,30 @@
     <%=image_tag 'log_out.svg'%>
   <%end%>
     <h3 class="text-left">Your plants:</h3>
+    <% if !@plants.empty? %>
 
-    <div class="home-cards">
-      <% @plants.each do |plant| %>
-        <%= link_to plant_path(plant), class:"card-link-home" do %>
-          <div class="sideway-plant-card">
-            <%= image_tag plant.image_url, alt: plant.nickname %>
-            <div class="plant-info">
-              <% if plant.nickname.nil? %>
-                <h2><%= plant.scientific_name %></h2>
-              <% else %>
-                <h2><%= plant.nickname %></h2>
-                <p>(<%= plant.scientific_name %>)</p>
-              <% end %>
+
+      <div class="home-cards">
+        <% @plants.each do |plant| %>
+          <%= link_to plant_path(plant), class:"card-link-home" do %>
+            <div class="sideway-plant-card">
+              <%= image_tag plant.image_url, alt: plant.nickname %>
+              <div class="plant-info">
+                <% if plant.nickname.nil? %>
+                  <h2><%= plant.scientific_name %></h2>
+                <% else %>
+                  <h2><%= plant.nickname %></h2>
+                  <p>(<%= plant.scientific_name %>)</p>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+
+    <% else %>
+      <%= image_tag 'pot.svg', class:"pot mx-auto"%>
+    <% end %>
 
 </div>
 <div class="navbar navbar-light">

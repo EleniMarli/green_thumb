@@ -6,4 +6,17 @@
   h3 {
     text-align: center;
   }
+
+  .cutter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 68px;
+    opacity: 0.15;
+
+    img {
+      width: 180px;
+    }
+  }
 }
