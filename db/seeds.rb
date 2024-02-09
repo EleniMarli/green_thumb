@@ -20,7 +20,7 @@ user = User.create!(
 
 plant1 = Plant.create!(
   scientific_name: 'Ficus elastica',
-  nickname: 'Rubby',
+  nickname: 'Survivor',
   suggested_watering_frequency_in_days: 7,
   suggested_sunlight: 'full sun',
   description: 'The rubber plant is a popular houseplant known for its large, glossy leaves.',
@@ -28,7 +28,7 @@ plant1 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'part shade',
   user: user,
-  image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  image_url: 'https://perenual.com/storage/species_image/2961_ficus_elastica/og/533092219_8da73ba0d2_b.jpg',
   room: 'living room',
   happiness: 2
 )
@@ -41,7 +41,7 @@ Task.create!(
   date: Date.today,
   done: false,
   shown: false,
-  delayed: false,
+  delayed: true,
   plant: plant1
 )
 
@@ -70,17 +70,17 @@ Task.create!(
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  date: Date.today,
-  done: false,
+  date: Date.yesterday,
+  done: true,
   shown: false,
-  delayed: false,
+  delayed: true,
   plant: plant1
 )
 
 Task.create!(
   task_type: 'fertilizing',
   frequency_in_days: 42,
-  date: (Date.today + 42),
+  date: (Date.yesterday + 42),
   done: false,
   shown: false,
   delayed: false,
@@ -97,7 +97,7 @@ plant2 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'shade',
   user: user,
-  image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  image_url: 'https://images.unsplash.com/photo-1565626929866-e11c64e607cf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'bedroom',
   happiness: 1
 )
@@ -107,7 +107,7 @@ plant2 = Plant.create!(
  Task.create!(
   task_type: 'watering',
   frequency_in_days: 14,
-  date: Date.today,
+  date: Date.today + 5,
   done: false,
   shown: false,
   delayed: false,
@@ -117,7 +117,7 @@ plant2 = Plant.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 14,
-  date: (Date.today + 14),
+  date: (Date.today + 19),
   done: false,
   shown: false,
   delayed: false,
@@ -127,7 +127,7 @@ Task.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 14,
-  date: (Date.today + (2 * 14)),
+  date: (Date.today + 19 + 14),
   done: false,
   shown: false,
   delayed: false,
@@ -142,7 +142,7 @@ Task.create!(
   date: Date.today,
   done: false,
   shown: false,
-  delayed: false,
+  delayed: true,
   plant: plant2
 )
 
@@ -158,7 +158,7 @@ Task.create!(
 
 plant3 = Plant.create!(
   scientific_name: 'Monstera deliciosa',
-  nickname: 'Swissy',
+  nickname: 'Big girl',
   suggested_watering_frequency_in_days: 10,
   suggested_sunlight: 'part shade',
   description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
@@ -166,7 +166,7 @@ plant3 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'full sun',
   user: user,
-  image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  image_url: 'https://perenual.com/storage/species_image/5257_monstera_deliciosa/og/4630938853_623dc33137_b.jpg',
   room: 'kitchen',
   happiness: 0
 )
@@ -176,9 +176,9 @@ plant3 = Plant.create!(
  Task.create!(
   task_type: 'watering',
   frequency_in_days: 10,
-  date: Date.today,
-  done: false,
-  shown: false,
+  date: Date.today - 22,
+  done: true,
+  shown: true,
   delayed: false,
   plant: plant3
 )
@@ -186,9 +186,9 @@ plant3 = Plant.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 10,
-  date: (Date.today + 10),
-  done: false,
-  shown: false,
+  date: (Date.today - 22 + 10),
+  done: true,
+  shown: true,
   delayed: false,
   plant: plant3
 )
@@ -196,7 +196,7 @@ Task.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 10,
-  date: (Date.today + (2 * 10)),
+  date: (Date.today - 22 + 20),
   done: false,
   shown: false,
   delayed: false,
@@ -227,7 +227,7 @@ Task.create!(
 
 plant4 = Plant.create!(
   scientific_name: 'Zamioculcas zamiifolia',
-  nickname: 'ZZ',
+  nickname: 'Whyudothis',
   suggested_watering_frequency_in_days: 21,
   suggested_sunlight: 'part shade',
   description: 'The ZZ plant is a low-maintenance houseplant with glossy, dark green leaves.',
@@ -235,9 +235,9 @@ plant4 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'shade',
   user: user,
-  image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  image_url: 'https://perenual.com/storage/species_image/8386_zamioculcas_zamiifolia/og/24891577155_64934d420e_b.jpg',
   room: 'office',
-  happiness: 2
+  happiness: 0
 )
 
  # WATERING
