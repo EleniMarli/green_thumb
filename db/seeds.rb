@@ -29,7 +29,7 @@ plant1 = Plant.create!(
   actual_sun_exposure: 0,
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Living room',
+  room: 'living room',
   happiness: 2
 )
 
@@ -98,7 +98,7 @@ plant2 = Plant.create!(
   actual_sun_exposure: 0,
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Bedroom',
+  room: 'bedroom',
   happiness: 1
 )
 
@@ -167,7 +167,7 @@ plant3 = Plant.create!(
   actual_sun_exposure: 0,
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Sunroom',
+  room: 'kitchen',
   happiness: 0
 )
 
@@ -236,7 +236,7 @@ plant4 = Plant.create!(
   actual_sun_exposure: 0,
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Office',
+  room: 'office',
   happiness: 2
 )
 

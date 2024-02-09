@@ -5,27 +5,13 @@ require 'json'
 class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
-    @suggested_sunlight = case @plant.suggested_sunlight
-                when 0
-                  'shade'
-                when 1
-                  'part shade'
-                when 2
-                  'full sun'
-                end
+    @suggested_sunlight = @plant.suggested_sunlight
 
-    @happiness = case @plant.happiness
-                when 0
-                  '☹️'
-                when 1
-                  '😐'
-                when 2
-                  '😀'
-                end
 
-    #@last_watered = @plant.tasks.where(task_type: 'watering')[0].last_date.strftime("%d %b %Y")
-    #@last_fertilized = @plant.tasks.where(task_type: 'fertilizing')[0].last_date.strftime("%d %b %Y")
-
+    last_watered = @plant.tasks.where(task_type: 'watering', done: true).order(date: :desc).first
+    @last_watered = last_watered.date.strftime("%d %b %Y") if last_watered!=nil
+    last_fertilized = @plant.tasks.where(task_type: 'fertilizing', done: true).order(date: :desc).first
+    @last_fertilized = last_fertilized.date.strftime("%d %b %Y") if last_fertilized!=nil
   end
 
   def edit
@@ -33,7 +19,6 @@ class PlantsController < ApplicationController
   end
 
   def update
-
     @plant = Plant.find(params[:id])
     if @plant.update(plant_params)
       redirect_to plant_path(@plant), notice: 'Plant was successfully updated.'
@@ -113,7 +98,7 @@ class PlantsController < ApplicationController
 
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
-      @response_plants = parsed['data'][0..5].map do |plant|
+      @response_plants = parsed['data'][0..4].map do |plant|
         image = ""
         if plant['default_image'] == nil
           image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
