@@ -5,9 +5,6 @@ require 'json'
 class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
-    @suggested_sunlight = @plant.suggested_sunlight
-
-
     last_watered = @plant.tasks.where(task_type: 'watering', done: true).order(date: :desc).first
     @last_watered = last_watered.date.strftime("%d %b %Y") if last_watered!=nil
     last_fertilized = @plant.tasks.where(task_type: 'fertilizing', done: true).order(date: :desc).first
@@ -20,7 +17,7 @@ class PlantsController < ApplicationController
 
   def update
     @plant = Plant.find(params[:id])
-    if @plant.update(plant_params)
+    if @plant.update(plant_params_for_update)
       redirect_to plant_path(@plant), notice: 'Plant was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -236,15 +233,7 @@ class PlantsController < ApplicationController
       res = Net::HTTP.get_response(uri)
       parsed = JSON.parse(res.body)
 
-      sunlight =  case parsed['sunlight'].last.downcase
-                  when 'shade'
-                    0
-                  when 'part shade'
-                    1
-                  when 'full sun'
-                    2
-                  end
-
+      sunlight = parsed['sunlight'].last.downcase
       image = ""
       if parsed['default_image'] == nil
         image = 'https://perenual.com/storage/image/missing_image.jpg'
@@ -329,5 +318,9 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:id)
+  end
+
+  def plant_params_for_update
+    params.require(:plant).permit(:nickname, :actual_sun_exposure)
   end
 end

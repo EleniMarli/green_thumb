@@ -37,11 +37,11 @@
       <div class="suggested">
         <h3>About:</h3>
         <p class="text_gray"><i class="fa-solid fa-notes-medical"></i> care level: <%= @plant.care_level %></p>
-        <% if @suggested_sunlight == 0 %>
+        <% if @plant.suggested_sunlight == 'shade' %>
           <p class="text_gray"><i class="fa-solid fa-cloud"></i> prefers: shade </p>
-        <% elsif @suggested_sunlight == 1 %>
+        <% elsif @plant.suggested_sunlight == 'part shade' %>
           <p class="text_gray"><i class="fa-solid fa-cloud-sun"></i> prefers: part shade </p>
-        <% elsif @suggested_sunlight == 2 %>
+        <% elsif @plant.suggested_sunlight == 'full sun' %>
           <p class="text_gray"><i class="fa-solid fa-sun"></i> prefers: full sun </p>
         <%end%>
         <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every: <%=@plant.suggested_watering_frequency_in_days%> days </p>
@@ -53,11 +53,11 @@
 
         </div>
 
-        <% if @plant.actual_sun_exposure == 0 %>
+        <% if @plant.actual_sun_exposure == 'shade' %>
           <p class="text_gray"><i class="fa-solid fa-cloud"></i> in: shade </p>
-        <% elsif @plant.actual_sun_exposure == 1 %>
+        <% elsif @plant.actual_sun_exposure == 'part shade' %>
           <p class="text_gray"><i class="fa-solid fa-cloud-sun"></i> in: part shade </p>
-        <% elsif @plant.actual_sun_exposure == 2 %>
+        <% elsif @plant.actual_sun_exposure == 'full sun' %>
           <p class="text_gray"><i class="fa-solid fa-sun"></i> in: full sun </p>
         <%end%>
         <%if @last_watered%>
