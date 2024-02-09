@@ -1,36 +1,42 @@
 .landing-container {
   padding: 10%;
-  height: 50vh;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
     h1 {
       color: #294B29;
-      font-size: 40px;
+      font-size: 48px;
       font-weight: bold;
     }
 
     p {
       color: #294B29;
-      font-size: 24px;
+      font-size: 30px;
+      margin-bottom: 0%;
     }
   }
 
 .button-container {
   padding-left: 10%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 70%;
+  width: 47%;
+  height: 15vh;
 }
 
 .landing-button {
   color: white;
-  padding: 8px 24px;
+  padding: 2px 12px;
   text-decoration: none;
+  height: 50px;
   border-radius: 15px;
   background: #294B29;
   transition: background 0.3s ease;
+  font-size: 30px;
+  font-weight: 200;
 }
 
 .landing-button:hover {
