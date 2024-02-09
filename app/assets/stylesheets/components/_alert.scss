@@ -1,10 +1,8 @@
 .alert {
-  position: fixed;
+  position: fixed !important;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
-
-  position: relative;
 
   button {
     position: absolute;
@@ -18,14 +16,12 @@
   bottom: 107px;
   right: 58px;
   z-index: 1000;
-  background-color: #DBE7C9;
+  background-color: #DBE7C9 !important;
   width: 70%;
   height: 10%;
   text-align: center;
-  border-radius: 15px;
-  border: 0;
-  color: black;
-  box-shadow: 0 0 23px rgba(39, 39, 39, 0.9);
-
-
+  border-radius: 15px !important;
+  border: 0 !important;
+  color: black !important;
+  box-shadow: 0 0 23px rgba(39, 39, 39, 0.9) !important;
 }
