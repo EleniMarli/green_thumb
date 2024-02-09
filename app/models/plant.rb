@@ -2,6 +2,8 @@ class Plant < ApplicationRecord
   belongs_to :user
   has_many :tasks, dependent: :destroy
   validates :scientific_name, presence: true
+  validates :nickname, length: { maximum: 15 }
+  validates :room, length: { maximum: 15 }
   validates :suggested_watering_frequency_in_days, presence: true
   validates :suggested_sunlight, presence: true
   validates :suggested_sunlight, format: {with: /[a-zA-Z]/}
