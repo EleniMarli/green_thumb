@@ -22,14 +22,14 @@ plant1 = Plant.create!(
   scientific_name: 'Ficus elastica',
   nickname: 'Rubby',
   suggested_watering_frequency_in_days: 7,
-  suggested_sunlight: 2,
+  suggested_sunlight: 'full sun',
   description: 'The rubber plant is a popular houseplant known for its large, glossy leaves.',
   care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 0,
+  actual_sun_exposure: 'part shade',
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Living room',
+  room: 'living room',
   happiness: 2
 )
 
@@ -91,14 +91,14 @@ plant2 = Plant.create!(
   scientific_name: 'Sansevieria trifasciata',
   nickname: 'Snaky',
   suggested_watering_frequency_in_days: 14,
-  suggested_sunlight: 2,
+  suggested_sunlight: 'full sun',
   description: 'The snake plant is a hardy indoor plant that can tolerate low light and infrequent watering.',
   care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 0,
+  actual_sun_exposure: 'shade',
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Bedroom',
+  room: 'bedroom',
   happiness: 1
 )
 
@@ -160,14 +160,14 @@ plant3 = Plant.create!(
   scientific_name: 'Monstera deliciosa',
   nickname: 'Swissy',
   suggested_watering_frequency_in_days: 10,
-  suggested_sunlight: 1,
+  suggested_sunlight: 'part shade',
   description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
   care_level: 'moderate',
   suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 0,
+  actual_sun_exposure: 'full sun',
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Sunroom',
+  room: 'kitchen',
   happiness: 0
 )
 
@@ -229,14 +229,14 @@ plant4 = Plant.create!(
   scientific_name: 'Zamioculcas zamiifolia',
   nickname: 'ZZ',
   suggested_watering_frequency_in_days: 21,
-  suggested_sunlight: 1,
+  suggested_sunlight: 'part shade',
   description: 'The ZZ plant is a low-maintenance houseplant with glossy, dark green leaves.',
   care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 0,
+  actual_sun_exposure: 'shade',
   user: user,
   image_url: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  room: 'Office',
+  room: 'office',
   happiness: 2
 )
 

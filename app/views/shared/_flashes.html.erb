@@ -1,23 +1,8 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
-
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
-
 <% if notification %>
   <div class="notification alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= notification %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="done-btn" data-bs-dismiss="alert" aria-label="Close">
+     <%=image_tag 'close.svg', class:"icon-navbar"%>
     </button>
   </div>
 <% end %>

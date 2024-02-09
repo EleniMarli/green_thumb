@@ -6,10 +6,10 @@
 
 <%= simple_form_for @plant do |f| %>
   <%= f.input :nickname%>
-  <%= f.input :description%>
-  <%= f.input :actual_sun_exposure%>
-  <%= f.button :button, class: "btn-test", value: "" do %>
-    Confirm <i class="fa-solid fa-check"></i>
+  <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control" } %>
+  <%= f.input :room%>
+  <%= f.button :button, class: "done-bt", value: "" do %>
+    Confirm
   <% end %>
 <% end %>
 </div>

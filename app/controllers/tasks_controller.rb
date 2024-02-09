@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
     @incomplete_tasks_today = Task.where("date = ? AND done = ?", Date.today, false)
+                                  .order(delayed: :desc, date: :asc)
     # @tasks_upcoming = Task.where(date: (Date.today + 1)..(Date.today + 7)).order(date: :asc)
   end
 

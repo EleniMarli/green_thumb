@@ -2,7 +2,7 @@
   display: flex;
   //justify-content: center;
   display: block;
-  margin-top: 20px;
+  margin-top: 29px;
   margin-bottom: 20px;
 
   input[type="radio"] {
@@ -23,14 +23,13 @@
     overflow: hidden;
     height: 91px;
     background: #FFFFF4;
-
     border-radius: 25px;
     display: flex;
     align-items: center;
-
     margin-bottom:13px;
     width: 96%;
     position: relative;
+
 
     label {
       border-radius: 25px;
@@ -43,6 +42,7 @@
       &:hover {
         font-weight: bold;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
       }
 
       .text {
