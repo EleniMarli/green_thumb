@@ -45,7 +45,7 @@
           <p class="text_gray"><i class="fa-solid fa-sun"></i> prefers: full sun </p>
         <%end%>
         <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every: <%=@plant.suggested_watering_frequency_in_days%> days </p>
-        <p class="text_gray"><i class="fa-solid fa-seedling"></i> fertilize every: <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-poop"></i> fertilize every: <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
       </div>
       <div class="currently">
         <div class='sun'>
@@ -72,19 +72,21 @@
 
       </div>
 
-      <%=link_to edit_plant_path(@plant) do%>
-        <div class="edit-btn">
-          <%=image_tag 'edit.svg'%>
-        </div>
-      <%end%>
-
-      <div class="buttons-bottom">
 
         <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
           <div class="delete-btn">
             <%=image_tag 'delete.svg'%>
           </div>
         <%end%>
+
+
+      <div class="buttons-bottom">
+
+      <%=link_to edit_plant_path(@plant) do%>
+        <div class="edit-btn">
+          <%=image_tag 'edit.svg'%>
+        </div>
+      <%end%>
 
     </div>
   </div>
