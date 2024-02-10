@@ -1,6 +1,10 @@
 <div class="details-card">
 
-  <%= image_tag @plant.image_url, class:"plant-image"%>
+  <% if @plant.photo.attached? %>
+    <%= cl_image_tag @plant.photo.key, class:"plant-image"%>
+  <% else %>
+    <%= image_tag @plant.image_url, class:"plant-image" %>
+  <%end%>
 
   <div class="details-infos">
 

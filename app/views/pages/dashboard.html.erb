@@ -13,7 +13,16 @@
             <% @plants.each do |plant| %>
               <%= link_to plant_path(plant), class:"card-link-home" do %>
                 <div class="sideway-plant-card">
-                  <%= image_tag plant.image_url, alt: plant.nickname %>
+
+
+                  <% if plant.photo.attached? %>
+                    <%= cl_image_tag plant.photo.key, alt: plant.nickname %>
+                  <% else %>
+                    <%= image_tag plant.image_url, alt: plant.nickname %>
+                  <%end%>
+
+
+
                   <div class="plant-info">
                     <% if plant.nickname.nil? %>
                       <h2><%= plant.scientific_name %></h2>
