@@ -46,18 +46,6 @@
     </div>
   </div>
   <div class="footer-container">
-    <div class="navbar navbar-light">
-      <div class="container-navbar">
-        <%=link_to root_path do%>
-          <%=image_tag 'home.svg', class:"icon-navbar"%>
-        <%end%>
-        <%=link_to tasks_path do%>
-          <%=image_tag 'bell.svg', class:"icon-navbar"%>
-        <%end%>
-        <%=link_to helper_path do%>
-          <%=image_tag 'helper.svg', class:"icon-navbar"%>
-        <%end%>
-      </div>
-    </div>
+    <%= render "shared/navbar" %>
   </div>
 </div>
