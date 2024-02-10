@@ -81,20 +81,20 @@
       font-size: 19px;
     }
 
-    .edit-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 65px;
-      width: 65px;
-      position: absolute;
+    .delete-btn {
+      top: -55%;
+      left: 79%;
       border-radius: 50%;
       background: #ffffff;
       border: 0;
       box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
-      top: -47%;
-      left: 79%;
+      display: flex;
+      justify-content: center;
       text-decoration: none;
+      height: 65px;
+      width: 65px;
+      align-items: center;
+      position: absolute;
 
       img {
         width: 36px;
@@ -104,24 +104,25 @@
     .buttons-bottom {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 25px;
 
-      .delete-btn {
+      .edit-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        width: 65px;
         border-radius: 50%;
         background: #ffffff;
         border: 0;
         box-shadow: 0 0 7px rgba(0,0,0,0.2);
-        display: flex;
-        justify-content: center;
         text-decoration: none;
-        height: 65px;
-        width: 65px;
-        align-items: center;
 
         img {
           width: 36px;
         }
       }
+
     }
   }
 

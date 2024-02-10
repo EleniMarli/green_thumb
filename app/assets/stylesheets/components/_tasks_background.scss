@@ -11,6 +11,14 @@
     margin-top: 12px;
   }
 
+  .scissors {
+    img {
+      margin-top: 89px;
+      opacity: 0.15;
+      width: 225px;
+    }
+  }
+
   .tasks-wrapper {
     display: flex;
     flex-direction: column;
@@ -19,6 +27,7 @@
     text-align: center;
     background-color: #FFFFF4;
     padding-top: 9px;
+    padding-bottom: 61px;
 
     p {
       color: #ababab;

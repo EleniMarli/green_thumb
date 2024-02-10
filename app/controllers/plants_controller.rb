@@ -95,7 +95,7 @@ class PlantsController < ApplicationController
 
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
-      @response_plants = parsed['data'][0..4].map do |plant|
+      @response_plants = parsed['data'][0..9].map do |plant|
         image = ""
         if plant['default_image'] == nil
           image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??

@@ -6,6 +6,7 @@
 
     <%= simple_form_for @plant do |f| %>
       <%= f.input :nickname%>
+      <%= f.label :actual_sun_exposure%>
       <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control" } %>
       <%= f.input :room%>
       <%= f.button :button, class: "done-bt", value: "" do %>
