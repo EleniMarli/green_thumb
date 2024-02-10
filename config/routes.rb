@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'plants/search', to: 'plants#search'
 
-  resources :plants, only: %i[create index show edit update destroy]
+  resources :plants, only: %i[create index show update destroy]
   resources :tasks, only: %i[index]
   resources :reminders, only: %i[new create edit update]
 
