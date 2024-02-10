@@ -1,10 +1,17 @@
 <div class="details-card">
 
-  <% if @plant.photo.attached? %>
-    <%= cl_image_tag @plant.photo.key, class:"plant-image"%>
-  <% else %>
-    <%= image_tag @plant.image_url, class:"plant-image" %>
-  <%end%>
+  <div class="image-and-delete-container">
+    <% if @plant.photo.attached? %>
+      <%= cl_image_tag @plant.photo.key, class:"plant-image"%>
+    <% else %>
+      <%= image_tag @plant.image_url, class:"plant-image" %>
+    <%end%>
+    <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
+      <div class="delete-btn">
+        <%=image_tag 'delete.svg'%>
+      </div>
+    <%end%>
+  </div>
 
   <div class="details-infos">
 
@@ -77,11 +84,7 @@
       </div>
 
 
-        <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
-          <div class="delete-btn">
-            <%=image_tag 'delete.svg'%>
-          </div>
-        <%end%>
+
 
 
       <div class="buttons-bottom">
@@ -102,14 +105,20 @@
               </div>
               <div class="modal-body">
                 <div class="edit_form">
-                  <%= simple_form_for @plant do |f| %>
-                    <%= f.input :nickname %>
+                  <%= simple_form_for @plant, html: { autocomplete: "off" } do |f| %>
+                    <%= f.input :nickname, input_html: { autocomplete: "off" } %>
                     <%= f.label :actual_sun_exposure %>
                     <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control mb-3" } %>
-                    <%= f.input :room %>
+                    <%= f.input :room, input_html: { autocomplete: "off" } %>
                     <%= f.input :photo, as: :file %>
                     <div class="center-button-modal">
                     <%= f.button :button, class: "done-bt", value: "" do %>
+
+
+
+
+
+
                       <div class="edit-btn">
                         <%=image_tag 'done.svg'%>
                       </div>
