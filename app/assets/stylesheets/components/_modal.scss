@@ -1,17 +1,19 @@
 
 .modal-content {
-  border-radius: 15px !important;
+  border-radius: 25px !important;
+  top: 152px;
 }
 
 .modal-header {
   border: 0 !important;
   align-items: center !important;
+
   button {
     opacity: 100;
-  width: 15px;
-  height: 15px;
-  padding: 9px;
-  }
+    width: 15px;
+    height: 15px;
+    padding: 9px;
+    }
 }
 
 .modal-body {
