@@ -11,6 +11,9 @@ gem "sprockets-rails"
 # Good job
 gem 'good_job'
 
+#  Cloudinary
+gem "cloudinary"
+
 # Nokogiri gem
 gem 'nokogiri'
 

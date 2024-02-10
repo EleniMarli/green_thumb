@@ -321,6 +321,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params_for_update
-    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room)
+    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room, :photo)
   end
 end

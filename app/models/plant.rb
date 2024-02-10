@@ -14,4 +14,5 @@ class Plant < ApplicationRecord
   validates :actual_sun_exposure, format: {with: /[a-zA-Z]/}
   validates :image_url, presence: true
   validates :happiness, presence: true
+  has_one_attached :photo
 end

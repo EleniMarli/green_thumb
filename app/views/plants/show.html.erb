@@ -10,11 +10,11 @@
           <h1>
             <b><%= @plant.nickname %></b>
             <% if @plant.happiness == 0 %>
-              <%=image_tag 'sad.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling sad' %>
+              <%=image_tag 'sad.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling sad, have you forgotten to water it?' %>
             <% elsif @plant.happiness == 1 %>
-              <%=image_tag 'indifferent.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling neutral' %>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling neutral, take care of it!' %>
             <% elsif @plant.happiness == 2 %>
-              <%=image_tag 'happy.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling happy' %>
+              <%=image_tag 'happy.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling happy, good job!' %>
             <% end %>
           </h1>
 
@@ -91,21 +91,19 @@
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit your plant</h5>
 
-
                 <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">
                   <%=image_tag 'close.svg'%>
                 </button>
-
-
 
               </div>
               <div class="modal-body">
                 <div class="edit_form">
                   <%= simple_form_for @plant do |f| %>
-                    <%= f.input :nickname%>
-                    <%= f.label :actual_sun_exposure%>
+                    <%= f.input :nickname %>
+                    <%= f.label :actual_sun_exposure %>
                     <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control mb-3" } %>
-                    <%= f.input :room%>
+                    <%= f.input :room %>
+                    <%= f.input :photo, as: :file %>
                     <div class="center-button-modal">
                     <%= f.button :button, class: "done-bt", value: "" do %>
                       <div class="edit-btn">
