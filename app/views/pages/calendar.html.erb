@@ -1,0 +1,14 @@
+<div class="page-container">
+  <div class="navbar-container">
+    <%= render "shared/banner" %>
+  </div>
+  <div class="content-container">
+    <h1>calendar</h1>
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
+  <div class="footer-container">
+    <%= render "shared/navbar" %>
+  </div>
+</div>
