@@ -1,6 +1,6 @@
 .landing-container {
   padding: 10%;
-  padding-top: 7%;
+  padding-top: 3%;
   height: 45vh;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,11 @@
       color: #ababab;
       font-size: 30px;
       margin-bottom: 0%;
+    }
+
+    img {
+      width: 32px;
+      margin: 0 auto;
     }
 }
 
