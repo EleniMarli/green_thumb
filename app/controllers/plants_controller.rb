@@ -83,7 +83,7 @@ class PlantsController < ApplicationController
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
 
-    if @user_input
+    if !@user_input.nil? && @user_input != ''
       url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
       uri = URI(url)
       res = Net::HTTP.get_response(uri)

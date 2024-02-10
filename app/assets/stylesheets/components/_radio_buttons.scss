@@ -2,13 +2,18 @@
   display: flex;
   //justify-content: center;
   display: block;
-  margin-top: 29px;
+  margin-top: 13px;
   padding-bottom: 92px;
 
   input[type="radio"] {
     visibility: hidden;
     height: 100%;
     position: relative;
+  }
+
+  h5 {
+    margin-left: 15px;
+    margin-bottom: 16px;
   }
 
   .new_plant {
@@ -98,6 +103,10 @@
       border: 0;
       box-shadow: 0 0 7px rgba(0,0,0,0.2);
       margin-top: 20px;
+
+      &:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
     }
   }
 }

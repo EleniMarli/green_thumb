@@ -87,7 +87,7 @@
       border-radius: 50%;
       background: #ffffff;
       border: 0;
-      box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
       display: flex;
       justify-content: center;
       text-decoration: none;
@@ -99,6 +99,12 @@
       img {
         width: 36px;
       }
+
+      &:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+      }
+
     }
 
     .buttons-bottom {
@@ -120,6 +126,10 @@
 
         img {
           width: 36px;
+        }
+
+        &:hover {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
         }
       }
 

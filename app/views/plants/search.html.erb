@@ -16,6 +16,8 @@
       <% if @response_plants %>
         <div class="radio-buttons-search">
 
+        <h5>Click on a plant and then confirm your choice:</h5>
+
           <%= simple_form_for @plant do |f| %>
 
             <%= f.collection_radio_buttons :id, @response_plants, :first, :second, item_wrapper_class: 'span-class' do |b| %>
