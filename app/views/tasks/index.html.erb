@@ -29,7 +29,7 @@
                   <%end%>
 
                   <% if task.delayed %>
-                    <%=image_tag 'attention.svg' %>
+                    <%=image_tag 'attention.svg', data: { bs_toggle: 'tooltip', bs_placement: 'right' }, title: 'This task is delayed!' %>
                   <%end%>
 
                 </div>
