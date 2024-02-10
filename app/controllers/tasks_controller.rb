@@ -1,12 +1,21 @@
 class TasksController < ApplicationController
   def index
     user_tasks = current_user.plants.includes(:tasks).flat_map(&:tasks)
+    @incomplete_tasks_today = nil
     unless user_tasks.empty?
-      @incomplete_tasks_today= @incomplete_tasks_today.where("date = ? AND done = ?", Date.today, false)
-                                                      .order(delayed: :desc, date: :asc)
+      @incomplete_tasks_today = Task.joins(:plant)
+                                    .where(plants: { user_id: current_user.id })
+                                    .where(date: Date.today, done: false)
+                                    .order(delayed: :desc, date: :asc)
     end
-    # @tasks_upcoming = Task.where(date: (Date.today + 1)..(Date.today + 7)).order(date: :asc)
+
+#
+
+
   end
+
+    # @tasks_upcoming = Task.where(date: (Date.today + 1)..(Date.today + 7)).order(date: :asc)
+
 
   def mark_done
     current_task_id = params[:id]
