@@ -9,7 +9,7 @@
   <div class="details-infos">
 
     <div class='text'>
-      <% if @plant.nickname!=nil %>
+      <% if @plant.nickname!=nil &&  @plant.nickname!='' %>
         <div class='name'>
           <h1>
             <b><%= @plant.nickname %></b>
@@ -29,11 +29,11 @@
           <h1>
           <%= @plant.scientific_name %>
             <% if @plant.happiness == 0 %>
-              <%=image_tag 'sad.svg', class:"icon-happiness"%>
+              <%=image_tag 'sad.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling sad, have you forgotten to water it?' %>
             <% elsif @plant.happiness == 1 %>
-              <%=image_tag 'indifferent.svg', class:"icon-happiness"%>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling neutral, take care of it!' %>
             <% elsif @plant.happiness == 2 %>
-              <%=image_tag 'happy.svg', class:"icon-happiness"%>
+              <%=image_tag 'happy.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling happy, good job!' %>
             <% end %>
           </h1>
         </div>
@@ -70,7 +70,7 @@
         <%if @last_fertilized%>
           <p class="text_gray"><i class="fa-solid fa-seedling"></i> last fertilized: <%= @last_fertilized %></p>
         <%end%>
-        <% if @plant.room!=nil %>
+        <% if @plant.room!=nil && @plant.room!='' %>
           <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
         <% end %>
 

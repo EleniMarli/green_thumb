@@ -24,7 +24,7 @@
 
 
                   <div class="plant-info">
-                    <% if plant.nickname.nil? %>
+                    <% if plant.nickname.nil? || plant.nickname == '' %>
                       <h2><%= plant.scientific_name %></h2>
                     <% else %>
                       <h2><%= plant.nickname %></h2>
