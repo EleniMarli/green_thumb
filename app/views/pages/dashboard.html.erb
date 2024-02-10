@@ -1,46 +1,50 @@
-<%= render "shared/banner" %>
+<div class="page-container">
+  <div class="navbar-container"><%= render "shared/banner" %></div>
+  <div class="content-container">
+    <div class="background-landingpage">
+      <%=link_to destroy_user_session_path, class:"log-out", data: {turbo_method: :delete} do%>
+        <%=image_tag 'log_out.svg'%>
+      <%end%>
+        <h3 class="text-left">Your plants:</h3>
+        <% if !@plants.empty? %>
 
-<div class="background-landingpage">
-  <%=link_to destroy_user_session_path, class:"log-out", data: {turbo_method: :delete} do%>
-    <%=image_tag 'log_out.svg'%>
-  <%end%>
-    <h3 class="text-left">Your plants:</h3>
-    <% if !@plants.empty? %>
 
+          <div class="home-cards">
+            <% @plants.each do |plant| %>
+              <%= link_to plant_path(plant), class:"card-link-home" do %>
+                <div class="sideway-plant-card">
+                  <%= image_tag plant.image_url, alt: plant.nickname %>
+                  <div class="plant-info">
+                    <% if plant.nickname.nil? %>
+                      <h2><%= plant.scientific_name %></h2>
+                    <% else %>
+                      <h2><%= plant.nickname %></h2>
+                      <p>(<%= plant.scientific_name %>)</p>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
 
-      <div class="home-cards">
-        <% @plants.each do |plant| %>
-          <%= link_to plant_path(plant), class:"card-link-home" do %>
-            <div class="sideway-plant-card">
-              <%= image_tag plant.image_url, alt: plant.nickname %>
-              <div class="plant-info">
-                <% if plant.nickname.nil? %>
-                  <h2><%= plant.scientific_name %></h2>
-                <% else %>
-                  <h2><%= plant.nickname %></h2>
-                  <p>(<%= plant.scientific_name %>)</p>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+        <% else %>
+          <%= image_tag 'pot.svg', class:"pot mx-auto"%>
         <% end %>
+    </div>
+  </div>
+  <div class="footer-container">
+    <div class="navbar navbar-light">
+      <div class="container-navbar">
+        <%=link_to tasks_path do%>
+          <%=image_tag 'bell.svg', class:"icon-navbar"%>
+        <%end%>
+        <%=link_to plants_search_path do%>
+          <%=image_tag 'add.svg', class:"icon-navbar"%>
+        <%end%>
+        <%=link_to helper_path do%>
+          <%=image_tag 'helper.svg', class:"icon-navbar"%>
+        <%end%>
       </div>
-
-    <% else %>
-      <%= image_tag 'pot.svg', class:"pot mx-auto"%>
-    <% end %>
-
-</div>
-<div class="navbar navbar-light">
-  <div class="container-navbar">
-    <%=link_to tasks_path do%>
-      <%=image_tag 'bell.svg', class:"icon-navbar"%>
-    <%end%>
-    <%=link_to plants_search_path do%>
-      <%=image_tag 'add.svg', class:"icon-navbar"%>
-    <%end%>
-    <%=link_to helper_path do%>
-      <%=image_tag 'helper.svg', class:"icon-navbar"%>
-    <%end%>
+    </div>
   </div>
 </div>
