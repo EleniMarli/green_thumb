@@ -2,13 +2,19 @@
   display: flex;
   //justify-content: center;
   display: block;
-  margin-top: 29px;
+  margin-top: 13px;
   padding-bottom: 92px;
 
   input[type="radio"] {
     visibility: hidden;
     height: 100%;
     position: relative;
+  }
+
+  h5 {
+    margin-left: 15px;
+    margin-bottom: 16px;
+    font-size: 18px;
   }
 
   .new_plant {
@@ -27,7 +33,7 @@
     display: flex;
     align-items: center;
     margin-bottom:13px;
-    width: 96%;
+    width: 356px;
     position: relative;
 
 
@@ -46,7 +52,7 @@
       }
 
       .text {
-        height: 96%;
+        height: 95.622707%;
         width: 72%;
         padding:16px;
         border-radius: 25px;
@@ -88,7 +94,6 @@
   .search-submit-btn {
     text-align: center;
 
-
     input {
       border-radius: 50%;
       height: 55px;
@@ -98,6 +103,10 @@
       border: 0;
       box-shadow: 0 0 7px rgba(0,0,0,0.2);
       margin-top: 20px;
+
+      &:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
     }
   }
 }

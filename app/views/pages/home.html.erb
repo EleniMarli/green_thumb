@@ -1,15 +1,19 @@
-<div class="landing-container">
-  <body style="background-image: url('https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBmbGFuemVufGVufDB8fDB8fHww'); background-size: cover; background-position: center; height: 100vh; margin: 0; padding: 0;">
-    <h1>Green Thumb</h1>
-    <p>Your digital assistant for happy plants.</p>
-    <p>Simplify.</p>
-    <p>Beautify.</p>
-  </body>
-</div>
+<div style="background-image: url('https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBmbGFuemVufGVufDB8fDB8fHww'); background-size: cover; background-position: center; height: 100vh; margin: 0; padding: 0;">
 
-<div class="button-container">
-  <%= link_to "Login.", new_user_session_path, class: "landing-button" %>
-  <%= link_to "Sign up.", new_user_registration_path, class: "landing-button" %>
-</div>
+  <div class="landing-container">
+  <%=image_tag 'leaf.svg'%>
+    <div class='gt-logo-home'>
+
+      <h1>Green Thumb</h1>
+    </div>
+    <p>Your digital assistant for happy plants</p>
+    <p>Simplify</p>
+    <p>Beautify</p>
+  </div>
+
+  <div class="button-container">
+    <%= link_to "Login", new_user_session_path, class: "landing-button" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "landing-button" %>
+  </div>
 
 </div>

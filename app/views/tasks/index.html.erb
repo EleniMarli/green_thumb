@@ -1,35 +1,38 @@
 <div class="page-container">
-  <div class="navbar-container"><%= render "shared/banner" %></div>
+  <div class="navbar-container">
+    <div class="banner">
+      <div class="container">
+        <h6>My tasks for today</h6>
+      </div>
+    </div>
+  </div>
   <div class="content-container">
     <div class="tasks-background">
-    <h3>Tasks for today:</h3>
+
     <div class="tasks-wrapper">
       <% if @incomplete_tasks_today.present? %>
-
-
           <% @incomplete_tasks_today.each do |task| %>
-
           <% if task.done == false %>
-            <div class="task-card" style="margin-bottom: 20px;">
-
+            <div class="task-card green-task-card" style="margin-bottom: 20px;">
+          <%else%>
+            <div class="task-card grey-task-card" style="margin-bottom: 20px;">
+          <%end%>
               <div class="wrapper-task">
-
                 <div class="plant-task-name">
-
                   <% if task.task_type == 'watering' %>
-                    <i class="fa-solid fa-droplet" style="margin: 0 15px;"></i>
+                    <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
                   <% elsif task.task_type == 'fertilizing' %>
-                    <i class="fa-solid fa-poop" style="margin: 0 15px;"></i>
+                    <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
                   <% end %>
 
-                  <%if task.plant.nickname != nil %>
+                  <%if task.plant.nickname != nil && task.plant.nickname != '' %>
                     <h5><%= task.plant.nickname %></h5>
                   <%else%>
                     <h5><%= task.plant.scientific_name[0..16] %>...</h5>
                   <%end%>
 
                   <% if task.delayed %>
-                    <%=image_tag 'attention.svg' %>
+                    <%=image_tag 'attention.svg', data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'This task is delayed!' %>
                   <%end%>
 
                 </div>
@@ -43,8 +46,8 @@
               </div>
 
             </div>
-          <%end%>
-          <% end %>
+          <%#end%>
+        <% end %>
 
       <% else %>
         <div class= 'scissors'>
@@ -73,22 +76,8 @@
   </div>
   </div>
 
-
 </div>
   <div class="footer-container">
-    <div class="navbar navbar-light">
-      <div class="container-navbar">
-        <%=link_to root_path do%>
-          <%=image_tag 'home.svg', class:"icon-navbar"%>
-        <%end%>
-        <%=link_to plants_search_path do%>
-          <%=image_tag 'add.svg', class:"icon-navbar"%>
-        <%end%>
-        <%=link_to helper_path do%>
-          <%=image_tag 'helper.svg', class:"icon-navbar"%>
-        <%end%>
-      </div>
-    </div>
-
+    <%= render "shared/navbar" %>
   </div>
 </div>

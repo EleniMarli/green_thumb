@@ -8,8 +8,14 @@ gem "rails", "~> 7.1.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Simple calendar
+gem "simple_calendar", "~> 2.4"
+
 # Good job
 gem 'good_job'
+
+#  Cloudinary
+gem "cloudinary"
 
 # Nokogiri gem
 gem 'nokogiri'

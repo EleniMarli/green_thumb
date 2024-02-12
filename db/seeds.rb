@@ -235,7 +235,7 @@ plant4 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'shade',
   user: user,
-  image_url: 'https://perenual.com/storage/species_image/8386_zamioculcas_zamiifolia/og/24891577155_64934d420e_b.jpg',
+  image_url: 'https://plantsmith.co.uk/wp-content/uploads/2020/08/AdobeStock_363636424_zz-plant_1200px.jpg',
   room: 'office',
   happiness: 0
 )

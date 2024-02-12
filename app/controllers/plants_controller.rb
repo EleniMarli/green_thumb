@@ -83,7 +83,7 @@ class PlantsController < ApplicationController
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
 
-    if @user_input
+    if !@user_input.nil? && @user_input != ''
       url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
       uri = URI(url)
       res = Net::HTTP.get_response(uri)
@@ -321,6 +321,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params_for_update
-    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room)
+    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room, :photo)
   end
 end

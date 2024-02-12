@@ -1,0 +1,30 @@
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit plant</h5>
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">
+                  <%=image_tag 'close.svg'%>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="edit_form">
+                  <%= simple_form_for @plant, html: { autocomplete: "off" } do |f| %>
+                    <%= f.input :nickname, input_html: { autocomplete: "off" } %>
+                    <%= f.label :actual_sun_exposure %>
+                    <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control mb-3" } %>
+                    <%= f.input :room, input_html: { autocomplete: "off" } %>
+                    <%= f.input :photo, as: :file %>
+                    <div class="center-button-modal">
+                    <%= f.button :button, class: "done-bt", value: "" do %>
+                      <div class="edit-btn">
+                        <%=image_tag 'done.svg'%>
+                      </div>
+                    </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

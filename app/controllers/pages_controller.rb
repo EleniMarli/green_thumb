@@ -13,6 +13,10 @@ class PagesController < ApplicationController
   def helper
   end
 
+  def calendar
+
+  end
+
   private
 
   def notify_user

@@ -1,7 +1,39 @@
 .details-card{
-  position: relative;
+  //position: relative;
   height: 100vh;
   background-color: white;
+
+  .image-and-delete-container {
+    position: relative;
+    display: inline-block;
+
+    .delete-btn {
+      top: 18%;
+      left: 85%;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      height: 65px;
+      width: 65px;
+      align-items: center;
+      position: absolute;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+
+      img {
+        width: 36px;
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+      }
+
+    }
+  }
 
   p {
     margin-bottom: 8px;
@@ -12,6 +44,7 @@
     width: 100%;
     object-fit: cover;
     display: block;
+    position: relative;
   }
 
   .text_gray{
@@ -81,26 +114,6 @@
       font-size: 19px;
     }
 
-    .delete-btn {
-      top: -55%;
-      left: 79%;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 0;
-      box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
-      display: flex;
-      justify-content: center;
-      text-decoration: none;
-      height: 65px;
-      width: 65px;
-      align-items: center;
-      position: absolute;
-
-      img {
-        width: 36px;
-      }
-    }
-
     .buttons-bottom {
       display: flex;
       justify-content: center;
@@ -120,6 +133,10 @@
 
         img {
           width: 36px;
+        }
+
+        &:hover {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
         }
       }
 

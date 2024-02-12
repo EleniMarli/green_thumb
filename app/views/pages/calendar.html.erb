@@ -1,20 +1,25 @@
-<div class="page-container">
+<div class="page-container calendar-background">
   <div class="navbar-container">
 
     <div class="banner">
       <div class="container">
-        <h6>My helper</h6>
+        <h6>My calendar</h6>
       </div>
     </div>
 
-
   </div>
   <div class="content-container">
-    <h1>Soon I will be a helper</h1>
+
+    <div class="my-content-wrapper">
+
+      <%= month_calendar do |date| %>
+        <%= date %>
+      <% end %>
+
+    </div>
   </div>
-
-
   <div class="footer-container">
     <%= render "shared/navbar" %>
   </div>
 </div>
+rtuetz
