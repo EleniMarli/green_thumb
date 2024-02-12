@@ -1,10 +1,9 @@
 .background-landingpage {
-  border-radius: 5px;
   background-color: #FFFFF4;
   padding: 5%;
-  padding-bottom: 20%;
+  //padding-bottom: 20%;
   position: relative;
-  height: 100vh;
+  height: 87vh;
 
   .center {
     text-align: center;
@@ -12,6 +11,14 @@
 
   h3 {
     margin-left: 11px;
-    font-size: 25px;
+    font-size: 21px;
+  }
+
+  .pot {
+    display: flex;
+    align-items: center;
+    margin-top: 153px;
+    opacity: 0.15;
+    width: 137px;
   }
 }

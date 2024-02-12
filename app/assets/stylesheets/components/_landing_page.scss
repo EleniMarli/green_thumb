@@ -1,45 +1,58 @@
 .landing-container {
   padding: 10%;
+  padding-top: 3%;
   height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
-    h1 {
-      color: #294B29;
-      font-size: 48px;
-      font-weight: bold;
-    }
-
     p {
-      color: #294B29;
+      color: #ababab;
       font-size: 30px;
       margin-bottom: 0%;
     }
-  }
+
+    img {
+      width: 32px;
+      margin: 0 auto;
+    }
+}
 
 .button-container {
-  padding-left: 10%;
+  padding: 8%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 47%;
-  height: 15vh;
+  width: 100%;
+  margin-top: 263px;
 }
 
 .landing-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
   color: white;
-  padding: 2px 12px;
-  text-decoration: none;
-  height: 50px;
-  border-radius: 15px;
+  height: 54px;
+  padding-bottom: 7px;
+  border-radius: 25px;
   background: #294B29;
-  transition: background 0.3s ease;
+  //background: rgba(41, 75, 41, 0.8);
   font-size: 30px;
-  font-weight: 200;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
 }
 
 .landing-button:hover {
-  background: #12372A;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
   color: white;
+}
+
+.gt-logo-home {
+  display: flex;
+
+  h1 {
+    color: #294B29;
+    font-size: 48px;
+    font-weight: bold;
+  }
 }

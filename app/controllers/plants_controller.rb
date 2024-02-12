@@ -83,7 +83,7 @@ class PlantsController < ApplicationController
     # WORKS (PLEASE DON'T DELETE OR UNCOMMENT)
     @user_input = params[:query]
 
-    if @user_input
+    if !@user_input.nil? && @user_input != ''
       url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
       uri = URI(url)
       res = Net::HTTP.get_response(uri)
@@ -95,7 +95,7 @@ class PlantsController < ApplicationController
 
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
-      @response_plants = parsed['data'][0..4].map do |plant|
+      @response_plants = parsed['data'][0..9].map do |plant|
         image = ""
         if plant['default_image'] == nil
           image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
@@ -321,6 +321,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params_for_update
-    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room)
+    params.require(:plant).permit(:nickname, :actual_sun_exposure, :room, :photo)
   end
 end

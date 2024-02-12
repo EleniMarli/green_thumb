@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top:  9px;
+  padding-bottom: 61px;
 }
 
 .sideway-plant-card {
@@ -13,7 +15,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 13px;
-  width: 96%;
+  width: 356px;
 
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);

@@ -1,20 +1,31 @@
 <div class="details-card">
 
-  <%= image_tag @plant.image_url, class:"plant-image"%>
+  <div class="image-and-delete-container">
+    <% if @plant.photo.attached? %>
+      <%= cl_image_tag @plant.photo.key, class:"plant-image"%>
+    <% else %>
+      <%= image_tag @plant.image_url, class:"plant-image" %>
+    <%end%>
+    <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
+      <div class="delete-btn">
+        <%=image_tag 'delete.svg'%>
+      </div>
+    <%end%>
+  </div>
 
   <div class="details-infos">
 
     <div class='text'>
-      <% if @plant.nickname!=nil %>
+      <% if @plant.nickname!=nil &&  @plant.nickname!='' %>
         <div class='name'>
           <h1>
             <b><%= @plant.nickname %></b>
             <% if @plant.happiness == 0 %>
-              <%=image_tag 'sad.svg', class:"icon-happiness"%>
+              <%=image_tag 'sad.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling sad, have you forgotten to water it?' %>
             <% elsif @plant.happiness == 1 %>
-              <%=image_tag 'indifferent.svg', class:"icon-happiness"%>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling neutral, take care of it!' %>
             <% elsif @plant.happiness == 2 %>
-              <%=image_tag 'happy.svg', class:"icon-happiness"%>
+              <%=image_tag 'happy.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling happy, good job!' %>
             <% end %>
           </h1>
 
@@ -25,11 +36,11 @@
           <h1>
           <%= @plant.scientific_name %>
             <% if @plant.happiness == 0 %>
-              <%=image_tag 'sad.svg', class:"icon-happiness"%>
+              <%=image_tag 'sad.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling sad, have you forgotten to water it?' %>
             <% elsif @plant.happiness == 1 %>
-              <%=image_tag 'indifferent.svg', class:"icon-happiness"%>
+              <%=image_tag 'indifferent.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling neutral, take care of it!' %>
             <% elsif @plant.happiness == 2 %>
-              <%=image_tag 'happy.svg', class:"icon-happiness"%>
+              <%=image_tag 'happy.svg', class:"icon-happiness", data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'Your plant is feeling happy, good job!' %>
             <% end %>
           </h1>
         </div>
@@ -60,33 +71,26 @@
         <% elsif @plant.actual_sun_exposure == 'full sun' %>
           <p class="text_gray"><i class="fa-solid fa-sun"></i> in: full sun </p>
         <%end%>
+        <% if @plant.room!=nil && @plant.room!='' %>
+          <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
+        <% end %>
         <%if @last_watered%>
           <p class="text_gray"><i class="fa-solid fa-droplet"></i> last watered: <%= @last_watered %> </p>
         <%end%>
         <%if @last_fertilized%>
           <p class="text_gray"><i class="fa-solid fa-seedling"></i> last fertilized: <%= @last_fertilized %></p>
         <%end%>
-        <% if @plant.room!=nil %>
-          <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
-        <% end %>
 
       </div>
 
-      <%=link_to edit_plant_path(@plant) do%>
-        <div class="edit-btn">
-          <%=image_tag 'edit.svg'%>
-        </div>
-      <%end%>
-
       <div class="buttons-bottom">
+        <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+          <%=image_tag 'edit.svg'%>
+        </button>
 
-        <%=link_to plant_path(@plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure? This action can't be reversed!"} do%>
-          <div class="delete-btn">
-            <%=image_tag 'delete.svg'%>
-          </div>
-        <%end%>
+        <%= render "shared/modal_edit_plant" %>
 
-    </div>
+      </div>
   </div>
 
 </div>
@@ -94,16 +98,16 @@
 <div class="navbar fixed-bottom navbar-light">
   <div class="container-navbar">
     <%=link_to root_path do%>
-      <%=image_tag 'home.svg', class:"icon-navbar"%>
-    <%end%>
-    <%=link_to tasks_path do%>
-      <%=image_tag 'bell.svg', class:"icon-navbar"%>
-    <%end%>
-     <%=link_to plants_search_path do%>
-      <%=image_tag 'add.svg', class:"icon-navbar"%>
-    <%end%>
-    <%=link_to helper_path do%>
-      <%=image_tag 'helper.svg', class:"icon-navbar"%>
-    <%end%>
+          <%=image_tag 'home.svg', class:"icon-navbar"%>
+        <%end%>
+        <%=link_to plants_search_path do%>
+          <%=image_tag 'add.svg', class:"icon-navbar"%>
+        <%end%>
+        <%=link_to tasks_path do%>
+          <%=image_tag 'bell.svg', class:"icon-navbar"%>
+        <%end%>
+        <%=link_to helper_path do%>
+          <%=image_tag 'helper.svg', class:"icon-navbar"%>
+        <%end%>
   </div>
 </div>
