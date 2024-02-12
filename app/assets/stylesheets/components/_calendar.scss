@@ -1,42 +1,89 @@
-.calendar-background {
+.calendar-big-box {
+  background-color: #FFFFF4;
 
+  .my-content-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.calendar-day {
+.calendar-heading {
+  color: black;
+  text-align: center;
+  padding: 12px 0;
 
+
+  a {
+    text-decoration: none;
+    color: black;
+    line-height: 0;
+
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  span {
+    font-size: 26px;
+    margin: 0 17px;
+  }
+}
+
+.table {
+  border: 2px solid #dee2e6 !important;
+
+  th {
+    background-color: #FFFFF4;
+    border: 2px solid #dee2e6 !important;
+    border-radius: 25px;
+  }
+
+  tbody {
+
+    td {
+      border: 2px solid #dee2e6 !important;
+      //width: 14.285%;
+    }
+
+    td.prev-month, td.next-month {
+      background-color: #dbf3d4;
+
+    }
+
+    td.current-month {
+      background-color: #f7f7e0;
+    }
+
+    td.today {
+      background-color: #89b47d;
+      font-weight: bold;
+    }
+  }
 }
 
 .simple-calendar {
   .day {
+    height: 76px !important;
 
   }
 
-  .table td {
+  td {
+    width: calc(100/7) !important;
+    max-width: 14.285%;
+    min-width: 14.285%;
+  }
+
+  th {
+    max-width: 14.285%;
+    min-width: 14.285%;
 
   }
-  .wday-0 {
-
-  }
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
-
-  .today {}
-  .past {}
-  .future {}
-
-  .start-date {}
-
-  .prev-month {}
-  .next-month { }
-  .current-month {}
-
-  .has-events {}
 }
 
-.my-content-wrapper ul li {
-
+.table thead {
+  th {
+    padding: 7px;
+    text-align: center;
+  }
 }
