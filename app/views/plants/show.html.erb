@@ -56,7 +56,7 @@
           <p class="text_gray"><i class="fa-solid fa-sun"></i> prefers: full sun </p>
         <%end%>
         <p class="text_gray"><i class="fa-solid fa-droplet"></i> water every: <%=@plant.suggested_watering_frequency_in_days%> days </p>
-        <p class="text_gray"><i class="fa-solid fa-poop"></i> fertilize every: <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
+        <p class="text_gray"><i class="fa-solid fa-seedling"></i> fertilize every: <%=@plant.suggested_fertilizing_frequency_in_days%> days </p>
       </div>
       <div class="currently">
         <div class='sun'>
@@ -71,66 +71,26 @@
         <% elsif @plant.actual_sun_exposure == 'full sun' %>
           <p class="text_gray"><i class="fa-solid fa-sun"></i> in: full sun </p>
         <%end%>
+        <% if @plant.room!=nil && @plant.room!='' %>
+          <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
+        <% end %>
         <%if @last_watered%>
           <p class="text_gray"><i class="fa-solid fa-droplet"></i> last watered: <%= @last_watered %> </p>
         <%end%>
         <%if @last_fertilized%>
           <p class="text_gray"><i class="fa-solid fa-seedling"></i> last fertilized: <%= @last_fertilized %></p>
         <%end%>
-        <% if @plant.room!=nil && @plant.room!='' %>
-          <p class="text_gray"><i class="fa-solid fa-house"></i> in: <%= @plant.room %> </p>
-        <% end %>
 
       </div>
 
-
-
-
-
       <div class="buttons-bottom">
-        <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">
           <%=image_tag 'edit.svg'%>
         </button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit your plant</h5>
+        <%= render "shared/modal_edit_plant" %>
 
-                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">
-                  <%=image_tag 'close.svg'%>
-                </button>
-
-              </div>
-              <div class="modal-body">
-                <div class="edit_form">
-                  <%= simple_form_for @plant, html: { autocomplete: "off" } do |f| %>
-                    <%= f.input :nickname, input_html: { autocomplete: "off" } %>
-                    <%= f.label :actual_sun_exposure %>
-                    <%= f.select :actual_sun_exposure, ['shade', 'part shade', 'full sun'], { selected: @plant.actual_sun_exposure }, { class: "form-control mb-3" } %>
-                    <%= f.input :room, input_html: { autocomplete: "off" } %>
-                    <%= f.input :photo, as: :file %>
-                    <div class="center-button-modal">
-                    <%= f.button :button, class: "done-bt", value: "" do %>
-
-
-
-
-
-
-                      <div class="edit-btn">
-                        <%=image_tag 'done.svg'%>
-                      </div>
-                    </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
+      </div>
   </div>
 
 </div>

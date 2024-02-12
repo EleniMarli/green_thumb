@@ -1,12 +1,19 @@
 .task-card {
   display: flex;
   align-items: center;
-  background: #50623A;
   color: white;
-  height: 64px;
+  height: 56px;
   width: 356px;
   border-radius: 25px;
   padding: 10px;
+}
+
+.green-task-card {
+  background: #50623A;
+}
+
+.grey-task-card {
+  background: #ababab;;
 }
 
 .plant-task-name {

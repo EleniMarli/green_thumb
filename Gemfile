@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.3"
 gem "sprockets-rails"
 
 # Simple calendar
-gem "simple_calendar"
+gem "simple_calendar", "~> 2.4"
 
 # Good job
 gem 'good_job'

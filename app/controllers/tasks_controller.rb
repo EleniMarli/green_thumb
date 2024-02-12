@@ -8,14 +8,9 @@ class TasksController < ApplicationController
                                     .where(date: Date.today, done: false)
                                     .order(delayed: :desc, date: :asc)
     end
-
-#
-
-
   end
 
     # @tasks_upcoming = Task.where(date: (Date.today + 1)..(Date.today + 7)).order(date: :asc)
-
 
   def mark_done
     current_task_id = params[:id]

@@ -1,19 +1,28 @@
 <div class="page-container">
-  <div class="navbar-container"><%= render "shared/banner" %></div>
+  <div class="navbar-container">
+    <div class="banner">
+      <div class="container">
+        <h6>My tasks for today</h6>
+      </div>
+    </div>
+  </div>
   <div class="content-container">
     <div class="tasks-background">
-    <h3>Tasks for today:</h3>
+
     <div class="tasks-wrapper">
       <% if @incomplete_tasks_today.present? %>
           <% @incomplete_tasks_today.each do |task| %>
           <% if task.done == false %>
-            <div class="task-card" style="margin-bottom: 20px;">
+            <div class="task-card green-task-card" style="margin-bottom: 20px;">
+          <%else%>
+            <div class="task-card grey-task-card" style="margin-bottom: 20px;">
+          <%end%>
               <div class="wrapper-task">
                 <div class="plant-task-name">
                   <% if task.task_type == 'watering' %>
                     <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
                   <% elsif task.task_type == 'fertilizing' %>
-                    <i class="fa-solid fa-poop" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
+                    <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
                   <% end %>
 
                   <%if task.plant.nickname != nil && task.plant.nickname != '' %>
@@ -37,8 +46,8 @@
               </div>
 
             </div>
-          <%end%>
-          <% end %>
+          <%#end%>
+        <% end %>
 
       <% else %>
         <div class= 'scissors'>

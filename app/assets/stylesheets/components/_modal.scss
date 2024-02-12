@@ -1,4 +1,3 @@
-
 .modal-content {
   border-radius: 25px !important;
   top: 121px;
@@ -21,4 +20,16 @@
     display: flex;
     justify-content: center;
   }
+
+  input {
+    border-radius: 25px;
+  }
+
+  select {
+    border-radius: 25px;
+  }
+}
+
+.modal-title {
+  margin: 0 0 0 auto;
 }
