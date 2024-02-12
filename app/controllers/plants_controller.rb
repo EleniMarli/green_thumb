@@ -5,10 +5,10 @@ require 'json'
 class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
-    last_watered = @plant.tasks.where(task_type: 'watering', done: true).order(date: :desc).first
-    @last_watered = last_watered.date.strftime("%d %b %Y") if last_watered!=nil
-    last_fertilized = @plant.tasks.where(task_type: 'fertilizing', done: true).order(date: :desc).first
-    @last_fertilized = last_fertilized.date.strftime("%d %b %Y") if last_fertilized!=nil
+    last_watered = @plant.tasks.where(task_type: 'watering', done: true).order(start_time: :desc).first
+    @last_watered = last_watered.start_time.strftime("%d %b %Y") if last_watered!=nil
+    last_fertilized = @plant.tasks.where(task_type: 'fertilizing', done: true).order(start_time: :desc).first
+    @last_fertilized = last_fertilized.start_time.strftime("%d %b %Y") if last_fertilized!=nil
   end
 
   def edit
@@ -260,7 +260,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          date: Date.today,
+          start_time: Date.today,
           done: false,
           shown: false,
           delayed: false,
@@ -270,7 +270,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          date: (Date.today + @plant.suggested_watering_frequency_in_days),
+          start_time: (Date.today + @plant.suggested_watering_frequency_in_days),
           done: false,
           shown: false,
           delayed: false,
@@ -280,7 +280,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'watering',
           frequency_in_days: @plant.suggested_watering_frequency_in_days,
-          date: (Date.today + (2 * @plant.suggested_watering_frequency_in_days)),
+          start_time: (Date.today + (2 * @plant.suggested_watering_frequency_in_days)),
           done: false,
           shown: false,
           delayed: false,
@@ -292,7 +292,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'fertilizing',
           frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
-          date: Date.today,
+          start_time: Date.today,
           done: false,
           shown: false,
           delayed: false,
@@ -302,7 +302,7 @@ class PlantsController < ApplicationController
         Task.create!(
           task_type: 'fertilizing',
           frequency_in_days: @plant.suggested_fertilizing_frequency_in_days,
-          date: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
+          start_time: (Date.today + @plant.suggested_fertilizing_frequency_in_days),
           done: false,
           shown: false,
           delayed: false,
