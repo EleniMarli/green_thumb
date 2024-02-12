@@ -8,6 +8,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @plants = Plant.where(user: current_user)
+    if params[:query].present?
+      @plants = Plant.search_by_name_and_room(params[:query])
+    end
   end
 
   def helper

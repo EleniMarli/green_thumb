@@ -1,4 +1,11 @@
 class Plant < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_room,
+    against: [ :scientific_name, :nickname, :room ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   has_many :tasks, dependent: :destroy
   validates :scientific_name, presence: true
