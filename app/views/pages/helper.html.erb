@@ -8,19 +8,19 @@
   </div>
 
   <div class="content-container">
-    <div class="response-container">
+    <div class="background-search-page">
       <% if @content.present? %>
-        <h3>AI's Response:</h3>
         <p><%= markdown(@content) %></p>
       <% end %>
-    </div>
 
+    <div class="ask-helper">
     <%= form_with(url: helper_path, method: :get) do |form| %>
       <div class="form-group">
-        <%= form.text_field :user_question, class: "form-control", placeholder: "Ask me anything about your plants..." %>
+        <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me anything about your plants...", rows: 2 %>
       </div>
       <%= form.submit "Ask", class: "btn btn-primary" %>
     <% end %>
+    </div>
   </div>
 
   <div class="footer-container">
