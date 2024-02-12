@@ -72,8 +72,8 @@ Task.create!(
   frequency_in_days: 42,
   start_time: Date.yesterday,
   done: true,
-  shown: false,
-  delayed: true,
+  shown: true,
+  delayed: false,
   plant: plant1
 )
 
@@ -107,7 +107,17 @@ plant2 = Plant.create!(
  Task.create!(
   task_type: 'watering',
   frequency_in_days: 14,
-  start_time: Date.today - 5,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: true,
+  plant: plant2
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 14,
+  start_time: (Date.today + 14),
   done: false,
   shown: false,
   delayed: false,
@@ -117,17 +127,7 @@ plant2 = Plant.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 14,
-  start_time: (Date.today + 9),
-  done: false,
-  shown: false,
-  delayed: false,
-  plant: plant2
-)
-
-Task.create!(
-  task_type: 'watering',
-  frequency_in_days: 14,
-  start_time: (Date.today + 9 + 14),
+  start_time: (Date.today + 14 + 14),
   done: false,
   shown: false,
   delayed: false,
