@@ -4,13 +4,14 @@
   .my-content-wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 21.6px;
   }
 }
 
 .calendar-heading {
   color: black;
   text-align: center;
-  padding: 12px 0;
+  padding: 0;
 
 
   a {
@@ -32,6 +33,8 @@
 
 .table {
   border: 2px solid #dee2e6 !important;
+  margin-top: 25px;
+
 
   th {
     background-color: #FFFFF4;
