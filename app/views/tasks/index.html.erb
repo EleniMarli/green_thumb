@@ -10,13 +10,12 @@
     <div class="tasks-background">
 
     <div class="tasks-wrapper">
-      <% if @incomplete_tasks_today.present? %>
-          <% @incomplete_tasks_today.each do |task| %>
+      <% if @tasks_today.present? %>
+          <% @tasks_today.each do |task| %>
           <% if task.done == false %>
             <div class="task-card green-task-card" style="margin-bottom: 20px;">
-          <%else%>
-            <div class="task-card grey-task-card" style="margin-bottom: 20px;">
-          <%end%>
+
+
               <div class="wrapper-task">
                 <div class="plant-task-name">
                   <% if task.task_type == 'watering' %>
@@ -46,7 +45,29 @@
               </div>
 
             </div>
-          <%#end%>
+          <% else %>
+            <div class="task-card grey-task-card" style="margin-bottom: 20px;">
+
+
+              <div class="wrapper-task">
+                <div class="plant-task-name">
+                  <% if task.task_type == 'watering' %>
+                    <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
+                  <% elsif task.task_type == 'fertilizing' %>
+                    <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
+                  <% end %>
+
+                  <%if task.plant.nickname != nil && task.plant.nickname != '' %>
+                    <h5><%= task.plant.nickname %></h5>
+                  <%else%>
+                    <h5><%= task.plant.scientific_name[0..16] %>...</h5>
+                  <%end%>
+
+                </div>
+              </div>
+
+            </div>
+          <%end%>
         <% end %>
 
       <% else %>
@@ -67,7 +88,7 @@
         <%#    <%= task.task_type.capitalize %>
       <%#    <% end %>
     <%#     <%= task.plant.nickname %><%# <span style="margin-right: 15px;"></span>
-      <%#   <%= task.date.strftime('%a, %b %e') %>
+      <%#   <%= task.start_time.strftime('%a, %b %e') %>
     <%#   <% end %>
   <%#   </div>
     <% else %>

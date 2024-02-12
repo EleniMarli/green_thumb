@@ -1,7 +1,7 @@
-.tasks-background {
+.modal-tasks-background {
   background-color: #FFFFF4;
-  padding-top: 10px;
-  height: 87vh;
+  //padding-top: 10px;
+  //height: 87vh;
 
   h3 {
     margin-bottom: 8px;
@@ -26,8 +26,9 @@
     justify-content: flex-start;
     text-align: center;
     background-color: #FFFFF4;
-    padding-top: 19.6px;
-    padding-bottom: 61px;
+    padding-top: 20px;
+    //padding-top: 9px;
+    //padding-bottom: 61px;
 
     p {
       color: #ababab;
@@ -40,4 +41,9 @@
       text-align: left;
     }
   }
+}
+
+.calendar-modal {
+  background-color: #FFFFF4 !important;
+  top: 172px;
 }
