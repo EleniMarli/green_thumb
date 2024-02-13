@@ -11,7 +11,7 @@
   <div class="background-search-page">
       <div class="answer-helper">
         <% if @content.present? %>
-          <p><%= markdown(@content) %></p>
+          <%= markdown(@content) %>
         <% else %>
           <div class="plant">
             <%= image_tag 'plant.svg' %>
