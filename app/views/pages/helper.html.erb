@@ -9,22 +9,22 @@
 
   <div class="content-container">
     <div class="background-search-page">
-      <div class="answer-helper">
-        <% if @content.present? %>
+            <div class="answer-helper" style="margin-bottom: 120px;">
+      <% if @content.present? %>
           <p><%= markdown(@content) %></p>
-        <% else %>
-          <div class="plant">
-            <%= image_tag 'plant.svg'%>
-          </div>
-        <% end %>
-      </div>
+      <% else %>
+        <div class="plant">
+          <%= image_tag 'plant.svg' %>
+        </div>
+      <% end %>
+    </div>
 
       <div class="ask-helper">
         <%= form_with(url: helper_path, method: :get) do |form| %>
-          <div class="form-group">
+          <div class="flex-container">
             <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me anything about your plants...", rows: 2 %>
-          </div>
           <%= form.submit "Ask", class: "ask-submit-btn" %>
+          </div>
         <% end %>
       </div>
     </div>

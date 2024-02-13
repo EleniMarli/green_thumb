@@ -12,6 +12,12 @@
     width: 270px;
   }
 
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .ask-submit-btn {
     border-radius: 50%;
     height: 55px;
