@@ -9,106 +9,75 @@
   </div>
 
   <div class="content-container calendar-big-box">
-    <div class="my-content-wrapper">
+    <div class="my-content-wrapper" data-controller="tasks-of-day-modal" >
 
       <%= month_calendar events: @tasks do |date, tasks| %>
-
-        <%# if tasks.present? %>
-          <%#= link_to date.day, '#', data: { bs_toggle:"modal", bs_target:"#dayModal-#{date}" } %>
-        <%# else %>
-          <%= date.day %>
-        <%# end %>
-
-        <div class="modal fade" id="dayModal-<%= date.strftime('%Y-%m-%d') %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content calendar-modal">
-
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%=date.strftime("%d %b %Y")%></h5>
-                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">
-                  <%=image_tag 'close.svg'%>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                    <div class="modal-tasks-background">
-                      <div class="tasks-wrapper">
-                        <% tasks.each do |task| %>
-                          <% if task.done == false %>
-                                <div class="task-card green-task-card" style="margin-bottom: 20px;">
-                                  <div class="wrapper-task">
-                                    <div class="plant-task-name">
-                                      <% if task.task_type == 'watering' %>
-                                        <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
-                                      <% elsif task.task_type == 'fertilizing' %>
-                                        <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
-                                      <% end %>
-
-                                      <%if task.plant.nickname != nil && task.plant.nickname != '' %>
-                                        <h5><%= task.plant.nickname %></h5>
-                                      <%else%>
-                                        <h5><%= task.plant.scientific_name[0..16] %>...</h5>
-                                      <%end%>
-
-                                      <% if task.delayed %>
-                                        <%=image_tag 'attention.svg', data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'This task is delayed!' %>
-                                      <%end%>
-
-                                    </div>
-
-                                    <% if task.start_time == Date.today %>
-                                      <%=link_to mark_done_task_path(task), data: {turbo_method: :patch} do%>
-                                        <div class="done-btn">
-                                          <%=image_tag 'done.svg'%>
-                                        </div>
-                                      <%end%>
-                                    <%end%>
-
-                                  </div>
-
-                                </div>
-                          <% else %>
-                                <div class="task-card grey-task-card" style="margin-bottom: 20px;">
-
-                                  <div class="wrapper-task">
-                                    <div class="plant-task-name">
-                                      <% if task.task_type == 'watering' %>
-                                        <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
-                                      <% elsif task.task_type == 'fertilizing' %>
-                                        <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
-                                      <% end %>
-
-                                      <%if task.plant.nickname != nil && task.plant.nickname != '' %>
-                                        <h5><%= task.plant.nickname %></h5>
-                                      <%else%>
-                                        <h5><%= task.plant.scientific_name[0..16] %>...</h5>
-                                      <%end%>
-
-                                    </div>
-                                  </div>
-
-                                </div>
-                          <%end%>
-                        <% end %>
-                      </div>
-                    </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        <%= date.day %>
 
         <% if tasks.present? %>
-
-            <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#dayModal-#{date}" } do %>
-              <i class="fa-solid fa-leaf" style="margin: 0; color: #50623A;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tasks present!" %></i>
-            <% end %>
-
+          <i data-action="click->tasks-of-day-modal#appear" id="<%= date %>" data-tasks-of-day-modal-id-value="<%= date  %>" class="fa-solid fa-leaf" style="margin: 0; color: #50623A;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tasks present!" %></i>
         <% end %>
 
       <% end %>
 
     </div>
+
+    <div class="tasks-wrapper-calendar">
+        <% @tasks.group_by {|t| t.start_time}.each do |date, task_group|  %>
+          <div class="<%= "task20" + date.strftime("%y-%m-%d") %> d-none ">
+            <% task_group.each do |task| %>
+              <% if task.done == false%>
+                <div class="task-card green-task-card" style="margin-bottom: 20px;">
+                  <div class="wrapper-task">
+                    <div class="plant-task-name">
+                      <% if task.task_type == 'watering' %>
+                        <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
+                      <% elsif task.task_type == 'fertilizing' %>
+                        <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
+                      <% end %>
+                      <%if task.plant.nickname != nil && task.plant.nickname != '' %>
+                        <h5><%= task.plant.nickname %></h5>
+                      <%else%>
+                        <h5><%= task.plant.scientific_name[0..16] %>...</h5>
+                      <%end%>
+                      <% if task.delayed %>
+                        <%=image_tag 'attention.svg', data: { bs_toggle: 'tooltip', bs_placement: 'bottom' }, title: 'This task is delayed!' %>
+                      <%end%>
+                    </div>
+                    <% if task.start_time == Date.today %>
+
+                      <%= link_to mark_done_task_path(task), data: { turbo_method: :patch } do %>
+                        <div class="done-btn">
+                          <%=image_tag 'done.svg'%>
+                        </div>
+                      <%end%>
+
+                    <%end%>
+                  </div>
+                </div>
+              <% else %>
+                <div class="task-card grey-task-card" style="margin-bottom: 20px;">
+                  <div class="wrapper-task">
+                    <div class="plant-task-name">
+                      <% if task.task_type == 'watering' %>
+                        <i class="fa-solid fa-droplet" style="margin: 0 15px;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Water it!"></i>
+                      <% elsif task.task_type == 'fertilizing' %>
+                        <i class="fa-solid fa-seedling" style="margin: 0 15px;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fertilize it!"></i>
+                      <% end %>
+                      <%if task.plant.nickname != nil && task.plant.nickname != '' %>
+                        <h5><%= task.plant.nickname %></h5>
+                      <%else%>
+                        <h5><%= task.plant.scientific_name[0..16] %>...</h5>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+
   </div>
 
   <div class="footer-container">
