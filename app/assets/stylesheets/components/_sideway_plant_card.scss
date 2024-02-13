@@ -21,7 +21,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
     .plant-info h2, p {
-      font-weight: bolder;
+      //font-weight: bolder;
     }
   }
 
@@ -70,4 +70,11 @@
   .opacity {
     opacity: .4;
   }
+}
+
+#no-plants {
+  color: #ababab;
+  text-align: center;
+  margin-top: 48px;
+  font-size: 20px;
 }

@@ -98,7 +98,7 @@
       border-radius: 50%;
       height: 55px;
       width: 55px;
-      //background: #FBFADA;
+      padding: 11.5px;
       background: white;
       border: 0;
       box-shadow: 0 0 7px rgba(0,0,0,0.2);
@@ -109,4 +109,11 @@
       }
     }
   }
+}
+
+#no-matches {
+  color: #ababab;
+  text-align: center;
+  margin-top: 48px;
+  font-size: 20px;
 }

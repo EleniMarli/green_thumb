@@ -141,7 +141,7 @@ class PlantsController < ApplicationController
 
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
-      @response_plants = parsed['data'][0..9].map do |plant|
+      @response_plants = parsed['data'][0..5].map do |plant|
         image = ""
         if plant['default_image'] == nil
           image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
@@ -280,6 +280,8 @@ class PlantsController < ApplicationController
       parsed = JSON.parse(res.body)
 
       sunlight = parsed['sunlight'].last.downcase
+      sunlight = 'part shade' unless ['shade', 'part shade', 'full sun'].include?(sunlight)
+
       image = ""
       if parsed['default_image'] == nil
         image = 'https://perenual.com/storage/image/missing_image.jpg'
@@ -287,12 +289,18 @@ class PlantsController < ApplicationController
         image = parsed['default_image']['original_url']
       end
 
+      care = parsed['care_level']
+      care = 'medium' if care == 'moderate' || care == nil
+
+      water_fr = parsed['watering_general_benchmark']['value']
+      water_fr = "7-10" if water_fr.nil?
+
       @plant = Plant.new(
         scientific_name: parsed['scientific_name'].first,
-        suggested_watering_frequency_in_days: parsed['watering_general_benchmark']['value'][-2..-1].gsub("-", "").to_i, # I ASSUMED 5-7 IS A STRING AND TOOK THE LAST TWO DIGITS HOPING FOR THE BEST
+        suggested_watering_frequency_in_days: water_fr[-2..-1].gsub("-", "").to_i, # I ASSUMED 5-7 IS A STRING AND TOOK THE LAST TWO DIGITS HOPING FOR THE BEST
         suggested_sunlight: sunlight, # sunlight appears as key twice, i believe the second gets chosen, I chose last from its array for no particular reason
         description: parsed['description'],
-        care_level: parsed['care_level'].downcase,
+        care_level: care.downcase,
         suggested_fertilizing_frequency_in_days: 42,
         actual_sun_exposure: sunlight, # HERE I ASSUME IT MATCHES THE SUGGESTED ####
         image_url: image,
