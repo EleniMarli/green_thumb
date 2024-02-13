@@ -24,7 +24,7 @@
 
     <div class="tasks-wrapper-calendar">
         <% @tasks.group_by {|t| t.start_time}.each do |date, task_group|  %>
-          <div class="<%= "task20" + date.strftime("%y-%m-%e") %> d-none ">
+          <div class="<%= "task20" + date.strftime("%y-%m-%d") %> d-none ">
             <% task_group.each do |task| %>
               <% if task.done == false%>
                 <div class="task-card green-task-card" style="margin-bottom: 20px;">
@@ -45,11 +45,13 @@
                       <%end%>
                     </div>
                     <% if task.start_time == Date.today %>
+
                       <%= link_to mark_done_task_path(task), data: { turbo_method: :patch } do %>
                         <div class="done-btn">
                           <%=image_tag 'done.svg'%>
                         </div>
                       <%end%>
+
                     <%end%>
                   </div>
                 </div>

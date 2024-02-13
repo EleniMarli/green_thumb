@@ -156,6 +156,75 @@ Task.create!(
   plant: plant2
 )
 
+plant5 = Plant.create!(
+  scientific_name: 'Monstera deliciosa variegeta',
+  nickname: 'Spotty',
+  suggested_watering_frequency_in_days: 10,
+  suggested_sunlight: 'part shade',
+  description: 'The Monstera deliciosa variegata is a striking tropical plant known for its large, fenestrated leaves.',
+  care_level: 'moderate',
+  suggested_fertilizing_frequency_in_days: 42,
+  actual_sun_exposure: 'full sun',
+  user: user,
+  image_url: 'https://perenual.com/storage/species_image/5257_monstera_deliciosa/og/4630938853_623dc33137_b.jpg',
+  room: 'kitchen',
+  happiness: 0
+)
+
+ # WATERING
+
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: Date.today - 22,
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 10),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 20),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant5
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: (Date.today + 42),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant5
+)
+
 user1 = User.create!(
   name: "Lilly",
   email: "lilly@lilly.com",

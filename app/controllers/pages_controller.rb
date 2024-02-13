@@ -21,14 +21,16 @@ class PagesController < ApplicationController
     @tasks =  Task.joins(:plant)
                   .where(plants: { user_id: current_user.id })
                   .where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-                  .order(delayed: :desc)
                   .order(done: :asc)
+                  .order(delayed: :desc)
   end
 
   private
 
   def notify_user
-    tasks = Task.where('start_time = ? AND shown = ? AND done = ?', Date.today, false, false)
+    tasks = Task.joins(:plant)
+                .where(plants: { user_id: current_user.id })
+                .where('start_time = ? AND shown = ? AND done = ?', Date.today, false, false)
     unless tasks.empty?
       flash.now[:notification] = "Hi #{current_user.name}, today you have #{tasks.count} pending task(s)! 🔔"
       tasks.update_all(shown: true)
