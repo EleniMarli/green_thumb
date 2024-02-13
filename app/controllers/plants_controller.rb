@@ -5,14 +5,56 @@ require 'json'
 class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
+    update_happiness(@plant)
     last_watered = @plant.tasks.where(task_type: 'watering', done: true).order(start_time: :desc).first
     @last_watered = last_watered.start_time.strftime("%d %b %Y") if last_watered!=nil
     last_fertilized = @plant.tasks.where(task_type: 'fertilizing', done: true).order(start_time: :desc).first
     @last_fertilized = last_fertilized.start_time.strftime("%d %b %Y") if last_fertilized!=nil
   end
 
-  def calc_happiness(plant)
+  def update_happiness(plant)
+    sun_happiness = calc_sun_happiness(plant)
+    water_happiness = calc_task_happiness(plant, 'watering')
+    fert_happiness = calc_task_happiness(plant, 'fertilizing')
+    overall_happiness = (water_happiness * 0.4) + (sun_happiness * 0.3) + (fert_happiness * 0.3)
 
+    happiness_boundaries = case plant.care_level
+                           when 'easy' then [0.2, 0.5]
+                           when 'medium' then [0.3, 0.6]
+                           when 'hard' then [0.4, 0.7]
+                           else
+                             raise "Plant care level not expected"
+                           end
+
+    if overall_happiness < happiness_boundaries[0]
+      plant.update(happiness: 0)
+    elsif overall_happiness < happiness_boundaries[1]
+      plant.update(happiness: 1)
+    else
+      plant.update(happiness: 2)
+    end
+  end
+
+  # RETURNS STH BETWEEN 0 AND 1
+  def calc_task_happiness(plant, type)
+    delayed_tasks = plant.tasks.where(task_type: type, delayed: true).count
+    [1 - (0.3 * delayed_tasks), 0].max
+  end
+
+  # RETURNS STH BETWEEN 0 AND 1
+  def calc_sun_happiness(plant)
+    sun_hash = {
+      'shade' => 0,
+      'part shade' => 1,
+      'full sun' => 2
+    }
+    case (sun_hash[plant.suggested_sunlight] - sun_hash[plant.actual_sun_exposure]).abs
+    when 0 then 1
+    when 1 then 0.5
+    when 2 then 0
+    else
+      raise "Sun happiness not 0,1,2"
+    end
   end
 
   def edit

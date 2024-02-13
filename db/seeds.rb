@@ -38,9 +38,9 @@ plant1 = Plant.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 7,
-  start_time: Date.today,
-  done: false,
-  shown: false,
+  start_time: Date.today - 30,
+  done: true,
+  shown: true,
   delayed: true,
   plant: plant1
 )
@@ -48,20 +48,20 @@ Task.create!(
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 7,
-  start_time: (Date.today + 7),
-  done: false,
-  shown: false,
-  delayed: false,
+  start_time: (Date.today + 7) - 30,
+  done: true,
+  shown: true,
+  delayed: true,
   plant: plant1
 )
 
 Task.create!(
   task_type: 'watering',
   frequency_in_days: 7,
-  start_time: (Date.today + (2 * 7)),
-  done: false,
-  shown: false,
-  delayed: false,
+  start_time: (Date.today + (2 * 7)) - 30,
+  done: true,
+  shown: true,
+  delayed: true,
   plant: plant1
 )
 
@@ -73,7 +73,7 @@ Task.create!(
   start_time: Date.yesterday,
   done: true,
   shown: true,
-  delayed: false,
+  delayed: true,
   plant: plant1
 )
 
@@ -162,7 +162,7 @@ plant5 = Plant.create!(
   suggested_watering_frequency_in_days: 10,
   suggested_sunlight: 'part shade',
   description: 'The Monstera deliciosa variegata is a striking tropical plant known for its large, fenestrated leaves.',
-  care_level: 'moderate',
+  care_level: 'medium',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'full sun',
   user: user,
@@ -237,7 +237,7 @@ plant3 = Plant.create!(
   suggested_watering_frequency_in_days: 10,
   suggested_sunlight: 'part shade',
   description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
-  care_level: 'moderate',
+  care_level: 'medium',
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'full sun',
   user: user1,
