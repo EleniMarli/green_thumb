@@ -11,6 +11,10 @@ class PlantsController < ApplicationController
     @last_fertilized = last_fertilized.start_time.strftime("%d %b %Y") if last_fertilized!=nil
   end
 
+  def calc_happiness(plant)
+
+  end
+
   def edit
     @plant = Plant.find(params[:id])
   end
