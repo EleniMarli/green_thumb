@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 
   def helper
     if params[:user_question].present?
-      user_question = "#{params[:user_question]} Answer in markdown format."
+      user_question = "#{params[:user_question]} Answer in markdown format. Limit the answer to 500 characters."
       client = OpenAI::Client.new
       chaptgpt_response = client.chat(parameters: {
         model: "gpt-3.5-turbo",
