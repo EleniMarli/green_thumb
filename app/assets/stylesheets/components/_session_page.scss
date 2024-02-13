@@ -31,10 +31,15 @@
  }
 }
 
-.btn.login-button, a.login-button{
-  background-color: #50623A;
+.btn.login-button, a.login-button {
+  width: 100%;
+  background-color: #294B29;
   color: #ffffff;
   border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 

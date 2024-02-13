@@ -14,6 +14,20 @@ class PagesController < ApplicationController
   end
 
   def helper
+    if params[:user_question].present?
+      user_question = "#{params[:user_question]} Answer in markdown format."
+      client = OpenAI::Client.new
+      chaptgpt_response = client.chat(parameters: {
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "user", content: user_question }
+        ]
+      })
+
+      @content = chaptgpt_response["choices"][0]["message"]["content"]
+    else
+      @content = "Please provide a valid question."
+    end
   end
 
   def calendar
