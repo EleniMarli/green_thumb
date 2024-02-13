@@ -12,7 +12,7 @@
       <div class="search-for-new-plant">
         <%= form_tag(dashboard_path, method: :get) do %>
           <div class="search-row">
-            <%= text_field_tag(:query, params[:query], placeholder: "Search for a name or room...", class: "search-field") %>
+            <%= text_field_tag(:query, params[:query], placeholder: "Search through your plants...", class: "search-field", autocomplete: "off") %>
             <button type="submit" class="search-submit-btn">
               <%= image_tag("search.svg", alt: "Search") %>
             </button>
