@@ -1,13 +1,13 @@
 <div class="page-container">
-  <div class="navbar-container">
 
+  <div class="navbar-container">
     <div class="banner">
       <div class="container">
         <h6>Add a plant</h6>
       </div>
     </div>
-
   </div>
+
   <div class="content-container">
     <div class="background-search-page">
 
@@ -21,9 +21,9 @@
             </div>
           <% end %>
         </div>
-      <% if @response_plants %>
-        <div class="radio-buttons-search">
 
+      <% if !@response_plants.empty? %>
+        <div class="radio-buttons-search">
         <h5>Click on a plant and then confirm your choice:</h5>
 
           <%= simple_form_for @plant do |f| %>
@@ -46,14 +46,22 @@
             </div>
           <% end %>
         </div>
+      <% elsif @response_plants.empty? %>
+        <div class="cutter">
+          <%= image_tag 'cutter.svg'%>
+        </div>
+        <p id='no-plants-search'>No plant matches...</p>
       <%else%>
         <div class="cutter">
           <%= image_tag 'cutter.svg'%>
         </div>
       <% end %>
+
     </div>
   </div>
+
   <div class="footer-container">
     <%= render "shared/navbar" %>
   </div>
+
 </div>

@@ -138,7 +138,6 @@ class PlantsController < ApplicationController
       #  [plant[:id], plant[:scientific_name].first]
       # end
 
-
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
       @response_plants = parsed['data'][0..5].map do |plant|
