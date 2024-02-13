@@ -7,16 +7,16 @@
   h3 {
     text-align: center;
   }
+
 }
 
 .plant {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0.15;
-
-  img {
+  margin-top: 92px;
+}
+.plant img {
     width: 180px;
-  }
 }

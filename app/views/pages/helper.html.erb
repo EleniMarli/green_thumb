@@ -7,26 +7,30 @@
     </div>
   </div>
 
-  <div class="content-container">
-    <div class="background-search-page">
-            <div class="answer-helper" style="margin-bottom: 120px;">
-      <% if @content.present? %>
+<div class="content-container">
+  <div class="background-search-page">
+    <div class="flex-helper-container">
+      <div class="answer-helper">
+        <% if @content.present? %>
           <p><%= markdown(@content) %></p>
-      <% else %>
-        <div class="plant">
-          <%= image_tag 'plant.svg' %>
-        </div>
-      <% end %>
-    </div>
+        <% else %>
+          <div class="plant">
+            <%= image_tag 'plant.svg' %>
+          </div>
+        <% end %>
+      </div>
 
       <div class="ask-helper">
         <%= form_with(url: helper_path, method: :get) do |form| %>
           <div class="flex-container">
-            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me anything about your plants...", rows: 2 %>
-          <%= form.submit "Ask", class: "ask-submit-btn" %>
+            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me anything about your plants ...", rows: 3 %>
+          <%= form.button nil, class: "ask-submit-btn" do %>
+            <i class="fa-solid fa-arrow-up"></i>
+            <% end %>
           </div>
         <% end %>
       </div>
+    </div>
     </div>
   </div>
 
