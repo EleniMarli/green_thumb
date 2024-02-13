@@ -156,140 +156,215 @@ Task.create!(
   plant: plant2
 )
 
-# plant3 = Plant.create!(
-#   scientific_name: 'Monstera deliciosa',
-#   nickname: 'Big girl',
-#   suggested_watering_frequency_in_days: 10,
-#   suggested_sunlight: 'part shade',
-#   description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
-#   care_level: 'moderate',
-#   suggested_fertilizing_frequency_in_days: 42,
-#   actual_sun_exposure: 'full sun',
-#   user: user,
-#   image_url: 'https://perenual.com/storage/species_image/5257_monstera_deliciosa/og/4630938853_623dc33137_b.jpg',
-#   room: 'kitchen',
-#   happiness: 0
-# )
+plant5 = Plant.create!(
+  scientific_name: 'Monstera deliciosa variegeta',
+  nickname: 'Spotty',
+  suggested_watering_frequency_in_days: 10,
+  suggested_sunlight: 'part shade',
+  description: 'The Monstera deliciosa variegata is a striking tropical plant known for its large, fenestrated leaves.',
+  care_level: 'moderate',
+  suggested_fertilizing_frequency_in_days: 42,
+  actual_sun_exposure: 'full sun',
+  user: user,
+  image_url: 'https://perenual.com/storage/species_image/5257_monstera_deliciosa/og/4630938853_623dc33137_b.jpg',
+  room: 'kitchen',
+  happiness: 0
+)
 
-#  # WATERING
+ # WATERING
 
-#  Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 10,
-#   start_time: DateTime.now.beginning_of_day - 22,
-#   done: true,
-#   shown: true,
-#   delayed: false,
-#   plant: plant3
-# )
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: Date.today - 22,
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
 
-# Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 10,
-#   start_time: (DateTime.now.beginning_of_day - 22 + 10),
-#   done: true,
-#   shown: true,
-#   delayed: false,
-#   plant: plant3
-# )
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 10),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
 
-# Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 10,
-#   start_time: (DateTime.now.beginning_of_day - 22 + 20),
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant3
-# )
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 20),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant5
+)
 
-# # FERTILIZING
+# FERTILIZING
 
-# Task.create!(
-#   task_type: 'fertilizing',
-#   frequency_in_days: 42,
-#   start_time: DateTime.now.beginning_of_day,
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant3
-# )
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant5
+)
 
-# Task.create!(
-#   task_type: 'fertilizing',
-#   frequency_in_days: 42,
-#   start_time: (DateTime.now.beginning_of_day + 42),
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant3
-# )
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: (Date.today + 42),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant5
+)
 
-# plant4 = Plant.create!(
-#   scientific_name: 'Zamioculcas zamiifolia',
-#   nickname: 'Whyudothis',
-#   suggested_watering_frequency_in_days: 21,
-#   suggested_sunlight: 'part shade',
-#   description: 'The ZZ plant is a low-maintenance houseplant with glossy, dark green leaves.',
-#   care_level: 'easy',
-#   suggested_fertilizing_frequency_in_days: 42,
-#   actual_sun_exposure: 'shade',
-#   user: user,
-#   image_url: 'https://plantsmith.co.uk/wp-content/uploads/2020/08/AdobeStock_363636424_zz-plant_1200px.jpg',
-#   room: 'office',
-#   happiness: 0
-# )
+user1 = User.create!(
+  name: "Lilly",
+  email: "lilly@lilly.com",
+  password: "123456"
+)
 
-#  # WATERING
+plant3 = Plant.create!(
+  scientific_name: 'Monstera deliciosa',
+  nickname: 'Big girl',
+  suggested_watering_frequency_in_days: 10,
+  suggested_sunlight: 'part shade',
+  description: 'The Monstera deliciosa is a striking tropical plant known for its large, fenestrated leaves.',
+  care_level: 'moderate',
+  suggested_fertilizing_frequency_in_days: 42,
+  actual_sun_exposure: 'full sun',
+  user: user1,
+  image_url: 'https://perenual.com/storage/species_image/5257_monstera_deliciosa/og/4630938853_623dc33137_b.jpg',
+  room: 'kitchen',
+  happiness: 0
+)
 
-#  Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 21,
-#   start_time: DateTime.now.beginning_of_day,
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant4
-# )
+ # WATERING
 
-# Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 21,
-#   start_time: (DateTime.now.beginning_of_day + 21),
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant4
-# )
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: Date.today - 22,
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant3
+)
 
-# Task.create!(
-#   task_type: 'watering',
-#   frequency_in_days: 21,
-#   start_time: (DateTime.now.beginning_of_day + (2 * 21)),
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant4
-# )
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 10),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant3
+)
 
-# # FERTILIZING
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 10,
+  start_time: (Date.today - 22 + 20),
+  done: true,
+  shown: true,
+  delayed: false,
+  plant: plant3
+)
 
-# Task.create!(
-#   task_type: 'fertilizing',
-#   frequency_in_days: 42,
-#   start_time: DateTime.now.beginning_of_day,
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant4
-# )
+# FERTILIZING
 
-# Task.create!(
-#   task_type: 'fertilizing',
-#   frequency_in_days: 42,
-#   start_time: (DateTime.now.beginning_of_day + 42),
-#   done: false,
-#   shown: false,
-#   delayed: false,
-#   plant: plant4
-# )
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant3
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: (Date.today + 42),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant3
+)
+
+plant4 = Plant.create!(
+  scientific_name: 'Zamioculcas zamiifolia',
+  nickname: 'Whyudothis',
+  suggested_watering_frequency_in_days: 21,
+  suggested_sunlight: 'part shade',
+  description: 'The ZZ plant is a low-maintenance houseplant with glossy, dark green leaves.',
+  care_level: 'easy',
+  suggested_fertilizing_frequency_in_days: 42,
+  actual_sun_exposure: 'shade',
+  user: user1,
+  image_url: 'https://plantsmith.co.uk/wp-content/uploads/2020/08/AdobeStock_363636424_zz-plant_1200px.jpg',
+  room: 'office',
+  happiness: 0
+)
+
+ # WATERING
+
+ Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 21,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: true,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 21,
+  start_time: (Date.today + 21),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'watering',
+  frequency_in_days: 21,
+  start_time: (Date.today + (2 * 21)),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
+# FERTILIZING
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: Date.today,
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)
+
+Task.create!(
+  task_type: 'fertilizing',
+  frequency_in_days: 42,
+  start_time: (Date.today + 42),
+  done: false,
+  shown: false,
+  delayed: false,
+  plant: plant4
+)

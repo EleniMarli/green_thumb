@@ -8,6 +8,7 @@
   </div>
   <div class="content-container">
     <div class="background-landingpage">
+
       <div class="search-for-new-plant">
         <%= form_tag(dashboard_path, method: :get) do %>
           <div class="search-row">
@@ -18,6 +19,7 @@
           </div>
         <% end %>
       </div>
+
 
       <%= link_to destroy_user_session_path, class: "log-out", data: { turbo_method: :delete } do %>
         <%= image_tag 'log_out.svg' %>

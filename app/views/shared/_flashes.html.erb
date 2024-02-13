@@ -1,8 +1,10 @@
 <% if notification %>
+  <%=link_to tasks_path do%>
   <div class="notification alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= notification %>
     <button type="button" class="done-btn" data-bs-dismiss="alert" aria-label="Close">
      <%=image_tag 'close.svg', class:"icon-navbar"%>
     </button>
   </div>
+  <%end%>
 <% end %>

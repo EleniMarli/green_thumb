@@ -6,16 +6,16 @@ class TasksController < ApplicationController
       @tasks_today = Task.joins(:plant)
                                     .where(plants: { user_id: current_user.id })
                                     .where(start_time: Date.today)
-                                    .order(delayed: :desc, done: :asc)
+                                    .order(done: :asc, delayed: :desc)
     end
   end
-
-    # @tasks_upcoming = Task.where(start_time: (Date.today + 1)..(Date.today + 7)).order(start_time: :asc)
 
   def mark_done
     current_task_id = params[:id]
     @task = Task.find(current_task_id)
     @task.update(done: true)
+
+
     last_task = Task.where(task_type: @task.task_type, plant: @task.plant).order(start_time: :desc).first
     Task.create(
       task_type: last_task.task_type,
@@ -26,6 +26,7 @@ class TasksController < ApplicationController
       delayed: false,
       plant: @task.plant
     )
+
     redirect_to request.referer || root_path
   end
 end
