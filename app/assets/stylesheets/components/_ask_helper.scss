@@ -1,11 +1,8 @@
 .ask-helper {
 
   textarea.ask-field {
-    margin-bottom: 5px;
-    margin-top: 5px;
     margin-right: 15px;
     border-radius: 25px;
-    color: #ababab;
     border: 0;
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -37,12 +34,11 @@
   }
 
 .answer-helper {
-  height: 570px;
+  height: 560px;
   overflow-y: auto;
   border-radius: 25px;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
   padding: 10px;
   background: #ffffff;
-  margin-bottom: 20px;
-
+  margin-bottom: 30px;
 }
