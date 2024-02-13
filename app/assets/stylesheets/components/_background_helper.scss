@@ -1,0 +1,22 @@
+.background-helper {
+  background-color: #FFFFF4;
+  padding: 5%;
+  height: 87vh;
+  display: flex;
+
+  h3 {
+    text-align: center;
+  }
+
+}
+
+.plant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.15;
+  margin-top: 92px;
+}
+.plant img {
+    width: 180px;
+}
