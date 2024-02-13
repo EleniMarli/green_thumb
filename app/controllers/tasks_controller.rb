@@ -10,8 +10,6 @@ class TasksController < ApplicationController
     end
   end
 
-    # @tasks_upcoming = Task.where(start_time: (Date.today + 1)..(Date.today + 7)).order(start_time: :asc)
-
   def mark_done
     current_task_id = params[:id]
     @task = Task.find(current_task_id)
@@ -26,6 +24,8 @@ class TasksController < ApplicationController
       delayed: false,
       plant: @task.plant
     )
-    redirect_to request.referer || root_path
+    if params[:from_tasks]
+      redirect_to tasks_path
+    end
   end
 end
