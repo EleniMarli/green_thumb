@@ -290,7 +290,7 @@ class PlantsController < ApplicationController
       end
 
       care = parsed['care_level']
-      care = 'medium' if care == 'moderate' || care == nil
+      care = 'medium' if care.downcase == 'moderate' || care == nil
 
       water_fr = parsed['watering_general_benchmark']['value']
       water_fr = "7-10" if water_fr.nil?
