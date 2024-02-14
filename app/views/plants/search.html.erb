@@ -39,7 +39,11 @@
 
                 <%= image_tag(b.object.last, class: 'plant-image') %>
                 <div class="text">
-                  <%= b.object.second %>
+                  <% if b.object.second.size > 40 %>
+                    <%= b.object.second[0..38] %>...
+                  <% else %>
+                    <%= b.object.second %>
+                  <%end%>
                 </div>
               <% end %>
             <% end %>
