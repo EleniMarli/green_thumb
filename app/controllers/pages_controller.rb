@@ -8,11 +8,13 @@ class PagesController < ApplicationController
 
   def dashboard
     @plants = Plant.where(user: current_user)
+                    .order(nickname: :asc, scientific_name: :asc)
     @query = false
     if params[:query].present?
       @plants = @plants.search_by_name_and_room(params[:query])
       @query = true
     end
+
   end
 
   def helper

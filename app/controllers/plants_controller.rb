@@ -142,14 +142,15 @@ class PlantsController < ApplicationController
 
       # FAKE RESPONSE (PLEASE DON'T DELETE OR UNCOMMENT)
       # @user_input = params[:query]
-      @response_plants = parsed['data'][0..5].map do |plant|
+      free_access_plants = parsed['data'][0..5].reject { |plant| plant["id"] > 3000 }
+      @response_plants = free_access_plants.map do |plant|
         image = ""
-        if plant['default_image'] == nil
+        if plant['default_image'] == nil # || plant['default_image'] == 'https://perenual.com/storage/image/upgrade_access.jpg'
           image = 'https://perenual.com/storage/image/missing_image.jpg'   #### MAYBE REPLACE ??
         else
           image = plant['default_image']['original_url']
         end
-        [plant['id'], plant['scientific_name'].first, image]
+        [plant['id'], plant['scientific_name'].first, image] # if plant['id'] <= 3000
       end
     end
     @plant = Plant.new
@@ -292,6 +293,7 @@ class PlantsController < ApplicationController
 
       care = parsed['care_level']
       care = 'medium' if care.downcase == 'moderate' || care == nil
+      care = 'easy' if care.downcase == 'low'
 
       water_fr = parsed['watering_general_benchmark']['value']
       water_fr = "7-10" if water_fr.nil?

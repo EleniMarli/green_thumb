@@ -53,6 +53,7 @@
   }
 
   .details-infos{
+    font-family: "Lexend", sans-serif;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 7%;
@@ -66,7 +67,7 @@
     border-top-right-radius: 25px;
 
     .push {
-      margin-bottom: 15px;
+
     }
 
     h1 {
@@ -86,6 +87,7 @@
 
     .suggested {
       margin-bottom: 14px;
+      margin-top: 15px;
 
       i {
         width: 30px;
@@ -113,6 +115,7 @@
 
     h3 {
       font-size: 19px;
+
     }
 
     .buttons-bottom {
