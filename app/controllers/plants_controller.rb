@@ -37,8 +37,9 @@ class PlantsController < ApplicationController
 
   # RETURNS STH BETWEEN 0 AND 1
   def calc_task_happiness(plant, type)
-    delayed_tasks = plant.tasks.where(task_type: type, delayed: true).count
-    [1 - (0.3 * delayed_tasks), 0].max
+    delayed_tasks = plant.tasks.where(task_type: type, delayed: true).count.to_f
+    tasks_until_today = plant.tasks.where(task_type: type).where("start_time <= ?", Date.today).count.to_f
+    [1 - (delayed_tasks / tasks_until_today), 0].max
   end
 
   # RETURNS STH BETWEEN 0 AND 1

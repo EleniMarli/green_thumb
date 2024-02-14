@@ -52,6 +52,7 @@
 }
 
 .password-container {
+  font-family: "Lexend", sans-serif !important;
   padding: 10%;
   background-color: #FFFFF4;
   height: 100vh;
@@ -59,6 +60,37 @@
  .form-inputs{
   .form-control{
     border-radius: 25px;
+  }
+ }
+
+ p {
+  color: #ababab;
+  text-align: center;
+  font-size: 18px;
+ }
+
+ .form-actions {
+  margin-bottom: 80px;
+  margin-top: 38px;
+  text-align: center;
+  background-color: #294B29;
+  border-radius: 25px;
+  font-size: 21px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  padding-bottom: 7px;
+  padding-top: 6px;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  input {
+    color: white;
+    font-size: 21px;
+    padding: 0;
   }
  }
 }
