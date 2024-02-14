@@ -4,6 +4,7 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
     .rails-default-error-page {
       background-color: #EFEFEF;
       color: #2E2F30;
@@ -51,16 +52,62 @@
       color: #666;
       box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     }
+
+body {
+  background-color: #294B29;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  font-family:'Lexend', sans-serif;
+  text-align: center;
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+.error-num {
+  font-size: 8em;
+}
+.eye {
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 100px;
+  position: relative;
+  width: 100px;
+  &::after {
+    background: #000;
+    border-radius: 50%;
+    bottom: 56.1px;
+    content: '';
+    height: 33px;
+    position: absolute;
+    right: 33px;
+    width: 33px;
+  }
+}
+p {
+  margin-bottom: 4em;
+}
+a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover{
+  color: lightgray;
+ }
+}
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div style="margin-right: 20px;">
+    <span class='error-num'>5</span>
+    <div class='eye'></div>
+    <div class='eye'></div>
+    <p class='sub-text'>Oh eyeballs! Something went wrong. We're <i>looking</i> to see what happened.</p>
   </div>
 </body>
 </html>
