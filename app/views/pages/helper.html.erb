@@ -8,7 +8,7 @@
   </div>
 
 <div class="content-container">
-  <div class="background-search-page">
+  <div class="background-search-page helper">
       <div class="answer-helper">
         <% if @content.present? %>
           <%= markdown(@content) %>
@@ -22,9 +22,9 @@
       <div class="ask-helper">
         <%= form_with(url: helper_path, method: :get) do |form| %>
           <div class="flex-container">
-            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me anything about your plants ...", rows: 3 %>
-          <%= form.button nil, class: "ask-submit-btn" do %>
-            <i class="fa-solid fa-arrow-up"></i>
+            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me something about your plants ...", rows: 3 %>
+            <%= form.button nil, class: "ask-submit-btn" do %>
+              <%=image_tag 'plane.svg'%>
             <% end %>
           </div>
         <% end %>

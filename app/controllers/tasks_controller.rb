@@ -4,11 +4,17 @@ class TasksController < ApplicationController
     @tasks_today = nil
     unless user_tasks.empty?
       @tasks_today = Task.joins(:plant)
-                                    .where(plants: { user_id: current_user.id })
-                                    .where(start_time: Date.today)
-                                    .order(done: :asc, delayed: :desc)
+                          .where(plants: { user_id: current_user.id })
+                          .where(start_time: Date.today)
+                          .order(done: :asc, delayed: :desc)
+                          .order("plants.nickname ASC")
+                          .order("plants.scientific_name ASC")
     end
   end
+
+
+
+
 
   def mark_done
     current_task_id = params[:id]

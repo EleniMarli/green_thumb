@@ -24,7 +24,7 @@
 
     <div class="tasks-wrapper-calendar">
       <% if @tasks.empty? %>
-        <p id=no-tasks-calendar>You have no tasks for this month...</p>
+        <p id=no-tasks-calendar>You have no tasks yet for this month...</p>
       <%end%>
         <% @tasks.group_by {|t| t.start_time}.each do |date, task_group|  %>
           <div class="<%= "task20" + date.strftime("%y-%m-%d") %> d-none ">
