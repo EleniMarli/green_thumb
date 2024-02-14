@@ -1,5 +1,6 @@
 .calendar-big-box {
   background-color: #FFFFF4;
+  font-family: "Lexend", sans-serif;
 
   .my-content-wrapper {
     display: flex;
@@ -127,4 +128,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+#no-tasks-calendar {
+  color:#d6d6d6;
+  text-align: center;
+  margin-top: 28px;
+  font-size: 20px;
+  font-family:'Arvo', serif;;
+  font-weight: normal
 }
