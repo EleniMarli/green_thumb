@@ -3,7 +3,19 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <style>
+
+    .sub-text {
+      font-family: 'Lexend', sans-serif;
+      font-size: 19px;
+      font-weight: 300 !important;
+      margin-bottom: 92px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
 
     .rails-default-error-page {
       background-color: #EFEFEF;
@@ -53,57 +65,60 @@
       box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     }
 
-body {
-  background-color: #294B29;
-  width: 100vw;
-  height: 100vh;
-  color: white;
-  font-family:'Lexend', sans-serif;
-  text-align: center;
-  display: flex;;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-}
-.error-num {
-  font-size: 8em;
-}
-.eye {
-  background: #fff;
-  border-radius: 50%;
-  display: inline-block;
-  height: 100px;
-  position: relative;
-  width: 100px;
-  &::after {
-    background: #000;
-    border-radius: 50%;
-    bottom: 56.1px;
-    content: '';
-    height: 33px;
-    position: absolute;
-    right: 33px;
-    width: 33px;
+  body {
+    background-color: #294B29;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family:'Lexend', sans-serif;
+    text-align: center;
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    font-family: 'Lexend', sans-serif;
   }
-}
-p {
-  margin-bottom: 4em;
-}
-a {
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  &:hover{
-  color: lightgray;
- }
-}
+  .error-num {
+    font-family: 'Lexend', sans-serif;
+    font-size: 137px;
+  }
+  .eye {
+    background: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 100px;
+    position: relative;
+    width: 100px;
+    &::after {
+      background: #000;
+      border-radius: 50%;
+      bottom: 56.1px;
+      content: '';
+      height: 33px;
+      position: absolute;
+      right: 33px;
+      width: 33px;
+    }
+  }
+  p {
+    margin-bottom: 4em;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover{
+    color: lightgray;
+  }
+  }
 
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/500.html -->
-  <div style="margin-right: 20px;">
+  <div>
     <span class='error-num'>5</span>
     <div class='eye'></div>
     <div class='eye'></div>
