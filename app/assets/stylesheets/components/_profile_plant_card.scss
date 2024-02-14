@@ -8,7 +8,7 @@
     display: inline-block;
 
     .delete-btn {
-      top: 18%;
+      top: 15%;
       left: 85%;
       border-radius: 50%;
       background: #ffffff;
@@ -41,7 +41,8 @@
 
   .plant-image {
     height: 39vh;
-    width: 100%;
+    //width: 100%;
+    width: 46vh;
     object-fit: cover;
     display: block;
     position: relative;

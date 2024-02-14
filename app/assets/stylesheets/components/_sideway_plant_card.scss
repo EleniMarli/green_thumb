@@ -17,11 +17,15 @@
   margin-bottom: 13px;
   width: 356px;
 
+  h2, p {
+    font-family: "Lexend", sans-serif;
+  }
+
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
     .plant-info h2, p {
-      font-weight: bolder;
+      font-family: "Lexend", sans-serif;
     }
   }
 
@@ -70,4 +74,13 @@
   .opacity {
     opacity: .4;
   }
+}
+
+#no-plants {
+  color: #d6d6d6;
+  text-align: center;
+  margin-top: 48px;
+  font-size: 20px;
+  font-family:'Arvo', serif;
+  font-weight: normal;
 }

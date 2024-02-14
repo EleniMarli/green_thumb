@@ -8,8 +8,10 @@ class PagesController < ApplicationController
 
   def dashboard
     @plants = Plant.where(user: current_user)
+    @query = false
     if params[:query].present?
-      @plants = Plant.search_by_name_and_room(params[:query])
+      @plants = @plants.search_by_name_and_room(params[:query])
+      @query = true
     end
   end
 
