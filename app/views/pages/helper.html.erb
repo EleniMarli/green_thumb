@@ -22,7 +22,7 @@
       <div class="ask-helper">
         <%= form_with(url: helper_path, method: :get) do |form| %>
           <div class="flex-container">
-            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me something about your plants ...", rows: 3 %>
+            <%= form.text_area :user_question, class: "form-control ask-field", placeholder: "Ask me something about your plants...", rows: 3 %>
             <%= form.button nil, class: "ask-submit-btn" do %>
               <%=image_tag 'plane.svg'%>
             <% end %>
