@@ -22,7 +22,11 @@
           <% end %>
         </div>
 
-      <% if !@response_plants.empty? %>
+      <% if @response_plants.nil?  %>
+        <div class="cutter">
+          <%= image_tag 'cutter.svg'%>
+        </div>
+      <% elsif !@response_plants.empty? %>
         <div class="radio-buttons-search">
         <h5>Click on a plant and then confirm your choice:</h5>
 
@@ -46,15 +50,12 @@
             </div>
           <% end %>
         </div>
-      <% elsif @response_plants.empty? %>
+      <% elsif @response_plants == [] %>
         <div class="cutter">
           <%= image_tag 'cutter.svg'%>
         </div>
         <p id='no-plants-search'>No plant matches...</p>
-      <%else%>
-        <div class="cutter">
-          <%= image_tag 'cutter.svg'%>
-        </div>
+
       <% end %>
 
     </div>

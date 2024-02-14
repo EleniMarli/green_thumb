@@ -130,10 +130,12 @@ class PlantsController < ApplicationController
     @user_input = params[:query]
 
     if !@user_input.nil? && @user_input != ''
-      url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{@user_input}"
+      encoded_user_input = URI.encode_www_form_component(@user_input)
+      url = "https://perenual.com/api/species-list?key=#{ENV['PERENUAL_KEY']}&q=#{encoded_user_input}"
       uri = URI(url)
       res = Net::HTTP.get_response(uri)
       parsed = JSON.parse(res.body)
+
       # @response_plants = parsed['data'][0..5].map do |plant|
       #  [plant[:id], plant[:scientific_name].first]
       # end
