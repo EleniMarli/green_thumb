@@ -386,6 +386,8 @@ class PlantsController < ApplicationController
   end
 
   def plant_params_for_update
+    params[:plant][:nickname] = nil if params[:plant][:nickname].blank?
     params.require(:plant).permit(:nickname, :actual_sun_exposure, :room, :photo)
+
   end
 end
