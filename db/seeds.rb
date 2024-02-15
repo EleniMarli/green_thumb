@@ -13,7 +13,7 @@ User.destroy_all
 Task.destroy_all
 
 user = User.create!(
-  name: "Rosy",
+  name: "Eleni",
   email: "rosy@rosy.com",
   password: "123456"
 )
