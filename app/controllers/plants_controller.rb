@@ -293,8 +293,15 @@ class PlantsController < ApplicationController
       end
 
       care = parsed['care_level']
-      care = 'medium' if care.downcase == 'moderate' || care == nil
-      care = 'easy' if care.downcase == 'low'
+      if parsed['care_level'] == nil
+        care = 'medium'
+      elsif care.downcase == 'moderate'
+        care = 'medium'
+      elsif care.downcase == 'low'
+        care = 'easy'
+      elsif care.downcase == 'high'
+        care = 'hard'
+      end
 
       water_fr = parsed['watering_general_benchmark']['value']
       water_fr = "7-10" if water_fr.nil?
@@ -379,6 +386,8 @@ class PlantsController < ApplicationController
   end
 
   def plant_params_for_update
+    params[:plant][:nickname] = nil if params[:plant][:nickname].blank?
     params.require(:plant).permit(:nickname, :actual_sun_exposure, :room, :photo)
+
   end
 end

@@ -14,7 +14,6 @@ class PagesController < ApplicationController
       @plants = @plants.search_by_name_and_room(params[:query])
       @query = true
     end
-
   end
 
   def helper

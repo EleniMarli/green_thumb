@@ -1,6 +1,5 @@
 .ask-helper {
   width: 100%;
-  //padding-bottom: 61px;
 
   textarea.ask-field {
     margin-right: 15px;
@@ -20,21 +19,18 @@
     align-items: center;
     margin-left: 9px;
     margin-right: 9px;
-    //margin-bottom: 20px;
   }
+
   .ask-field::placeholder {
     color: #ababab;
   }
-
 }
-
   .ask-submit-btn {
     border-radius: 50%;
     height: 55px;
     width: 55px;
     -webkit-appearance: none;
     padding: 15px;
-    //background: #FBFADA;
     background: #ffffff;
     border: 0;
     box-shadow: 0 0 7px rgba(0,0,0,0.2);
@@ -43,12 +39,13 @@
     &:hover {
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
+
     img {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       position: absolute;
-      top: 11px;
-      left: 12.8px;
+      top: 11.2px;
+      left: 12.3px;
     }
   }
 
