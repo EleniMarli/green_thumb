@@ -20,13 +20,13 @@ user = User.create!(
 
 plant1 = Plant.create!(
   scientific_name: 'Ficus elastica',
-  nickname: 'Survivor',
+  nickname: 'My ficus',
   suggested_watering_frequency_in_days: 7,
   suggested_sunlight: 'full sun',
   description: 'The rubber plant is a popular houseplant known for its large, glossy leaves.',
   care_level: 'easy',
   suggested_fertilizing_frequency_in_days: 42,
-  actual_sun_exposure: 'part shade',
+  actual_sun_exposure: 'shade',
   user: user,
   image_url: 'https://perenual.com/storage/species_image/2961_ficus_elastica/og/533092219_8da73ba0d2_b.jpg',
   room: 'living room',
@@ -41,7 +41,7 @@ Task.create!(
   start_time: Date.today - 30,
   done: true,
   shown: true,
-  delayed: true,
+  delayed: false,
   plant: plant1
 )
 
@@ -51,7 +51,7 @@ Task.create!(
   start_time: (Date.today + 7) - 30,
   done: true,
   shown: true,
-  delayed: true,
+  delayed: false,
   plant: plant1
 )
 
