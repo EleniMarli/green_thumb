@@ -28,7 +28,7 @@ plant1 = Plant.create!(
   suggested_fertilizing_frequency_in_days: 42,
   actual_sun_exposure: 'shade',
   user: user,
-  image_url: 'https://perenual.com/storage/species_image/2961_ficus_elastica/og/533092219_8da73ba0d2_b.jpg',
+  image_url: 'https://images.unsplash.com/photo-1623861397259-55c2afd0b0ff?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   room: 'living room',
   happiness: 2
 )
