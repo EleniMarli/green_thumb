@@ -15,7 +15,7 @@ Task.destroy_all
 user = User.create!(
   name: "Eleni",
   email: "rosy@rosy.com",
-  password: "123456"
+  password: "12345678"
 )
 
 plant1 = Plant.create!(
