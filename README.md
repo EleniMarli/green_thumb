@@ -8,9 +8,10 @@
 * Currently only for small screens (mobile)
 
 ## How does it work?
-* Visit the page and create an account. Then you can explore the interface and find out more about the features of the app:
-** A dashboard with all your plants
-  A list of all the tasks you need to do today
-  A feature to add a new plant to your collection (using Perenual API)
-  A calendar to keep track of all the past and upcoming care tasks (using Simple Calendar gem)
-  An AI helper to ask more specific plant questions (using OpenAI API)
+* Visit the page and create an account
+* You can explore the interface and find out more about the features of the app:
+* A dashboard with all your plants
+* A list of all the tasks you need to do today
+* A feature to add a new plant to your collection (using Perenual API)
+* A calendar to keep track of all the past and upcoming care tasks (using Simple Calendar gem)
+* An AI helper to ask more specific plant questions (using OpenAI API)
