@@ -1,5 +1,5 @@
-# A plant care Ruby on Rails app integrating 3rd party APIs, external libraries and frameworks
-## Developed as a final project for the Le Wagon Full-Stack Development Bootcamp from a team of 3 amazing women
+# A plant care Ruby on Rails app integrating 3rd party APIs, external libraries and frameworks 🍃
+## Developed as a final project for the Le Wagon Full-Stack Development Bootcamp from a team of 3 amazing women in 2 weeks
 
 ## Where is it hosted currently?
     https://www.green-thumb.me/
