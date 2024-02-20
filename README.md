@@ -1,4 +1,4 @@
-# A plant care Ruby on Rails app integrating 3rd party APIs, external libraries and frameworks 🍃
+# A plant care Ruby on Rails app 🍃
 ## Developed as a final project for the Le Wagon Full-Stack Development Bootcamp from a team of 3 amazing women in 2 weeks
 
 ## Where is it hosted currently?
