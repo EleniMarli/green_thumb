@@ -5,11 +5,11 @@
     https://www.green-thumb.me/
 
 ## For which screens is it developed?
-* Currently only for small screens (mobile)
+Currently only for small screens (mobile)
 
 ## How does it work?
-* Visit the page and create an account
-* You can explore the interface and find out more about the features of the app:
+Visit the page and create an account
+You can explore the interface and find out more about the features of the app:
 * A dashboard with all your plants
 * A list of all the tasks you need to do today
 * A feature to add a new plant to your collection (using Perenual API)
