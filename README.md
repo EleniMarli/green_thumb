@@ -10,7 +10,7 @@ Currently only for small screens (mobile)
 ## How does it work?
 Visit the page and create an account. You can explore the interface and find out more about the features of the app:
 * A dashboard with all your plants
-* Each of them can be viewed in more detail, with watering, fertilizing and sun exposure information as well as photo uploading option
+* Each of them can be viewed in more detail, with watering, fertilizing and sun exposure information as well as an option to upload a photo
 * The better care you take of your plants, the happier it is (happiness algorithm based on watering, fertilizing, care level and actual sun exposure)
 * A list of all the tasks you need to do today, with mark as done feature
 * A feature to add a new plant to your collection (using Perenual API)
