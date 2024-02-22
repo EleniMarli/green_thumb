@@ -64,7 +64,7 @@ Populate the database with the initial data (optional):
 rails db:seed
 ```
 
-### Run the app on your server
+### Run the app on a local server
 Run on the command line:
 ```
 rails s
