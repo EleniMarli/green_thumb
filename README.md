@@ -1,9 +1,6 @@
 # A plant care Ruby on Rails app 🍃
 ## Designed and developed as the final project for the Le Wagon Full-Stack Development Bootcamp from a team of 3 amazing women in 2 weeks
 
-### Where is it hosted currently?
-    https://www.green-thumb.me/
-
 ### For which screens is it developed?
 Currently only for small screens (mobile)
 
